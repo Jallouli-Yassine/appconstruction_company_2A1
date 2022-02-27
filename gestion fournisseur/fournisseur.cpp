@@ -93,3 +93,29 @@ bool Fournisseur::modifier(int id,QString nom,QString prenom,int age,int phone,Q
     query.bindValue(":id", id);
     return query.exec();
 }
+
+QSqlQueryModel* Fournisseur::chercher(QString nom){
+   QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT NOM FROM FOURNISSEUR WHERE NOM = '"+nom+"'");
+    qDebug() <<  model << endl;
+    //$value="%".$value."%";
+    //model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom"));
+    return model ;
+}
+
+QSqlQueryModel* Fournisseur::trie(QString attribute , QString croissance){
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(attribute == "ID" && croissance == "croissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY ID ASC ");
+    else if (attribute == "AGE" && croissance == "croissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY AGE ASC ");
+    else if(attribute == "ID" && croissance == "decroissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY ID DESC ");
+    else if(attribute == "AGE" && croissance == "decroissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY AGE DESC ");
+    else if(attribute == "NOM" && croissance == "croissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY NOM ASC ");
+    else if(attribute == "NOM" && croissance == "decroissante")
+        model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY NOM DESC ");
+    return model;
+}

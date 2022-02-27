@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -368,96 +368,11 @@ border:none;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QGroupBox" name="groupBox_3">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>40</y>
-         <width>351</width>
-         <height>181</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Times New Roman</family>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QFrame{
-background:white;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:red;
-border-radius:16px;
-}
-QPushButton:hover {
-transform: scale(5); 
-width : 250px;
-color:#F3D617;
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#a0a0a0;
-font-size:16px;
-border-bottom:1px solid #333;
-}</string>
-       </property>
-       <property name="title">
-        <string>Recherche par ID</string>
-       </property>
-       <widget class="QLineEdit" name="searchID">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>90</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="placeholderText">
-         <string>ID</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="ajouterF_2">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>90</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:#001F26;</string>
-        </property>
-        <property name="text">
-         <string>chercher</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QGroupBox" name="groupBox_5">
        <property name="geometry">
         <rect>
-         <x>460</x>
-         <y>40</y>
+         <x>440</x>
+         <y>290</y>
          <width>351</width>
          <height>181</height>
         </rect>
@@ -545,9 +460,9 @@ border-bottom:1px solid #333;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>280</y>
-         <width>781</width>
-         <height>161</height>
+         <y>240</y>
+         <width>351</width>
+         <height>241</height>
         </rect>
        </property>
        <property name="font">
@@ -596,10 +511,10 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="updateID">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>40</y>
-          <width>113</width>
-          <height>22</height>
+          <x>250</x>
+          <y>100</y>
+          <width>71</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="text">
@@ -612,9 +527,9 @@ border-bottom:1px solid #333;
        <widget class="QPushButton" name="updateBTN">
         <property name="geometry">
          <rect>
-          <x>610</x>
-          <y>80</y>
-          <width>151</width>
+          <x>240</x>
+          <y>180</y>
+          <width>91</width>
           <height>31</height>
          </rect>
         </property>
@@ -631,9 +546,9 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="nomUpdate">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>100</y>
-          <width>111</width>
+          <x>40</x>
+          <y>40</y>
+          <width>61</width>
           <height>20</height>
          </rect>
         </property>
@@ -647,9 +562,9 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="prenomUpdate">
         <property name="geometry">
          <rect>
-          <x>370</x>
-          <y>100</y>
-          <width>161</width>
+          <x>40</x>
+          <y>160</y>
+          <width>101</width>
           <height>20</height>
          </rect>
         </property>
@@ -669,8 +584,8 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="ageUpdate">
         <property name="geometry">
          <rect>
-          <x>290</x>
-          <y>100</y>
+          <x>40</x>
+          <y>80</y>
           <width>61</width>
           <height>20</height>
          </rect>
@@ -685,8 +600,8 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="telUpdate">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>100</y>
+          <x>40</x>
+          <y>120</y>
           <width>91</width>
           <height>20</height>
          </rect>
@@ -701,9 +616,9 @@ border-bottom:1px solid #333;
        <widget class="QLineEdit" name="emailUpdate">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>40</y>
-          <width>361</width>
+          <x>40</x>
+          <y>200</y>
+          <width>121</width>
           <height>20</height>
          </rect>
         </property>
@@ -768,35 +683,6 @@ border:none;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>190</y>
-         <width>231</width>
-         <height>191</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
-{
-background:transparent;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>C:/Users/moham/OneDrive/Bureau/c++_logo.png</normaloff>C:/Users/moham/OneDrive/Bureau/c++_logo.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>200</width>
-         <height>200</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QGroupBox" name="groupBox_4">
        <property name="geometry">
         <rect>
@@ -911,7 +797,7 @@ border:3px;
          <string>STATISTIQUES</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_typetri">
+       <widget class="QComboBox" name="croissanceBox">
         <property name="geometry">
          <rect>
           <x>260</x>
@@ -940,16 +826,16 @@ border-color:rgb(0, 0, 0);
         </property>
         <item>
          <property name="text">
-          <string>croissant</string>
+          <string>croissante</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>decroissant</string>
+          <string>decroissante</string>
          </property>
         </item>
        </widget>
-       <widget class="QComboBox" name="comboBox_tripar">
+       <widget class="QComboBox" name="attributeBox">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -978,16 +864,21 @@ border-color:rgb(0, 0, 0);
         </property>
         <item>
          <property name="text">
-          <string>Age</string>
+          <string>ID</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>CIN</string>
+          <string>AGE</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>NOM</string>
          </property>
         </item>
        </widget>
-       <widget class="QPushButton" name="ajouterF_3">
+       <widget class="QPushButton" name="triBTN">
         <property name="geometry">
          <rect>
           <x>140</x>
@@ -1004,6 +895,111 @@ border-color:rgb(0, 0, 0);
         </property>
         <property name="text">
          <string>afficher</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QTableView" name="TriTable">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>80</y>
+         <width>381</width>
+         <height>171</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>761</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:#F3D617;
+}
+QPushButton{
+color:white;
+border-radius:15px;
+}
+QLineEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+       </property>
+       <property name="title">
+        <string>Recherche par ID</string>
+       </property>
+       <widget class="QLineEdit" name="searchIDinput">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>90</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>ID</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="chercherID_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>90</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#001F26;</string>
+        </property>
+        <property name="text">
+         <string>chercher</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="searchTable_2">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>40</y>
+          <width>351</width>
+          <height>121</height>
+         </rect>
         </property>
        </widget>
       </widget>

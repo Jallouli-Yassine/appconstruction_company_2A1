@@ -108,3 +108,17 @@ void MainWindow::on_updateBTN_clicked()
     else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
                  QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }
+
+void MainWindow::on_chercherID_clicked()
+{
+    QString id = ui->searchIDinput->text();
+
+    ui->Ftable->setModel(F.chercher(id));
+}
+
+void MainWindow::on_triBTN_clicked()
+{
+    QString attribute = ui->attributeBox->currentText();
+    QString croissance = ui->croissanceBox->currentText();
+    ui->TriTable->setModel(F.trie(attribute,croissance));
+}
