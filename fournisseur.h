@@ -20,7 +20,7 @@ public:
     bool supprimer(int id);
     bool modifier(int id, QString nom, QString prenom, int age, int phone, QString email);
     QSqlQueryModel* chercher(QString nom);
-    QSqlQueryModel *trie(QString attribute , QString croissance);
+    QSqlQueryModel* trie(QString attribute , QString croissance);
     //bool getOneF(int id);
 
     //GETTERS

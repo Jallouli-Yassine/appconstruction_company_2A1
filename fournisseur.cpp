@@ -94,9 +94,9 @@ bool Fournisseur::modifier(int id,QString nom,QString prenom,int age,int phone,Q
     return query.exec();
 }
 
-QSqlQueryModel* Fournisseur::chercher(QString nom){
+QSqlQueryModel* Fournisseur::chercher(QString id){
    QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT NOM FROM FOURNISSEUR WHERE NOM = '"+nom+"'");
+    model->setQuery("SELECT * FROM FOURNISSEUR WHERE id = '"+id+"'");
     qDebug() <<  model << endl;
     //$value="%".$value."%";
     //model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom"));

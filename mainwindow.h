@@ -36,9 +36,9 @@ private slots:
 
     void on_updateBTN_clicked();
 
-    void on_chercherID_clicked();
-
     void on_triBTN_clicked();
+
+    void on_chercherID_clicked();
 
 private:
     Ui::MainWindow *ui;
