@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1164</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Current Projects</string>
+         </attribute>
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="geometry">
+           <rect>
+            <x>750</x>
+            <y>0</y>
+            <width>391</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../../Downloads/c++ logo.png</normaloff>../../../Downloads/c++ logo.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>200</width>
+            <height>158</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>750</x>
+            <y>170</y>
+            <width>391</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="cursor">
+              <cursorShape>IBeamCursor</cursorShape>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_id">
+                <property name="placeholderText">
+                 <string>ARCHITECT ID</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_a">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Address</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_r">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Reference</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_p">
+                <property name="placeholderText">
+                 <string>Price                                                 $</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="mouseTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#001F26;</string>
+                </property>
+                <property name="text">
+                 <string>Add Project</string>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QTableView" name="tableView">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>100</y>
+            <width>741</width>
+            <height>281</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>286</width>
+            <height>89</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QPushButton" name="pushButton_6">
+               <property name="text">
+                <string>Show Projects</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox">
+               <item>
+                <property name="text">
+                 <string>SORT</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>IDPROJET</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>IDARCHITECT</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>PRIX</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>Search</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_2">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="cursor">
+              <cursorShape>IBeamCursor</cursorShape>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_p_2">
+                <property name="placeholderText">
+                 <string>Enter ID to delete</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="mouseTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#001F26;</string>
+                </property>
+                <property name="text">
+                 <string>Delete</string>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <zorder>layoutWidget</zorder>
+         <zorder>pushButton_3</zorder>
+         <zorder>tableView</zorder>
+         <zorder>frame_2</zorder>
+         <zorder>pushButton_6</zorder>
+         <zorder>comboBox</zorder>
+         <zorder>lineEdit</zorder>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Archived Projects</string>
+         </attribute>
+         <widget class="QTableWidget" name="tableWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>278</x>
+            <y>10</y>
+            <width>861</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <column>
+           <property name="text">
+            <string>Project ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Client ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Starting Date</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>262</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../../Downloads/c++ logo.png</normaloff>../../../Downloads/c++ logo.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>250</width>
+            <height>250</height>
+           </size>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1164</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuNew">
+    <property name="title">
+     <string>New</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuNew"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>tableWidget_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>lineEdit_a</tabstop>
+  <tabstop>lineEdit_id</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
