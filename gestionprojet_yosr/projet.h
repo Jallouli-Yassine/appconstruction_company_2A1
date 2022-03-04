@@ -8,25 +8,26 @@ class Projet
 {
     int idprojet;
     QString localisation,idarchitecte,reference;
-    int prix_totale;
+    QString prix_totale;
 public:
     //Constructors
     Projet();
-    Projet(QString localisation,QString idarchitecte,QString reference,int prix_totale);
+    Projet(QString localisation,QString idarchitecte,QString reference,QString prix_totale);
     //Getters
     int getIdprojet(){return idprojet;}
     QString getLocalisation(){return localisation;}
     QString getIdarchitecte(){return idarchitecte;}
     QString getReference(){return reference;}
-    float getPrix_totale(){return prix_totale;}
+    QString getPrix_totale(){return prix_totale;}
     //Setters
     void setIdprojet(int ip){idprojet=ip;}
     void setLocalisation(QString l){localisation=l;}
     void setIdarchitecte(QString ia){idarchitecte=ia;}
     void setReference(QString r){reference=r;}
-    void setPrix_totale(int pt){prix_totale=pt;}
+    void setPrix_totale(QString pt){prix_totale=pt;}
     //Functions
     bool ajouter();
+    bool modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale);
     QSqlQueryModel * afficher();
     bool supprimer(int id);
     QSqlQueryModel * affichertrie(int x);

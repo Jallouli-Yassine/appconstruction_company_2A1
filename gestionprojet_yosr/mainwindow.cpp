@@ -21,26 +21,6 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
-{
-    QString localisation=ui->lineEdit_a->text();
-    QString idarchitecte=ui->lineEdit_id->text();
-    QString reference=ui->lineEdit_r->text();
-    int prix_totale=ui->lineEdit_p->text().toInt();
-    Projet p(localisation,idarchitecte,reference,prix_totale);
-    p.ajouter();
-    bool test=p.ajouter();
-    if(test)     {
-         ui->tableView->setModel(ptmp->afficher());
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                                 QObject::tr("Ajout effectué\n"
-                                             "Click to Cancel."), QMessageBox::Cancel);
-    }     else
-        QMessageBox::information(nullptr, QObject::tr("not OK"),
-                                                QObject::tr("Ajout non effectué\n"
-                                                            "Click to Cancel."), QMessageBox::Cancel);
-
-}
 
 void MainWindow::on_pushButton_5_clicked()
 {
@@ -79,4 +59,41 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
     ui->tableView->setModel(ptmp->affichertrie(index));
     qDebug()<<index;
+}
+
+void MainWindow::on_pushButtonU_clicked()
+{
+    QString localisation = ui->lineEdit_a->text();
+    QString idarchitecte = ui->lineEdit_id->text();
+    QString reference = ui->lineEdit_r->text();
+    QString prix_totale = ui->lineEdit_p->text();
+   bool test =  ptmp->modifier(localisation,idarchitecte,reference,prix_totale);
+
+    if(test){
+        ui->tableView->setModel(ptmp->afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("update effectué\n""Click to Cancel."),
+                                 QMessageBox::Cancel);     }
+    else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                 QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString localisation=ui->lineEdit_a->text();
+    QString idarchitecte=ui->lineEdit_id->text();
+    QString reference=ui->lineEdit_r->text();
+    QString prix_totale=ui->lineEdit_p->text();
+    Projet p(localisation,idarchitecte,reference,prix_totale);
+    p.ajouter();
+    bool test=p.ajouter();
+    if(test)     {
+         ui->tableView->setModel(ptmp->afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                                 QObject::tr("Ajout effectué\n"
+                                             "Click to Cancel."), QMessageBox::Cancel);
+    }     else
+        QMessageBox::information(nullptr, QObject::tr("not OK"),
+                                                QObject::tr("Ajout non effectué\n"
+                                                            "Click to Cancel."), QMessageBox::Cancel);
 }
