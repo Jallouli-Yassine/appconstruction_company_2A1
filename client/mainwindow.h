@@ -23,6 +23,17 @@ private slots:
 
     void on_pb_supp_clicked();
 
+
+    void on_pb_trienom_clicked();
+
+    void on_pb_trie_prenom_clicked();
+
+    void on_pb_tri_id_clicked();
+
+
+
+    void on_cherch_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     Client c;

@@ -669,16 +669,6 @@ border-bottom:1px solid #333;
           <string>Taper le N°</string>
          </property>
         </widget>
-        <widget class="QCalendarWidget" name="calendarWidget">
-         <property name="geometry">
-          <rect>
-           <x>550</x>
-           <y>20</y>
-           <width>304</width>
-           <height>218</height>
-          </rect>
-         </property>
-        </widget>
         <widget class="QLineEdit" name="lineEdit_4">
          <property name="geometry">
           <rect>
@@ -863,97 +853,6 @@ border-bottom:1px solid #333;
          <property name="checkable">
           <bool>false</bool>
          </property>
-        </widget>
-        <widget class="QTableWidget" name="tableWidget">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>701</width>
-           <height>211</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>591</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>331</height>
-          </size>
-         </property>
-         <property name="autoScroll">
-          <bool>true</bool>
-         </property>
-         <property name="dragEnabled">
-          <bool>true</bool>
-         </property>
-         <property name="alternatingRowColors">
-          <bool>true</bool>
-         </property>
-         <property name="sortingEnabled">
-          <bool>true</bool>
-         </property>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderStretchLastSection">
-          <bool>false</bool>
-         </attribute>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <column>
-          <property name="text">
-           <string>Nom</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Prenom</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>N°</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>E@mail</string>
-          </property>
-         </column>
         </widget>
         <widget class="QLineEdit" name="lineEdit_15">
          <property name="geometry">
