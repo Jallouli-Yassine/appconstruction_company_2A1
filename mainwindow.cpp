@@ -21,23 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tel->setValidator(new QIntValidator (0,99999999,this));
     ui->age->setValidator(new QIntValidator (0,99999999,this));
     ui->Ftable->setModel(F.afficher());
-/*
-    Connection c;
-        QSqlQueryModel *modal=new QSqlQueryModel();
 
-        c.createconnect();
-
-        QSqlQuery *qry=new QSqlQuery(c.getConnexion());
-
-        qry->prepare("select * from FOURNISSEUR");
-
-        qry->exec();
-
-        modal->setQuery(*qry);
-
-        ui->Ftable->setModel(modal);
-*/
-    //ui->tableF->QTableWidget::setModel(F.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -108,6 +92,7 @@ void MainWindow::on_updateBTN_clicked()
     else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
                  QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }
+
 void MainWindow::on_chercherID_clicked()
 {
     QString id = ui->searchIDinput->text();
