@@ -40,6 +40,10 @@ private slots:
 
     void on_chercherID_clicked();
 
+    void on_Ftable_activated(const QModelIndex &index);
+
+    //void on_Ftable_activated(const QModelIndex &index);
+    
 private:
     Ui::MainWindow *ui;
     Fournisseur F;

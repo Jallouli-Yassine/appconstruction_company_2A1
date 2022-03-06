@@ -93,16 +93,7 @@ bool Fournisseur::modifier(int id,QString nom,QString prenom,int age,int phone,Q
     query.bindValue(":id", id);
     return query.exec();
 }
-/*
-        function rechercher($value){
-            $db = config::getConnexion();
-            $SEARCH=$db->prepare("SELECT * FROM courses WHERE title LIKE :value and etat=1");
-            $value="%".$value."%";
-            $SEARCH->bindParam("value",$value);
-            $SEARCH->execute();
-            return $SEARCH;
-        }
-*/
+
 QSqlQueryModel* Fournisseur::chercher(QString id){
    QSqlQueryModel* model = new QSqlQueryModel();
    QString search = "%"+id+"%";

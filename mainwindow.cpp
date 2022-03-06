@@ -11,6 +11,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include "connection.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     //constructeur de linterface main window :
@@ -28,7 +29,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_ajouterF_clicked()
 {
@@ -65,8 +65,6 @@ void MainWindow::on_deleteFbtn_clicked()
                        QObject::tr("suppression non effectué\n" "Click to Cancel."), QMessageBox::Cancel);
 }
 
-
-
 void MainWindow::on_LoadData_clicked()
 {
    ui->Ftable->setModel(F.afficher());
@@ -96,7 +94,6 @@ void MainWindow::on_updateBTN_clicked()
 void MainWindow::on_chercherID_clicked()
 {
     QString id = ui->searchIDinput->text();
-
     ui->searchTable->setModel(F.chercher(id));
 }
 
@@ -105,4 +102,23 @@ void MainWindow::on_triBTN_clicked()
     QString attribute = ui->attributeBox->currentText();
     QString croissance = ui->croissanceBox->currentText();
     ui->TriTable->setModel(F.trie(attribute,croissance));
+}
+
+void MainWindow::on_Ftable_activated(const QModelIndex &index)
+{
+    QString value=ui->Ftable->model()->data(index).toString();
+            QSqlQuery qry;
+            qry.prepare("select * from FOURNISSEUR where ID='"+value+"'");
+            if(qry.exec())
+            {
+                while(qry.next()){
+                   ui->nomUpdate->setText(qry.value(1).toString());
+                   ui->prenomUpdate->setText(qry.value(2).toString());
+                   ui->emailUpdate->setText(qry.value(5).toString());
+                   ui->telUpdate->setText(qry.value(4).toString());
+                   ui->ageUpdate->setText(qry.value(3).toString());
+                   ui->updateID->setText(qry.value(0).toString());
+                   ui->deleteID->setText(qry.value(0).toString());
+                }
+            }
 }
