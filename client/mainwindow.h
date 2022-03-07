@@ -34,6 +34,10 @@ private slots:
 
     void on_cherch_textChanged(const QString &arg1);
 
+    void on_cherch_2_returnPressed();
+
+    void on_b_ajouter_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Client c;

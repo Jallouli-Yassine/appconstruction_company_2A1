@@ -31,13 +31,19 @@ Client::Client()
     void Client:: setprenom(QString prenom){this->prenom=prenom;}
     void Client:: setemail(QString email){this->email=email;}
     void Client::setDDN(QString DDN){this->DDN=DDN;}
+
+
+
     bool Client:: ajoute(){
 QSqlQuery query;
+QString res = QString::number(num);
+
+
       query.prepare("INSERT INTO CLIENT (NOM, PRENOM, NUMERO,EMAIL,DDN,IDCLIENT) "
                     "VALUES (:NOM, :PRENOM,:NUMERO,:EMAIL, :DDN, :IDCLIENT)");
       query.bindValue(":NOM", this->nom);
       query.bindValue(":PRENOM", this->prenom);
-      query.bindValue(":NUMERO", this->num);
+      query.bindValue(":NUMERO", res);
       query.bindValue(":EMAIL", this->email);
       query.bindValue(":DDN", this->DDN);
       query.bindValue(":IDCLIENT", this->id);
@@ -121,3 +127,21 @@ return model;
 
 
 }
+
+
+
+    bool Client::modifier(int num,int id, QString nom, QString prenom, QString email, QString DDN){
+        QSqlQuery query;
+
+
+
+        query.prepare("update Client set NOM = :nom, PRENOM= :prenom,  NUMERO= :number, EMAIL= :email, DDN=:DDN WHERE IDCLIENT = :idclient");
+        query.bindValue(":prenom", prenom);
+        query.bindValue(":nom", nom);
+        query.bindValue(":number", num);
+        query.bindValue(":email", email);
+        query.bindValue(":DDN", DDN);
+        query.bindValue(":idclient", id);
+        return query.exec();
+    }
+
