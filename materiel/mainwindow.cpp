@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QInputDialog>
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QtDebug>
@@ -11,13 +10,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(m->afficher());
+    ui->nomLE->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->ReferenceLE_4->setValidator(new QIntValidator (0,999,this));
+    ui->ReferenceLE_2->setValidator(new QIntValidator (0,9999,this));
+
+
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 
 
@@ -66,7 +70,7 @@ void MainWindow::on_ButtonSupprimer_clicked()
 
 void MainWindow::on_ButtonTri_clicked()
 {
-    ui->tableView->setModel(m->afficher1());
+    ui->tableView->setModel(m->trie());
 }
 
 void MainWindow::on_ButtonAjouter_4_clicked()

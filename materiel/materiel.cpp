@@ -17,15 +17,15 @@ materiel::materiel(QString reference,QString nom,QString matricule,QString idfou
 QSqlQueryModel * materiel::afficher()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from MATERIEL");
+    model->setQuery("select NOM,REFERENCE,QUANTITE,ETAT,PRIX,MATRICULE from MATERIEL");
 
     return model;
 }
 
-QSqlQueryModel * materiel::afficher1()
+QSqlQueryModel * materiel::trie()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from MATERIEL order by nom");
+    model->setQuery("select NOM,REFERENCE,QUANTITE,ETAT,PRIX,MATRICULE from MATERIEL order by nom");
 
     return model;
 }

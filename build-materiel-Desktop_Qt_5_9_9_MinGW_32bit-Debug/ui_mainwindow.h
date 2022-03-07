@@ -36,14 +36,32 @@ public:
     QTabWidget *liste;
     QWidget *tab_3;
     QFrame *frame;
-    QPushButton *ButtonAjouter;
-    QPushButton *ButtonModifier;
     QPushButton *ButtonSupprimer;
     QPushButton *ButtonFiltre;
     QPushButton *ButtonTri;
     QLineEdit *recherche;
     QTableView *tableView;
     QLineEdit *lineEdit;
+    QWidget *tab;
+    QGroupBox *groupBox_2;
+    QFrame *frame_2;
+    QPushButton *ButtonAjouter_2;
+    QLabel *Matricule;
+    QLabel *NomAjout;
+    QPushButton *logoAjout;
+    QLineEdit *nomLE;
+    QLineEdit *MatriculeLE;
+    QLabel *EtatAjout_2;
+    QLabel *Refrence_2;
+    QLineEdit *ReferenceLE_2;
+    QLabel *Refrence_4;
+    QPushButton *ButtonAjouter_3;
+    QComboBox *comboBox_2;
+    QLineEdit *ReferenceLE_4;
+    QLabel *Refrence_5;
+    QPushButton *ButtonAjouter_4;
+    QLineEdit *ReferenceLE;
+    QLabel *Refrence;
     QWidget *tab_2;
     QGroupBox *groupBox;
     QLabel *nominfo;
@@ -67,32 +85,6 @@ public:
     QLabel *label_ID_11;
     QLabel *label_ID_12;
     QPushButton *logoinfo_2;
-    QWidget *tab;
-    QGroupBox *groupBox_2;
-    QFrame *frame_2;
-    QPushButton *ButtonAjouter_2;
-    QLabel *Matricule;
-    QLabel *Information;
-    QLabel *Refrence;
-    QLabel *EtatAjout;
-    QLabel *NomAjout;
-    QPushButton *logoAjout;
-    QLineEdit *nomLE;
-    QLineEdit *MatriculeLE;
-    QLineEdit *texteInformation;
-    QLineEdit *ReferenceLE;
-    QLabel *EtatAjout_2;
-    QLabel *Refrence_2;
-    QLineEdit *ReferenceLE_2;
-    QLabel *Refrence_3;
-    QLineEdit *ReferenceLE_3;
-    QLabel *Refrence_4;
-    QPushButton *ButtonAjouter_3;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
-    QLineEdit *ReferenceLE_4;
-    QLabel *Refrence_5;
-    QPushButton *ButtonAjouter_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -139,6 +131,7 @@ public:
 "\n"
 "\n"
 ""));
+        liste->setTabBarAutoHide(true);
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         frame = new QFrame(tab_3);
@@ -176,25 +169,14 @@ public:
 "}"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        ButtonAjouter = new QPushButton(frame);
-        ButtonAjouter->setObjectName(QStringLiteral("ButtonAjouter"));
-        ButtonAjouter->setGeometry(QRect(20, 340, 71, 31));
+        ButtonSupprimer = new QPushButton(frame);
+        ButtonSupprimer->setObjectName(QStringLiteral("ButtonSupprimer"));
+        ButtonSupprimer->setGeometry(QRect(730, 100, 91, 31));
         QFont font;
         font.setFamily(QStringLiteral("Times New Roman"));
         font.setPointSize(10);
         font.setBold(true);
         font.setWeight(75);
-        ButtonAjouter->setFont(font);
-        ButtonAjouter->setStyleSheet(QLatin1String("background-color:#001F26;\n"
-""));
-        ButtonModifier = new QPushButton(frame);
-        ButtonModifier->setObjectName(QStringLiteral("ButtonModifier"));
-        ButtonModifier->setGeometry(QRect(100, 340, 71, 31));
-        ButtonModifier->setFont(font);
-        ButtonModifier->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        ButtonSupprimer = new QPushButton(frame);
-        ButtonSupprimer->setObjectName(QStringLiteral("ButtonSupprimer"));
-        ButtonSupprimer->setGeometry(QRect(730, 100, 91, 31));
         ButtonSupprimer->setFont(font);
         ButtonSupprimer->setStyleSheet(QLatin1String("background-color:#001F26;\n"
 ""));
@@ -220,6 +202,180 @@ public:
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setGeometry(QRect(700, 140, 161, 24));
         liste->addTab(tab_3, QString());
+        tab = new QWidget();
+        tab->setObjectName(QStringLiteral("tab"));
+        tab->setStyleSheet(QLatin1String("QFrame{\n"
+"background:white;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:white;\n"
+"font-size:16px;\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"background:red;\n"
+"border-radius:16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"transform: scale(5); \n"
+"width : 250px;\n"
+"color:red;\n"
+"}\n"
+"QPushButton{\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"}\n"
+"QLineEdit\n"
+"{\n"
+"background:transparent;\n"
+"border:none;\n"
+"color:#a0a0a0;\n"
+"font-size:16px;\n"
+"border-bottom:1px solid #333;\n"
+"}"));
+        groupBox_2 = new QGroupBox(tab);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(0, 10, 801, 31));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Times New Roman"));
+        font1.setPointSize(13);
+        font1.setBold(true);
+        font1.setWeight(75);
+        groupBox_2->setFont(font1);
+        groupBox_2->setAcceptDrops(false);
+        groupBox_2->setStyleSheet(QLatin1String("QFrame{\n"
+"background:white;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:white;\n"
+"font-size:16px;\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"background:red;\n"
+"border-radius:16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"transform: scale(5); \n"
+"width : 250px;\n"
+"color:red;\n"
+"}\n"
+"QPushButton{\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"}\n"
+"QLineEdit\n"
+"{\n"
+"background:transparent;\n"
+"border:none;\n"
+"color:#a0a0a0;\n"
+"font-size:16px;\n"
+"border-bottom:1px solid #333;\n"
+"}"));
+        frame_2 = new QFrame(tab);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setGeometry(QRect(0, 0, 831, 491));
+        frame_2->setStyleSheet(QLatin1String("QFrame{\n"
+"background:white;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:black;\n"
+"font-size:16px;\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"background:red;\n"
+"border-radius:16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"transform: scale(5); \n"
+"width : 250px;\n"
+"color:red;\n"
+"}\n"
+"QPushButton{\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"}\n"
+"QLineEdit\n"
+"{\n"
+"background:transparent;\n"
+"border:none;\n"
+"color:#a0a0a0;\n"
+"font-size:16px;\n"
+"border-bottom:1px solid #333;\n"
+"}"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        ButtonAjouter_2 = new QPushButton(frame_2);
+        ButtonAjouter_2->setObjectName(QStringLiteral("ButtonAjouter_2"));
+        ButtonAjouter_2->setGeometry(QRect(250, 370, 111, 31));
+        ButtonAjouter_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        Matricule = new QLabel(frame_2);
+        Matricule->setObjectName(QStringLiteral("Matricule"));
+        Matricule->setGeometry(QRect(120, 140, 81, 16));
+        NomAjout = new QLabel(frame_2);
+        NomAjout->setObjectName(QStringLiteral("NomAjout"));
+        NomAjout->setGeometry(QRect(120, 100, 46, 13));
+        logoAjout = new QPushButton(frame_2);
+        logoAjout->setObjectName(QStringLiteral("logoAjout"));
+        logoAjout->setGeometry(QRect(600, 70, 281, 251));
+        logoAjout->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"background:transparent;\n"
+"}"));
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../c_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoAjout->setIcon(icon);
+        logoAjout->setIconSize(QSize(180, 180));
+        logoAjout->setFlat(true);
+        nomLE = new QLineEdit(frame_2);
+        nomLE->setObjectName(QStringLiteral("nomLE"));
+        nomLE->setGeometry(QRect(210, 80, 211, 31));
+        MatriculeLE = new QLineEdit(frame_2);
+        MatriculeLE->setObjectName(QStringLiteral("MatriculeLE"));
+        MatriculeLE->setGeometry(QRect(210, 120, 211, 31));
+        EtatAjout_2 = new QLabel(frame_2);
+        EtatAjout_2->setObjectName(QStringLiteral("EtatAjout_2"));
+        EtatAjout_2->setGeometry(QRect(120, 220, 101, 16));
+        Refrence_2 = new QLabel(frame_2);
+        Refrence_2->setObjectName(QStringLiteral("Refrence_2"));
+        Refrence_2->setGeometry(QRect(120, 270, 101, 20));
+        ReferenceLE_2 = new QLineEdit(frame_2);
+        ReferenceLE_2->setObjectName(QStringLiteral("ReferenceLE_2"));
+        ReferenceLE_2->setGeometry(QRect(220, 260, 141, 31));
+        Refrence_4 = new QLabel(frame_2);
+        Refrence_4->setObjectName(QStringLiteral("Refrence_4"));
+        Refrence_4->setGeometry(QRect(120, 320, 141, 20));
+        ButtonAjouter_3 = new QPushButton(frame_2);
+        ButtonAjouter_3->setObjectName(QStringLiteral("ButtonAjouter_3"));
+        ButtonAjouter_3->setGeometry(QRect(270, 320, 91, 21));
+        ButtonAjouter_3->setStyleSheet(QLatin1String("background-color:#cece00;\n"
+"border-radius:15px;"));
+        comboBox_2 = new QComboBox(frame_2);
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_2->setGeometry(QRect(220, 220, 75, 24));
+        ReferenceLE_4 = new QLineEdit(frame_2);
+        ReferenceLE_4->setObjectName(QStringLiteral("ReferenceLE_4"));
+        ReferenceLE_4->setGeometry(QRect(200, 160, 131, 31));
+        Refrence_5 = new QLabel(frame_2);
+        Refrence_5->setObjectName(QStringLiteral("Refrence_5"));
+        Refrence_5->setGeometry(QRect(120, 170, 81, 20));
+        ButtonAjouter_4 = new QPushButton(frame_2);
+        ButtonAjouter_4->setObjectName(QStringLiteral("ButtonAjouter_4"));
+        ButtonAjouter_4->setGeometry(QRect(410, 370, 111, 31));
+        ButtonAjouter_4->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        ReferenceLE = new QLineEdit(frame_2);
+        ReferenceLE->setObjectName(QStringLiteral("ReferenceLE"));
+        ReferenceLE->setGeometry(QRect(210, 50, 131, 31));
+        Refrence = new QLabel(frame_2);
+        Refrence->setObjectName(QStringLiteral("Refrence"));
+        Refrence->setGeometry(QRect(120, 60, 81, 20));
+        liste->addTab(tab, QString());
+        frame_2->raise();
+        groupBox_2->raise();
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         tab_2->setStyleSheet(QLatin1String("QFrame{\n"
@@ -255,11 +411,6 @@ public:
         groupBox = new QGroupBox(tab_2);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(0, 0, 831, 511));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Times New Roman"));
-        font1.setPointSize(13);
-        font1.setBold(true);
-        font1.setWeight(75);
         groupBox->setFont(font1);
         groupBox->setStyleSheet(QLatin1String("QGroupBox{\n"
 "color:black;\n"
@@ -350,8 +501,6 @@ public:
 "{\n"
 "background:transparent;\n"
 "}"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../../c_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         logoinfo->setIcon(icon);
         logoinfo->setIconSize(QSize(180, 180));
         logoinfo->setFlat(true);
@@ -434,195 +583,10 @@ public:
         label_ID_4->raise();
         label_ID_5->raise();
         liste->addTab(tab_2, QString());
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        tab->setStyleSheet(QLatin1String("QFrame{\n"
-"background:white;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:red;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"transform: scale(5); \n"
-"width : 250px;\n"
-"color:red;\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#a0a0a0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #333;\n"
-"}"));
-        groupBox_2 = new QGroupBox(tab);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(0, 10, 801, 31));
-        groupBox_2->setFont(font1);
-        groupBox_2->setAcceptDrops(false);
-        groupBox_2->setStyleSheet(QLatin1String("QFrame{\n"
-"background:white;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:red;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"transform: scale(5); \n"
-"width : 250px;\n"
-"color:red;\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#a0a0a0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #333;\n"
-"}"));
-        frame_2 = new QFrame(tab);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(0, 0, 831, 491));
-        frame_2->setStyleSheet(QLatin1String("QFrame{\n"
-"background:white;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:black;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:red;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"transform: scale(5); \n"
-"width : 250px;\n"
-"color:red;\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#a0a0a0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #333;\n"
-"}"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        ButtonAjouter_2 = new QPushButton(frame_2);
-        ButtonAjouter_2->setObjectName(QStringLiteral("ButtonAjouter_2"));
-        ButtonAjouter_2->setGeometry(QRect(250, 370, 111, 31));
-        ButtonAjouter_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        Matricule = new QLabel(frame_2);
-        Matricule->setObjectName(QStringLiteral("Matricule"));
-        Matricule->setGeometry(QRect(120, 100, 81, 16));
-        Information = new QLabel(frame_2);
-        Information->setObjectName(QStringLiteral("Information"));
-        Information->setGeometry(QRect(120, 140, 91, 20));
-        Refrence = new QLabel(frame_2);
-        Refrence->setObjectName(QStringLiteral("Refrence"));
-        Refrence->setGeometry(QRect(120, 180, 81, 20));
-        EtatAjout = new QLabel(frame_2);
-        EtatAjout->setObjectName(QStringLiteral("EtatAjout"));
-        EtatAjout->setGeometry(QRect(120, 220, 46, 13));
-        NomAjout = new QLabel(frame_2);
-        NomAjout->setObjectName(QStringLiteral("NomAjout"));
-        NomAjout->setGeometry(QRect(120, 60, 46, 13));
-        logoAjout = new QPushButton(frame_2);
-        logoAjout->setObjectName(QStringLiteral("logoAjout"));
-        logoAjout->setGeometry(QRect(600, 70, 281, 251));
-        logoAjout->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"background:transparent;\n"
-"}"));
-        logoAjout->setIcon(icon);
-        logoAjout->setIconSize(QSize(180, 180));
-        logoAjout->setFlat(true);
-        nomLE = new QLineEdit(frame_2);
-        nomLE->setObjectName(QStringLiteral("nomLE"));
-        nomLE->setGeometry(QRect(210, 40, 211, 31));
-        MatriculeLE = new QLineEdit(frame_2);
-        MatriculeLE->setObjectName(QStringLiteral("MatriculeLE"));
-        MatriculeLE->setGeometry(QRect(210, 80, 211, 31));
-        texteInformation = new QLineEdit(frame_2);
-        texteInformation->setObjectName(QStringLiteral("texteInformation"));
-        texteInformation->setGeometry(QRect(210, 120, 341, 31));
-        ReferenceLE = new QLineEdit(frame_2);
-        ReferenceLE->setObjectName(QStringLiteral("ReferenceLE"));
-        ReferenceLE->setGeometry(QRect(210, 160, 131, 31));
-        EtatAjout_2 = new QLabel(frame_2);
-        EtatAjout_2->setObjectName(QStringLiteral("EtatAjout_2"));
-        EtatAjout_2->setGeometry(QRect(340, 220, 101, 16));
-        Refrence_2 = new QLabel(frame_2);
-        Refrence_2->setObjectName(QStringLiteral("Refrence_2"));
-        Refrence_2->setGeometry(QRect(120, 270, 101, 20));
-        ReferenceLE_2 = new QLineEdit(frame_2);
-        ReferenceLE_2->setObjectName(QStringLiteral("ReferenceLE_2"));
-        ReferenceLE_2->setGeometry(QRect(220, 260, 141, 31));
-        Refrence_3 = new QLabel(frame_2);
-        Refrence_3->setObjectName(QStringLiteral("Refrence_3"));
-        Refrence_3->setGeometry(QRect(360, 270, 101, 20));
-        ReferenceLE_3 = new QLineEdit(frame_2);
-        ReferenceLE_3->setObjectName(QStringLiteral("ReferenceLE_3"));
-        ReferenceLE_3->setGeometry(QRect(460, 260, 131, 31));
-        Refrence_4 = new QLabel(frame_2);
-        Refrence_4->setObjectName(QStringLiteral("Refrence_4"));
-        Refrence_4->setGeometry(QRect(120, 320, 141, 20));
-        ButtonAjouter_3 = new QPushButton(frame_2);
-        ButtonAjouter_3->setObjectName(QStringLiteral("ButtonAjouter_3"));
-        ButtonAjouter_3->setGeometry(QRect(270, 320, 91, 21));
-        ButtonAjouter_3->setStyleSheet(QLatin1String("background-color:#cece00;\n"
-"border-radius:15px;"));
-        comboBox = new QComboBox(frame_2);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(160, 220, 131, 24));
-        comboBox_2 = new QComboBox(frame_2);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(440, 220, 75, 24));
-        ReferenceLE_4 = new QLineEdit(frame_2);
-        ReferenceLE_4->setObjectName(QStringLiteral("ReferenceLE_4"));
-        ReferenceLE_4->setGeometry(QRect(440, 160, 131, 31));
-        Refrence_5 = new QLabel(frame_2);
-        Refrence_5->setObjectName(QStringLiteral("Refrence_5"));
-        Refrence_5->setGeometry(QRect(360, 170, 81, 20));
-        ButtonAjouter_4 = new QPushButton(frame_2);
-        ButtonAjouter_4->setObjectName(QStringLiteral("ButtonAjouter_4"));
-        ButtonAjouter_4->setGeometry(QRect(410, 370, 111, 31));
-        ButtonAjouter_4->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        liste->addTab(tab, QString());
-        frame_2->raise();
-        groupBox_2->raise();
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 884, 25));
+        menubar->setGeometry(QRect(0, 0, 884, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -630,7 +594,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        liste->setCurrentIndex(2);
+        liste->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -639,8 +603,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        ButtonAjouter->setText(QApplication::translate("MainWindow", "ajouter", Q_NULLPTR));
-        ButtonModifier->setText(QApplication::translate("MainWindow", "modifier", Q_NULLPTR));
         ButtonSupprimer->setText(QApplication::translate("MainWindow", "supprimer", Q_NULLPTR));
         ButtonFiltre->setText(QApplication::translate("MainWindow", "Filtre par location", Q_NULLPTR));
         ButtonTri->setText(QApplication::translate("MainWindow", "Tri par nom", Q_NULLPTR));
@@ -648,6 +610,29 @@ public:
         recherche->setPlaceholderText(QApplication::translate("MainWindow", "Recherche...", Q_NULLPTR));
         lineEdit->setPlaceholderText(QApplication::translate("MainWindow", "reference a supprimer", Q_NULLPTR));
         liste->setTabText(liste->indexOf(tab_3), QApplication::translate("MainWindow", "Liste de mat\303\251riel", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Ajouter mat\303\251riel", Q_NULLPTR));
+        ButtonAjouter_2->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
+        Matricule->setText(QApplication::translate("MainWindow", "Matricule:", Q_NULLPTR));
+        NomAjout->setText(QApplication::translate("MainWindow", "Nom:", Q_NULLPTR));
+        logoAjout->setText(QString());
+        nomLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le nom du matriel", Q_NULLPTR));
+        MatriculeLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le matricule", Q_NULLPTR));
+        EtatAjout_2->setText(QApplication::translate("MainWindow", "Etat location:", Q_NULLPTR));
+        Refrence_2->setText(QApplication::translate("MainWindow", "prix(DT/jour):", Q_NULLPTR));
+        ReferenceLE_2->setPlaceholderText(QApplication::translate("MainWindow", "saisir le prix en DT", Q_NULLPTR));
+        Refrence_4->setText(QApplication::translate("MainWindow", "Ajouter une image:", Q_NULLPTR));
+        ButtonAjouter_3->setText(QApplication::translate("MainWindow", "Upload IMG", Q_NULLPTR));
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "lou\303\251", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "non lou\303\251", Q_NULLPTR)
+        );
+        ReferenceLE_4->setPlaceholderText(QApplication::translate("MainWindow", "qtt", Q_NULLPTR));
+        Refrence_5->setText(QApplication::translate("MainWindow", "Quantite", Q_NULLPTR));
+        ButtonAjouter_4->setText(QApplication::translate("MainWindow", "modifler", Q_NULLPTR));
+        ReferenceLE->setPlaceholderText(QApplication::translate("MainWindow", "R\303\251ference de mat\303\251riel", Q_NULLPTR));
+        Refrence->setText(QApplication::translate("MainWindow", "R\303\251f\303\251rence:", Q_NULLPTR));
+        liste->setTabText(liste->indexOf(tab), QApplication::translate("MainWindow", "Mat\303\251riel", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Fiche d'information", Q_NULLPTR));
         nominfo->setText(QApplication::translate("MainWindow", "Nom:", Q_NULLPTR));
         label_poidssupmod->setText(QApplication::translate("MainWindow", "Matricule:", Q_NULLPTR));
@@ -671,39 +656,6 @@ public:
         label_ID_12->setText(QApplication::translate("MainWindow", "60 jours", Q_NULLPTR));
         logoinfo_2->setText(QString());
         liste->setTabText(liste->indexOf(tab_2), QApplication::translate("MainWindow", "Fiche information", Q_NULLPTR));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "Ajouter mat\303\251riel", Q_NULLPTR));
-        ButtonAjouter_2->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
-        Matricule->setText(QApplication::translate("MainWindow", "Matricule:", Q_NULLPTR));
-        Information->setText(QApplication::translate("MainWindow", "Information:", Q_NULLPTR));
-        Refrence->setText(QApplication::translate("MainWindow", "R\303\251f\303\251rence:", Q_NULLPTR));
-        EtatAjout->setText(QApplication::translate("MainWindow", "Etat:", Q_NULLPTR));
-        NomAjout->setText(QApplication::translate("MainWindow", "Nom:", Q_NULLPTR));
-        logoAjout->setText(QString());
-        nomLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le nom du matriel", Q_NULLPTR));
-        MatriculeLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le matricule", Q_NULLPTR));
-        texteInformation->setPlaceholderText(QApplication::translate("MainWindow", "saisir les informations de mat\303\251riel", Q_NULLPTR));
-        ReferenceLE->setPlaceholderText(QApplication::translate("MainWindow", "R\303\251ference de mat\303\251riel", Q_NULLPTR));
-        EtatAjout_2->setText(QApplication::translate("MainWindow", "Etat location:", Q_NULLPTR));
-        Refrence_2->setText(QApplication::translate("MainWindow", "prix(DT/jour):", Q_NULLPTR));
-        ReferenceLE_2->setPlaceholderText(QApplication::translate("MainWindow", "saisir le prix en DT", Q_NULLPTR));
-        Refrence_3->setText(QApplication::translate("MainWindow", "dur\303\251e :", Q_NULLPTR));
-        ReferenceLE_3->setPlaceholderText(QApplication::translate("MainWindow", "saisir le dur\303\251e", Q_NULLPTR));
-        Refrence_4->setText(QApplication::translate("MainWindow", "Ajouter une image:", Q_NULLPTR));
-        ButtonAjouter_3->setText(QApplication::translate("MainWindow", "Upload IMG", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "disponible", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "non disponible", Q_NULLPTR)
-        );
-        comboBox_2->clear();
-        comboBox_2->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "lou\303\251", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "non lou\303\251", Q_NULLPTR)
-        );
-        ReferenceLE_4->setPlaceholderText(QApplication::translate("MainWindow", "qtt", Q_NULLPTR));
-        Refrence_5->setText(QApplication::translate("MainWindow", "quantite", Q_NULLPTR));
-        ButtonAjouter_4->setText(QApplication::translate("MainWindow", "modifler", Q_NULLPTR));
-        liste->setTabText(liste->indexOf(tab), QApplication::translate("MainWindow", "Ajouter mat\303\251riel", Q_NULLPTR));
     } // retranslateUi
 
 };

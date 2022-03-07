@@ -12,7 +12,7 @@ public:
     materiel();
     materiel(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,int etat);
     QSqlQueryModel * afficher();
-    QSqlQueryModel * afficher1();
+    QSqlQueryModel * trie();
     bool ajouter();
     bool supprimer(QString reference);
     bool modifier(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,int etat);
