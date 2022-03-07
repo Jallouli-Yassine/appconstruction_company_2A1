@@ -16,7 +16,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->le_cin->setValidator(new QIntValidator(100, 9999999, this));
     ui->le_salaire->setValidator(new QIntValidator(100, 7000, this));
+
     ui->tabemp->setModel(E.afficher());
+
+    ui->salaire_mod->setValidator(new QIntValidator(100, 7000, this));
+    ui->cin_mod->setValidator(new QIntValidator(100, 9999999, this));
+    ui->role_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->name_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->prenom_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_role->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+
 
 
 }
