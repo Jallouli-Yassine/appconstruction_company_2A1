@@ -27,12 +27,8 @@ bool Projet::ajouter()
 QSqlQueryModel * Projet::afficher()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from PROJET");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("IDP"));
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Localistaion"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("IDA"));
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("reference"));
+    model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET");
+
     return model;
 }
 bool Projet::supprimer(int id)
@@ -49,35 +45,27 @@ QSqlQueryModel * Projet::affichertrie(int x)
     QSqlQueryModel * model=new QSqlQueryModel();
     if (x==1)
     {
-        model->setQuery("select * from PROJET order by IDPROJET");
+        model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET order by IDPROJET");
     }else if (x==2)
     {
-        model->setQuery("select * from PROJET order by IDARCHITECTE");
+        model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET order by IDARCHITECTE");
     }else if(x==3)
     {
-        model->setQuery("select * from PROJET order by PRIX_TOTALE");
+        model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET order by PRIX_TOTALE");
+    }else if(x==0)
+    {
+        model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET");
     }
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("IDP"));
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Localistaion"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("IDA"));
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("reference"));
+
     return model;
 }
 
-//QSqlQueryModel * Projet::afficherrech(QString x)
-//{
-//    QSqlQueryModel * model=new QSqlQueryModel();
-
-//    model->setQuery("select * from PROJET where IDPROJET=:x");
-
-//    model->setHeaderData(0,Qt::Horizontal,QObject::tr("IDP"));
-//    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
-//    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Localistaion"));
-//    model->setHeaderData(3,Qt::Horizontal,QObject::tr("IDA"));
-//    model->setHeaderData(4,Qt::Horizontal,QObject::tr("reference"));
-//    return model;
-//}
+QSqlQueryModel * Projet::afficherrech(QString x)
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select IDPROJET,PRIX_TOTALE,LOCALISATION,IDARCHITECTE,REFERENCE from PROJET where REFERENCE like '%"+x+"%'");
+    return model;
+}
 bool Projet::modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale){
     QSqlQuery query;
     query.prepare("update PROJET set LOCALISATION = :localisation, IDARCHITECTE= :idarchitecte, PRIX_TOTALE= :prix_totale WHERE REFERENCE= :reference");
@@ -87,4 +75,7 @@ bool Projet::modifier(QString localisation,QString idarchitecte,QString referenc
     query.bindValue(":prix_totale", prix_totale);
     return query.exec();
 }
+
+
+
 

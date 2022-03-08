@@ -6,8 +6,8 @@
 
 class Projet
 {
-    int idprojet;
-    QString localisation,idarchitecte,reference;
+    int idprojet,etat;
+    QString localisation,reference,idarchitecte;
     QString prix_totale;
 public:
     //Constructors
@@ -31,7 +31,8 @@ public:
     QSqlQueryModel * afficher();
     bool supprimer(int id);
     QSqlQueryModel * affichertrie(int x);
-    //QSqlQueryModel * afficherrech(QString x);
+    QSqlQueryModel * afficherrech(QString x);
+
 };
 
 #endif // PROJET_H

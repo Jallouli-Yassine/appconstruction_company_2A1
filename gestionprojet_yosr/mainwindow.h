@@ -24,7 +24,7 @@ private slots:
 
     //void on_pushButton_2_clicked();
 
-  //  void on_lineEdit_textChanged(const QString &arg1);
+    void on_lineEdit_textChanged(const QString &arg1);
 
 
     void on_comboBox_currentIndexChanged(int index);
@@ -32,6 +32,7 @@ private slots:
     void on_pushButtonU_clicked();
 
     void on_pushButton_2_clicked();
+
 
 private:
     Ui::MainWindow *ui;

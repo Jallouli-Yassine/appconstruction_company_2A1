@@ -12,7 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     ui->tableView->setModel(ptmp->afficher());
+    ui->lineEdit_p->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_id->setValidator(new QIntValidator (0,99999999,this));
+    ui->lineEdit_a->setValidator(new QRegExpValidator(  QRegExp("[a-z]*")  ));
+
 }
 
 MainWindow::~MainWindow()
@@ -48,10 +51,11 @@ void MainWindow::on_pushButton_6_clicked()
 }
 
 
-/*void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    ui->tableView->setModel(ptmp->afficherrech(arg1.toInt()));
-}*/
+    ui->tableView->setModel(ptmp->afficherrech(arg1));
+    qDebug()<<arg1;
+}
 
 
 
@@ -97,3 +101,4 @@ void MainWindow::on_pushButton_2_clicked()
                                                 QObject::tr("Ajout non effectué\n"
                                                             "Click to Cancel."), QMessageBox::Cancel);
 }
+

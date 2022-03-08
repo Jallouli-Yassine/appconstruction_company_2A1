@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1164</width>
-    <height>597</height>
+    <width>1210</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,42 +29,13 @@
          <attribute name="title">
           <string>Current Projects</string>
          </attribute>
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="geometry">
-           <rect>
-            <x>750</x>
-            <y>0</y>
-            <width>391</width>
-            <height>171</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../../Downloads/c++ logo.png</normaloff>../../../Downloads/c++ logo.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>200</width>
-            <height>158</height>
-           </size>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
          <widget class="QTableView" name="tableView">
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>100</y>
+            <y>190</y>
             <width>741</width>
-            <height>281</height>
+            <height>291</height>
            </rect>
           </property>
          </widget>
@@ -73,8 +44,8 @@
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>286</width>
-            <height>89</height>
+            <width>731</width>
+            <height>171</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -211,9 +182,9 @@ border-bottom:1px solid #333;
           <property name="geometry">
            <rect>
             <x>750</x>
-            <y>100</y>
+            <y>190</y>
             <width>381</width>
-            <height>281</height>
+            <height>291</height>
            </rect>
           </property>
           <property name="cursor">
@@ -261,7 +232,7 @@ border-bottom:1px solid #333;
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>12</x>
@@ -358,10 +329,39 @@ border-bottom:1px solid #333;
            </layout>
           </widget>
          </widget>
+         <widget class="QPushButton" name="pushButton">
+          <property name="geometry">
+           <rect>
+            <x>750</x>
+            <y>10</y>
+            <width>381</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../../../Downloads/c++ logo.png</normaloff>../../../../Downloads/c++ logo.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
          <zorder>layoutWidget</zorder>
-         <zorder>pushButton_3</zorder>
          <zorder>tableView</zorder>
          <zorder>frame</zorder>
+         <zorder>pushButton</zorder>
         </widget>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
@@ -395,36 +395,30 @@ border-bottom:1px solid #333;
            </property>
           </column>
          </widget>
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
+         <widget class="QPushButton" name="pushButton_3">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>262</width>
-            <height>391</height>
+            <x>30</x>
+            <y>20</y>
+            <width>221</width>
+            <height>171</height>
            </rect>
           </property>
-          <property name="styleSheet">
-           <string notr="true"/>
+          <property name="autoFillBackground">
+           <bool>false</bool>
           </property>
           <property name="text">
            <string/>
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../../Downloads/c++ logo.png</normaloff>../../../Downloads/c++ logo.png</iconset>
+            <normaloff>../../../../Downloads/c++ logo.png</normaloff>../../../../Downloads/c++ logo.png</iconset>
           </property>
           <property name="iconSize">
            <size>
-            <width>250</width>
-            <height>250</height>
+            <width>150</width>
+            <height>150</height>
            </size>
-          </property>
-          <property name="autoDefault">
-           <bool>false</bool>
           </property>
           <property name="flat">
            <bool>true</bool>
@@ -442,8 +436,8 @@ border-bottom:1px solid #333;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1164</width>
-     <height>21</height>
+     <width>1210</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
