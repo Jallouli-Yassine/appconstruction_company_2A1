@@ -20,7 +20,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     ui->tel->setValidator(new QIntValidator (0,99999999,this));
-    ui->age->setValidator(new QIntValidator (0,99999999,this));
+    ui->age->setValidator(new QIntValidator (0,100,this));
+    ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
+
+    ui->telUpdate->setValidator(new QIntValidator (0,99999999,this));
+    ui->ageUpdate->setValidator(new QIntValidator (0,100,this));
+    ui->nomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->prenomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->emailUpdate ->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
+    ui->updateID->setValidator(new QIntValidator (0,99999,this));
+    ui->deleteID->setValidator(new QIntValidator (0,99999,this));
+    ui->searchIDinput->setValidator(new QIntValidator (0,99999,this));
     ui->Ftable->setModel(F.afficher());
 
 }
@@ -35,19 +47,28 @@ void MainWindow::on_ajouterF_clicked()
     QString nom = ui->nom->text();
     QString prenom = ui->prenom->text();
     QString email = ui->email->text();
+    QString telcheck = ui->tel->text();
+    QString agecheck = ui->age->text();
     int tel = ui->tel->text().toInt();
     int age = ui->age->text().toInt();
 
-    Fournisseur F(age,tel,nom,prenom,email);
-    bool test = F.ajouterF();
-    ui->Ftable->setModel(F.afficher());
-    if(test){
+    if(nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || telcheck.isEmpty() || agecheck.isEmpty())
+    {
+        QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                         QObject::tr("remplir tout les champs\n""Click to Cancel."), QMessageBox::Cancel);
+    }else
+    {
+        Fournisseur F(age,tel,nom,prenom,email);
+        bool test = F.ajouterF();
         ui->Ftable->setModel(F.afficher());
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-        QObject::tr("Ajout effectué\n""Click to Cancel."),
-                                 QMessageBox::Cancel);     }
-    else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
-                 QObject::tr("Ajout non effectué\n""Click to Cancel."), QMessageBox::Cancel);
+        if(test){
+            ui->Ftable->setModel(F.afficher());
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+            QObject::tr("Ajout effectué\n""Click to Cancel."),
+                                     QMessageBox::Cancel);     }
+        else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                     QObject::tr("Ajout non effectué\n""Click to Cancel."), QMessageBox::Cancel);
+    }
 }
 
 void MainWindow::on_deleteFbtn_clicked()
