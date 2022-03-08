@@ -32,7 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->emailUpdate ->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
     ui->updateID->setValidator(new QIntValidator (0,99999,this));
     ui->deleteID->setValidator(new QIntValidator (0,99999,this));
-    ui->searchIDinput->setValidator(new QIntValidator (0,99999,this));
+    ui->searchNameInput->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
+
     ui->Ftable->setModel(F.afficher());
 
 }
@@ -114,8 +115,8 @@ void MainWindow::on_updateBTN_clicked()
 
 void MainWindow::on_chercherID_clicked()
 {
-    QString id = ui->searchIDinput->text();
-    ui->searchTable->setModel(F.chercher(id));
+    QString name = ui->searchNameInput->text();
+    ui->searchTable->setModel(F.chercher(name));
 }
 
 void MainWindow::on_triBTN_clicked()
@@ -142,4 +143,19 @@ void MainWindow::on_Ftable_activated(const QModelIndex &index)
                    ui->deleteID->setText(qry.value(0).toString());
                 }
             }
+}
+
+
+
+void MainWindow::on_deleteAll_clicked()
+{
+    bool test = F.deleteAll();
+
+    if(test){
+        ui->Ftable->setModel(F.afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("la table est vide !\n""Click to Cancel."),
+                                 QMessageBox::Cancel);     }
+    else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                 QObject::tr("suppression non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }

@@ -94,9 +94,9 @@ bool Fournisseur::modifier(int id,QString nom,QString prenom,int age,int phone,Q
     return query.exec();
 }
 
-QSqlQueryModel* Fournisseur::chercher(QString id){
+QSqlQueryModel* Fournisseur::chercher(QString name){
    QSqlQueryModel* model = new QSqlQueryModel();
-   QString search = "%"+id+"%";
+   QString search = "%"+name+"%";
     model->setQuery("SELECT * FROM FOURNISSEUR WHERE NOM like '"+search+"'");
     //model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom"));
     return model ;
@@ -117,4 +117,11 @@ QSqlQueryModel* Fournisseur::trie(QString attribute , QString croissance){
     else if(attribute == "NOM" && croissance == "decroissante")
         model->setQuery("SELECT * FROM FOURNISSEUR ORDER BY NOM DESC ");
     return model;
+}
+
+bool Fournisseur::deleteAll(){
+    ;
+    QSqlQuery query;
+    query.prepare("TRUNCATE TABLE FOURNISSEUR");
+        return  query.exec();
 }

@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -274,9 +274,9 @@ border:none;
        <property name="geometry">
         <rect>
          <x>440</x>
-         <y>290</y>
+         <y>240</y>
          <width>351</width>
-         <height>181</height>
+         <height>231</height>
         </rect>
        </property>
        <property name="font">
@@ -355,6 +355,22 @@ border-bottom:1px solid #333;
         </property>
         <property name="text">
          <string>supprimer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteAll">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>180</y>
+          <width>121</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:red;</string>
+        </property>
+        <property name="text">
+         <string>vider toute la table</string>
         </property>
        </widget>
       </widget>
@@ -868,9 +884,9 @@ border-bottom:1px solid #333;
 }</string>
        </property>
        <property name="title">
-        <string>Recherche par ID</string>
+        <string>Recherche par Nom</string>
        </property>
-       <widget class="QLineEdit" name="searchIDinput">
+       <widget class="QLineEdit" name="searchNameInput">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -880,7 +896,7 @@ border-bottom:1px solid #333;
          </rect>
         </property>
         <property name="placeholderText">
-         <string>ID</string>
+         <string>Nom</string>
         </property>
        </widget>
        <widget class="QPushButton" name="chercherID">

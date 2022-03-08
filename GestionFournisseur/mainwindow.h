@@ -44,6 +44,10 @@ private slots:
 
     //void on_Ftable_activated(const QModelIndex &index);
     
+    void on_pushButton_clicked();
+
+    void on_deleteAll_clicked();
+
 private:
     Ui::MainWindow *ui;
     Fournisseur F;
