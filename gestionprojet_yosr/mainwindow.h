@@ -29,10 +29,27 @@ private slots:
 
     void on_comboBox_currentIndexChanged(int index);
 
-    void on_pushButtonU_clicked();
 
     void on_pushButton_2_clicked();
 
+
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_pushButton_archive_clicked();
+
+    void on_pushremove_clicked();
+
+    void on_tableView_2_activated(const QModelIndex &index);
+
+    void on_tableView_doubleClicked(const QModelIndex &index);
+
+
+    void on_calendarWidget_clicked(const QDate &date);
+
+
+
+
+    void on_pushPDF_clicked();
 
 private:
     Ui::MainWindow *ui;

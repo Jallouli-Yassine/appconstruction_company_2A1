@@ -217,6 +217,7 @@ void MainWindow::on_pushPDF_clicked()
                   painter.drawText(10,100,"Fiche Des Projet");
                   //HEADER END//
                   painter.setPen(Qt::black);
+                  font.setPixelSize(15);
                   for (int i=0;i<rows;i++) {
 
                       QString id=ui->tableView_3->model()->data(ui->tableView_3->model()->index(i,0)).toString();

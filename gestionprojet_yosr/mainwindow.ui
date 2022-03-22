@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1210</width>
-    <height>600</height>
+    <width>1195</width>
+    <height>624</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -42,50 +42,98 @@
          <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>0</x>
             <y>10</y>
-            <width>731</width>
+            <width>741</width>
             <height>171</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <item>
-              <widget class="QComboBox" name="comboBox">
-               <item>
-                <property name="text">
-                 <string>SORT</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>IDPROJET</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>IDARCHITECT</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>PRIX</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit">
-               <property name="text">
-                <string/>
-               </property>
-               <property name="placeholderText">
-                <string>Search</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            <layout class="QVBoxLayout" name="verticalLayout_5"/>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="styleSheet">
+              <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <widget class="QComboBox" name="comboBox">
+                  <item>
+                   <property name="text">
+                    <string>SORT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>IDPROJET</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>IDARCHITECT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>PRIX</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Search</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
            </item>
            <item>
             <widget class="QFrame" name="frame_2">
@@ -235,10 +283,10 @@ border-bottom:1px solid #333;
           <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
-             <x>12</x>
-             <y>14</y>
-             <width>351</width>
-             <height>251</height>
+             <x>0</x>
+             <y>0</y>
+             <width>381</width>
+             <height>334</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -277,6 +325,9 @@ border-bottom:1px solid #333;
              </widget>
             </item>
             <item>
+             <widget class="QDateEdit" name="dateEdit"/>
+            </item>
+            <item>
              <widget class="QPushButton" name="pushButton_2">
               <property name="enabled">
                <bool>true</bool>
@@ -292,6 +343,31 @@ border-bottom:1px solid #333;
               </property>
               <property name="text">
                <string>Add Project</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_archive">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color:#001F26;</string>
+              </property>
+              <property name="text">
+               <string>Archive</string>
               </property>
               <property name="checkable">
                <bool>false</bool>
@@ -329,100 +405,398 @@ border-bottom:1px solid #333;
            </layout>
           </widget>
          </widget>
-         <widget class="QPushButton" name="pushButton">
-          <property name="geometry">
-           <rect>
-            <x>750</x>
-            <y>10</y>
-            <width>381</width>
-            <height>171</height>
-           </rect>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../../../Downloads/c++ logo.png</normaloff>../../../../Downloads/c++ logo.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
          <zorder>layoutWidget</zorder>
          <zorder>tableView</zorder>
          <zorder>frame</zorder>
-         <zorder>pushButton</zorder>
         </widget>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
           <string>Archived Projects</string>
          </attribute>
-         <widget class="QTableWidget" name="tableWidget_2">
+         <widget class="QTableView" name="tableView_2">
           <property name="geometry">
            <rect>
-            <x>278</x>
-            <y>10</y>
-            <width>861</width>
-            <height>391</height>
+            <x>460</x>
+            <y>140</y>
+            <width>661</width>
+            <height>291</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QFrame" name="frame_4">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>140</y>
+            <width>351</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
           </property>
-          <column>
-           <property name="text">
-            <string>Project ID</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Client ID</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Starting Date</string>
-           </property>
-          </column>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QPushButton" name="pushremove">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:#001F26;</string>
+             </property>
+             <property name="text">
+              <string>Remove From Archive</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>20</y>
-            <width>221</width>
-            <height>171</height>
-           </rect>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../../../Downloads/c++ logo.png</normaloff>../../../../Downloads/c++ logo.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="flat">
+         <widget class="QFrame" name="frame_5">
+          <property name="enabled">
            <bool>true</bool>
           </property>
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>190</y>
+            <width>351</width>
+            <height>241</height>
+           </rect>
+          </property>
+          <property name="cursor">
+           <cursorShape>IBeamCursor</cursorShape>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QWidget" name="layoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>351</width>
+             <height>241</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <property name="leftMargin">
+             <number>10</number>
+            </property>
+            <property name="rightMargin">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_a_ID">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_a_3">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="tabletTracking">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_id_3">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_r_3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_p_4">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_5">
+         <attribute name="title">
+          <string>Calendrier</string>
+         </attribute>
+         <widget class="QFrame" name="frame_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1161</width>
+            <height>521</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:white;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton
+{
+color:white;
+border-radius:15px;
+}
+QLineEdit,QDateTimeEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>510</x>
+             <y>20</y>
+             <width>121</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string>Project Calendar</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushPDF">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>510</x>
+             <y>40</y>
+             <width>121</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="mouseTracking">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color:#001F26;</string>
+           </property>
+           <property name="text">
+            <string>Export To PDF</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+          <widget class="QWidget" name="">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>80</y>
+             <width>941</width>
+             <height>411</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>This month Projects</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_3">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>Next month Projects</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_4">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>This Year Projects</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QTableView" name="tableView_3"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QTableView" name="tableView_4"/>
+            </item>
+            <item row="1" column="2">
+             <widget class="QTableView" name="tableView_5"/>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </widget>
        </widget>
@@ -436,8 +810,8 @@ border-bottom:1px solid #333;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1210</width>
-     <height>25</height>
+     <width>1195</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -456,7 +830,6 @@ border-bottom:1px solid #333;
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>tableWidget_2</tabstop>
   <tabstop>pushButtonU</tabstop>
   <tabstop>lineEdit_a</tabstop>
   <tabstop>lineEdit_id</tabstop>
