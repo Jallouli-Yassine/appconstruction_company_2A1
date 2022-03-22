@@ -201,28 +201,40 @@ void MainWindow::on_calendarWidget_clicked(const QDate &date)
 void MainWindow::on_pushPDF_clicked()
 {
     QPrinter printer;
-
                   printer.setOutputFormat(QPrinter::PdfFormat);
                   printer.setOutputFileName("C:/Users/ibert/OneDrive/Bureau/GitHub/xd.pdf");
                   QPainter painter;
                   painter.begin(&printer);
                   QFont font("Times", 10, QFont::Bold);
+                  QFont font2("Times", 10, QFont::Bold);
                   int rows = ui->tableView_3->model()->rowCount();
+                  int rows1 = ui->tableView_4->model()->rowCount();
+                  int rows2 = ui->tableView_5->model()->rowCount();
                   int x = 0;
                   int y = 100;
                   //HEADER//
-                  font.setPixelSize(35);
+                  font.setPixelSize(20);
                   painter.setFont(font);
-                  painter.setPen(Qt::red);
-                  painter.drawText(10,100,"Fiche Des Projet");
-                  //HEADER END//
                   painter.setPen(Qt::black);
+                  //HEADER END//
+
                   for (int i=0;i<rows;i++) {
 
                       QString id=ui->tableView_3->model()->data(ui->tableView_3->model()->index(i,0)).toString();
-                      QString nom=ui->tableView_3->model()->data(ui->tableView_3->model()->index(i,1)).toString();
-                      painter.drawText(x,y,id);
-                      painter.drawText(x+100,y,nom);
+                      QString date=ui->tableView_3->model()->data(ui->tableView_3->model()->index(i,1)).toString();
+                      painter.drawText(x+50,y+20,"This month project : ID : "+id+"/   Date : "+date);
+                      y+=100;
+                  }
+                  for (int i=0;i<rows1;i++) {
+                      QString id=ui->tableView_4->model()->data(ui->tableView_4->model()->index(i,0)).toString();
+                      QString date=ui->tableView_4->model()->data(ui->tableView_4->model()->index(i,1)).toString();
+                      painter.drawText(x+50,y+20,"Next month project : ID : "+id+"/   Date : "+date);
+                      y+=100;
+                  }
+                  for (int i=0;i<rows2;i++) {
+                      QString id=ui->tableView_5->model()->data(ui->tableView_5->model()->index(i,0)).toString();
+                      QString date=ui->tableView_5->model()->data(ui->tableView_5->model()->index(i,1)).toString();
+                      painter.drawText(x+50,y+20,"Next Year project : ID : "+id+"/   Date : "+date);
                       y+=100;
                   }
 
