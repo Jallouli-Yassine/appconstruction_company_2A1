@@ -67,3 +67,12 @@ QSqlQueryModel * materiel::trie()
      query.bindValue(":etat",etat);
      return query.exec();
  }
+
+ QSqlQueryModel * materiel::chercher(QString name){
+    QSqlQueryModel* model = new QSqlQueryModel();
+    QString search = "%"+name+"%";
+     model->setQuery("SELECT NOM,REFERENCE,QUANTITE,ETAT,PRIX,MATRICULE FROM MATERIEL WHERE NOM like '"+search+"'");
+     //model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom"));
+     return model ;
+ }
+

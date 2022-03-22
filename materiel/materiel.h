@@ -24,6 +24,7 @@ QString getReference(){return reference;}
 QString getNom(){return nom;}
 QString getMatricule(){return  matricule;}
 QString getIdfournisseur(){return idfournisseur;}
+QSqlQueryModel* chercher(QString name);
 //setters
 void setQuantite(int q){quantite=q;}
 void setPrix(int pt){prix=pt;}

@@ -26,6 +26,14 @@ private slots:
 
     void on_ButtonAjouter_4_clicked();
 
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_ButtonTri_2_clicked();
+
+    void on_Buttonrecherche_clicked();
+
+    void on_PDF_clicked();
+
 private:
     Ui::MainWindow *ui;
     materiel *m;
