@@ -1,12 +1,25 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QtCore>
+#include <QtGui>
 #include <QMainWindow>
 #include "projet.h"
+#include <QGraphicsScene>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+QT_CHARTS_USE_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -51,8 +64,14 @@ private slots:
 
     void on_pushPDF_clicked();
 
+    void on_Chart_clicked();
+
+
 private:
     Ui::MainWindow *ui;
+
+
+
     Projet *ptmp;
 };
 #endif // MAINWINDOW_H

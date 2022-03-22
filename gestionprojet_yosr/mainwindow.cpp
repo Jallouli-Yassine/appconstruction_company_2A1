@@ -17,13 +17,17 @@
 #include"QtPrintSupport/QPrinter"
 #include <QPropertyAnimation>
 #include <QPrinter>
-//PDF//
+//PDF//put chart in widget qt
+#include <QSqlRecord>
+QT_CHARTS_USE_NAMESPACE
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
+
     ui->setupUi(this);
+    ui->verticalLayout_8->addWidget(ptmp->stat());
     ui->tableView->setModel(ptmp->afficher());
     ui->tableView_3->setModel(ptmp->afficher_C1());
     ui->tableView_4->setModel(ptmp->afficher_C2());
@@ -32,6 +36,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_p->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_id->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_a->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]*")  ));
+
+
+
+
 
 }
 
@@ -242,8 +250,15 @@ void MainWindow::on_pushPDF_clicked()
 
                   if(painter.end())
                   {
-                      QMessageBox::information(nullptr, QObject::tr("FICHE EMPLOYEE"),
-                                               QObject::tr("Fichier employee GenerÃ©.\n"
+                      QMessageBox::information(nullptr, QObject::tr("FICHE PROJET"),
+                                               QObject::tr("Fichier employee Generer.\n"
                                                            "Click Ok to exit."), QMessageBox::Ok);
                   }
 }
+
+void MainWindow::on_Chart_clicked()
+{
+
+
+}
+

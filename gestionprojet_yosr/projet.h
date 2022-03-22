@@ -3,7 +3,13 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+QT_CHARTS_USE_NAMESPACE
 class Projet
 {
     int idprojet,etat;
@@ -30,6 +36,7 @@ public:
     void setReference(QString r){reference=r;}
     void setPrix_totale(QString pt){prix_totale=pt;}
     //Functions
+    int count();
     bool ajouter();
     bool modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale,int etat);
     bool archiver(int idprojet,QString localisation,QString idarchitecte,QString reference,QString prix_totale,int etat);
@@ -42,6 +49,7 @@ public:
     QSqlQueryModel *afficher_C1();
     QSqlQueryModel *afficher_C2();
     QSqlQueryModel *afficher_C3();
+    QChartView * stat();
 };
 
 #endif // PROJET_H
