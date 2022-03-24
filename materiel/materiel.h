@@ -6,20 +6,20 @@
 
 class materiel
 {
-    QString reference,nom,matricule,idfournisseur;
-    int quantite,prix,etat;
+    QString reference,nom,matricule,idfournisseur,etat;
+    int quantite,prix;
 public:
     materiel();
-    materiel(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,int etat);
+    materiel(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,QString etat);
     QSqlQueryModel * afficher();
     QSqlQueryModel * trie();
     bool ajouter();
     bool supprimer(QString reference);
-    bool modifier(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,int etat);
+    bool modifier(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,QString etat);
 //getters
 int getQuantite(){return quantite;}
 int getPrix(){return prix;}
-int getEtat(){return etat;}
+QString getEtat(){return etat;}
 QString getReference(){return reference;}
 QString getNom(){return nom;}
 QString getMatricule(){return  matricule;}
@@ -28,7 +28,7 @@ QSqlQueryModel* chercher(QString name);
 //setters
 void setQuantite(int q){quantite=q;}
 void setPrix(int pt){prix=pt;}
-void setEtat(int et){etat=et;}
+void setEtat(QString et){etat=et;}
 void setReference(QString r){reference=r;}
 void setNom(QString n){nom=n;}
 void setMatricule(QString mat){matricule=mat;}

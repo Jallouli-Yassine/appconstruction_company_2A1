@@ -47,7 +47,7 @@ void MainWindow::on_ButtonAjouter_2_clicked()
     QString idfournisseur="1";
     int quantite=ui->ReferenceLE_4->text().toInt();
     int prix=ui->ReferenceLE_2->text().toInt();
-    int etat=1;
+    QString etat=ui->comboBox_2->currentText();
     materiel m(reference,nom,matricule,idfournisseur,quantite,prix,etat);
     bool test=m.ajouter();
     if(test)     {
@@ -95,7 +95,7 @@ void MainWindow::on_ButtonAjouter_4_clicked()
     QString idfournisseur="1";
     int quantite=ui->ReferenceLE_6->text().toInt();
     int prix=ui->ReferenceLE_5->text().toInt();
-    int etat=1;
+    QString etat=ui->comboBox_3->currentText();
 
    bool test =  m->modifier(reference,nom,matricule,idfournisseur,quantite,prix,etat);
 
@@ -180,7 +180,7 @@ void MainWindow::on_PDF_clicked()
                    painter.drawText(500,400,referance);
                    painter.drawText(500,500,quantite);
                    painter.drawText(500,600,etat);
-                   painter.drawText(500,700,prix);
+                   painter.drawText(500,700,prix+"DT");
                    painter.drawText(500,800,matricule);
 
 

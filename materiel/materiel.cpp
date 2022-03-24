@@ -3,7 +3,7 @@
 #include <QtDebug>
 #include <QObject>
 
-materiel::materiel(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,int etat)
+materiel::materiel(QString reference,QString nom,QString matricule,QString idfournisseur,int quantite,int prix,QString etat)
 {
     this->reference=reference;
     this->nom=nom;
@@ -53,7 +53,7 @@ QSqlQueryModel * materiel::trie()
      return query.exec();
  }
 
- bool materiel::modifier(QString reference, QString nom, QString matricule, QString idfournisseur, int quantite, int prix, int etat){
+ bool materiel::modifier(QString reference, QString nom, QString matricule, QString idfournisseur, int quantite, int prix, QString etat){
      QSqlQuery query;
 //     QString id1 = QString::number(id);
 
