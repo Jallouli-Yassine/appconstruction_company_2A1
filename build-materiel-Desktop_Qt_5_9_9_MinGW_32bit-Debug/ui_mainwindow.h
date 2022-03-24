@@ -25,6 +25,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -58,13 +59,15 @@ public:
     QGroupBox *groupBox_3;
     QPushButton *Buttonrecherche;
     QPushButton *PDF;
+    QPushButton *logoAjout_3;
+    QComboBox *comboBox_4;
+    QLabel *filtre;
     QWidget *tab;
     QGroupBox *groupBox_2;
     QFrame *frame_2;
     QPushButton *ButtonAjouter_2;
     QLabel *Matricule;
     QLabel *NomAjout;
-    QPushButton *logoAjout;
     QLineEdit *nomLE;
     QLineEdit *MatriculeLE;
     QLabel *EtatAjout_2;
@@ -77,6 +80,12 @@ public:
     QLabel *Refrence_5;
     QLineEdit *ReferenceLE;
     QLabel *Refrence;
+    QPushButton *logoAjout_4;
+    QWidget *tab_2;
+    QFrame *frame_3;
+    QPushButton *logoAjout_5;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -251,6 +260,25 @@ public:
         PDF->setObjectName(QStringLiteral("PDF"));
         PDF->setGeometry(QRect(30, 350, 101, 31));
         PDF->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        logoAjout_3 = new QPushButton(frame);
+        logoAjout_3->setObjectName(QStringLiteral("logoAjout_3"));
+        logoAjout_3->setGeometry(QRect(710, -40, 221, 181));
+        logoAjout_3->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"background:transparent;\n"
+"}"));
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../../c_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoAjout_3->setIcon(icon);
+        logoAjout_3->setIconSize(QSize(60, 60));
+        logoAjout_3->setFlat(true);
+        comboBox_4 = new QComboBox(frame);
+        comboBox_4->setObjectName(QStringLiteral("comboBox_4"));
+        comboBox_4->setGeometry(QRect(130, 20, 75, 24));
+        filtre = new QLabel(frame);
+        filtre->setObjectName(QStringLiteral("filtre"));
+        filtre->setGeometry(QRect(30, 20, 101, 16));
+        filtre->setStyleSheet(QStringLiteral("color:black;"));
         groupBox_3->raise();
         ButtonSupprimer->raise();
         ButtonFiltre->raise();
@@ -273,6 +301,9 @@ public:
         Refrence_7->raise();
         Buttonrecherche->raise();
         PDF->raise();
+        logoAjout_3->raise();
+        comboBox_4->raise();
+        filtre->raise();
         liste->addTab(tab_3, QString());
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
@@ -391,18 +422,6 @@ public:
         NomAjout = new QLabel(frame_2);
         NomAjout->setObjectName(QStringLiteral("NomAjout"));
         NomAjout->setGeometry(QRect(120, 100, 46, 13));
-        logoAjout = new QPushButton(frame_2);
-        logoAjout->setObjectName(QStringLiteral("logoAjout"));
-        logoAjout->setGeometry(QRect(600, 70, 281, 251));
-        logoAjout->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"background:transparent;\n"
-"}"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../../c_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoAjout->setIcon(icon);
-        logoAjout->setIconSize(QSize(180, 180));
-        logoAjout->setFlat(true);
         nomLE = new QLineEdit(frame_2);
         nomLE->setObjectName(QStringLiteral("nomLE"));
         nomLE->setGeometry(QRect(210, 80, 211, 31));
@@ -441,9 +460,73 @@ public:
         Refrence = new QLabel(frame_2);
         Refrence->setObjectName(QStringLiteral("Refrence"));
         Refrence->setGeometry(QRect(120, 60, 81, 20));
+        logoAjout_4 = new QPushButton(frame_2);
+        logoAjout_4->setObjectName(QStringLiteral("logoAjout_4"));
+        logoAjout_4->setGeometry(QRect(680, -50, 221, 181));
+        logoAjout_4->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"background:transparent;\n"
+"}"));
+        logoAjout_4->setIcon(icon);
+        logoAjout_4->setIconSize(QSize(60, 60));
+        logoAjout_4->setFlat(true);
         liste->addTab(tab, QString());
         frame_2->raise();
         groupBox_2->raise();
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QStringLiteral("tab_2"));
+        frame_3 = new QFrame(tab_2);
+        frame_3->setObjectName(QStringLiteral("frame_3"));
+        frame_3->setGeometry(QRect(0, 0, 831, 491));
+        frame_3->setStyleSheet(QLatin1String("QFrame{\n"
+"background:white;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:black;\n"
+"font-size:16px;\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"background:red;\n"
+"border-radius:16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"transform: scale(5); \n"
+"width : 250px;\n"
+"color:red;\n"
+"}\n"
+"QPushButton{\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"}\n"
+"QLineEdit\n"
+"{\n"
+"background:transparent;\n"
+"border:none;\n"
+"color:#a0a0a0;\n"
+"font-size:16px;\n"
+"border-bottom:1px solid #333;\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        logoAjout_5 = new QPushButton(frame_3);
+        logoAjout_5->setObjectName(QStringLiteral("logoAjout_5"));
+        logoAjout_5->setGeometry(QRect(680, -50, 221, 181));
+        logoAjout_5->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"background:transparent;\n"
+"}"));
+        logoAjout_5->setIcon(icon);
+        logoAjout_5->setIconSize(QSize(60, 60));
+        logoAjout_5->setFlat(true);
+        verticalLayoutWidget = new QWidget(frame_3);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(150, 70, 501, 341));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        liste->addTab(tab_2, QString());
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -480,10 +563,10 @@ public:
         Refrence_3->setText(QApplication::translate("MainWindow", "R\303\251f\303\251rence:", Q_NULLPTR));
         comboBox_3->clear();
         comboBox_3->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "lou\303\251", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "non lou\303\251", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "loue", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "non loue", Q_NULLPTR)
         );
-        comboBox_3->setCurrentText(QApplication::translate("MainWindow", "non lou\303\251", Q_NULLPTR));
+        comboBox_3->setCurrentText(QApplication::translate("MainWindow", "loue", Q_NULLPTR));
         Matricule_2->setText(QApplication::translate("MainWindow", "Matricule:", Q_NULLPTR));
         NomAjout_2->setText(QApplication::translate("MainWindow", "Nom:", Q_NULLPTR));
         nomLE_2->setPlaceholderText(QApplication::translate("MainWindow", "saisir le nom du matriel", Q_NULLPTR));
@@ -491,12 +574,19 @@ public:
         groupBox_3->setTitle(QString());
         Buttonrecherche->setText(QApplication::translate("MainWindow", "\360\237\224\215", Q_NULLPTR));
         PDF->setText(QApplication::translate("MainWindow", "PDF", Q_NULLPTR));
+        logoAjout_3->setText(QString());
+        comboBox_4->clear();
+        comboBox_4->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "loue", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "non loue", Q_NULLPTR)
+        );
+        comboBox_4->setCurrentText(QApplication::translate("MainWindow", "loue", Q_NULLPTR));
+        filtre->setText(QApplication::translate("MainWindow", "Filtrer par", Q_NULLPTR));
         liste->setTabText(liste->indexOf(tab_3), QApplication::translate("MainWindow", "Liste de mat\303\251riel", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Ajouter mat\303\251riel", Q_NULLPTR));
         ButtonAjouter_2->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
         Matricule->setText(QApplication::translate("MainWindow", "Matricule:", Q_NULLPTR));
         NomAjout->setText(QApplication::translate("MainWindow", "Nom:", Q_NULLPTR));
-        logoAjout->setText(QString());
         nomLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le nom du matriel", Q_NULLPTR));
         MatriculeLE->setPlaceholderText(QApplication::translate("MainWindow", "saisir le matricule", Q_NULLPTR));
         EtatAjout_2->setText(QApplication::translate("MainWindow", "Etat location:", Q_NULLPTR));
@@ -506,16 +596,19 @@ public:
         ButtonAjouter_3->setText(QApplication::translate("MainWindow", "Upload IMG", Q_NULLPTR));
         comboBox_2->clear();
         comboBox_2->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "lou\303\251", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "non lou\303\251", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "loue", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "non loue", Q_NULLPTR)
         );
-        comboBox_2->setCurrentText(QApplication::translate("MainWindow", "lou\303\251", Q_NULLPTR));
+        comboBox_2->setCurrentText(QApplication::translate("MainWindow", "loue", Q_NULLPTR));
         ReferenceLE_4->setPlaceholderText(QApplication::translate("MainWindow", "qtt", Q_NULLPTR));
         Refrence_5->setText(QApplication::translate("MainWindow", "Quantite", Q_NULLPTR));
         ReferenceLE->setText(QString());
         ReferenceLE->setPlaceholderText(QApplication::translate("MainWindow", "R\303\251ference de mat\303\251riel", Q_NULLPTR));
         Refrence->setText(QApplication::translate("MainWindow", "R\303\251f\303\251rence:", Q_NULLPTR));
+        logoAjout_4->setText(QString());
         liste->setTabText(liste->indexOf(tab), QApplication::translate("MainWindow", "Mat\303\251riel", Q_NULLPTR));
+        logoAjout_5->setText(QString());
+        liste->setTabText(liste->indexOf(tab_2), QApplication::translate("MainWindow", "Statistiques", Q_NULLPTR));
     } // retranslateUi
 
 };

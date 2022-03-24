@@ -357,16 +357,16 @@ border-radius:10px;</string>
         </rect>
        </property>
        <property name="currentText">
-        <string>non loué</string>
+        <string>loue</string>
        </property>
        <item>
         <property name="text">
-         <string>loué</string>
+         <string>loue</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>non loué</string>
+         <string>non loue</string>
         </property>
        </item>
       </widget>
@@ -484,6 +484,77 @@ border-radius:10px;</string>
         <string>PDF</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="logoAjout_3">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>-40</y>
+         <width>221</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+background:transparent;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../../c_logo.png</normaloff>../../../c_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_4">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>20</y>
+         <width>75</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="currentText">
+        <string>loue</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>loue</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>non loue</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="filtre">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:black;</string>
+       </property>
+       <property name="text">
+        <string>Filtrer par</string>
+       </property>
+      </widget>
       <zorder>groupBox_3</zorder>
       <zorder>ButtonSupprimer</zorder>
       <zorder>ButtonFiltre</zorder>
@@ -506,6 +577,9 @@ border-radius:10px;</string>
       <zorder>Refrence_7</zorder>
       <zorder>Buttonrecherche</zorder>
       <zorder>PDF</zorder>
+      <zorder>logoAjout_3</zorder>
+      <zorder>comboBox_4</zorder>
+      <zorder>filtre</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
@@ -689,38 +763,6 @@ border-bottom:1px solid #333;
         <string>Nom:</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="logoAjout">
-       <property name="geometry">
-        <rect>
-         <x>600</x>
-         <y>70</y>
-         <width>281</width>
-         <height>251</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
-{
-background:transparent;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../../c_logo.png</normaloff>../../c_logo.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>180</width>
-         <height>180</height>
-        </size>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="nomLE">
        <property name="geometry">
         <rect>
@@ -826,16 +868,16 @@ border-radius:15px;</string>
         </rect>
        </property>
        <property name="currentText">
-        <string>loué</string>
+        <string>loue</string>
        </property>
        <item>
         <property name="text">
-         <string>loué</string>
+         <string>loue</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>non loué</string>
+         <string>non loue</string>
         </property>
        </item>
       </widget>
@@ -894,9 +936,137 @@ border-radius:15px;</string>
         <string>Référence:</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="logoAjout_4">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>-50</y>
+         <width>221</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+background:transparent;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../../c_logo.png</normaloff>../../../c_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_2</zorder>
      <zorder>groupBox_2</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Statistiques</string>
+     </attribute>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>831</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:black;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton{
+color:white;
+border-radius:15px;
+}
+QLineEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="logoAjout_5">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>-50</y>
+         <width>221</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+background:transparent;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../../c_logo.png</normaloff>../../../c_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>501</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout"/>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>

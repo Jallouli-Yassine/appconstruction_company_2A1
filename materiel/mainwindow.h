@@ -34,6 +34,8 @@ private slots:
 
     void on_PDF_clicked();
 
+    void on_comboBox_4_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     materiel *m;
