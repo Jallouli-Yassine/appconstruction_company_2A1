@@ -4,13 +4,6 @@
 #include <QString>
 #include <QSqlQueryModel>
 
-#include <QtCharts/QChartView>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QPieSlice>
-#include <QGridLayout>
-#include <QChartView>
-QT_CHARTS_USE_NAMESPACE
-
 class Fournisseur
 {
 private:
@@ -29,14 +22,11 @@ public:
     QSqlQueryModel* chercher(QString nom);
     QSqlQueryModel* trie(QString attribute , QString croissance);
     bool deleteAll();
-    bool reviewF(QString time , QString qualite , QString communication , QString id);
+    bool reviewF(QString time , QString jawda , QString communication , QString id);
     QSqlQueryModel *afficherMaterielleFournisseur(QString id);
     bool ajouterIntFacture(QString matricule , int prix , int quantite);
     QSqlQueryModel* afficherFacture();
-    int statNBfournisseur();
-    QChartView * stat();
-    bool updateFinalReviewFrounisseur(QString id,int review);
-    int reviewTotale(QString id);
+    float statNBfournisseur();
     //bool getOneF(int id);
 
     //GETTERS
