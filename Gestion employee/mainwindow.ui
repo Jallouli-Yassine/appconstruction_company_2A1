@@ -77,7 +77,7 @@ color:red;
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="widget">
      <attribute name="title">
@@ -301,6 +301,9 @@ color: rgb(4, 4, 4);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(8, 8, 8);</string>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_id">
        <property name="geometry">
@@ -331,26 +334,6 @@ color: rgb(4, 4, 4);</string>
         <string>Le salaire :</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>350</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:#001F26;
-</string>
-       </property>
-       <property name="text">
-        <string>Generateur QR code</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="le_salaire">
        <property name="geometry">
         <rect>
@@ -360,12 +343,15 @@ color: rgb(4, 4, 4);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(8, 8, 8);</string>
+       </property>
       </widget>
       <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
-         <x>400</x>
-         <y>350</y>
+         <x>190</x>
+         <y>360</y>
          <width>211</width>
          <height>31</height>
         </rect>
@@ -397,7 +383,7 @@ color: rgb(4, 4, 4);</string>
      <attribute name="title">
       <string>Gestion Des employees</string>
      </attribute>
-     <widget class="QLineEdit" name="edit_prenom_2">
+     <widget class="QLineEdit" name="chercher_id">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -446,7 +432,7 @@ color: rgb(4, 4, 4);</string>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_ajouter_4">
+     <widget class="QPushButton" name="chercher">
       <property name="geometry">
        <rect>
         <x>540</x>
@@ -466,12 +452,44 @@ color: rgb(4, 4, 4);</string>
        <string>rechercher</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QComboBox" name="tri">
       <property name="geometry">
        <rect>
         <x>680</x>
         <y>90</y>
-        <width>121</width>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#001F26;
+</string>
+      </property>
+      <property name="currentText">
+       <string>SALAIRE</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>SALAIRE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NBHTRAVAIL</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="QR">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>440</y>
+        <width>81</width>
         <height>31</height>
        </rect>
       </property>
@@ -483,14 +501,50 @@ color: rgb(4, 4, 4);</string>
 </string>
       </property>
       <property name="text">
-       <string>Trier</string>
+       <string>QR code</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pdf">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>440</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#001F26;
+</string>
+      </property>
+      <property name="text">
+       <string>Carte employee</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_qr">
+      <property name="geometry">
+       <rect>
+        <x>1040</x>
+        <y>210</y>
+        <width>121</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
      <zorder>tabemp</zorder>
-     <zorder>edit_prenom_2</zorder>
+     <zorder>chercher_id</zorder>
      <zorder>pushButton_9</zorder>
-     <zorder>pb_ajouter_4</zorder>
-     <zorder>pushButton_4</zorder>
+     <zorder>chercher</zorder>
+     <zorder>tri</zorder>
+     <zorder>QR</zorder>
+     <zorder>pdf</zorder>
+     <zorder>label_qr</zorder>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">

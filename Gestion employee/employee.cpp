@@ -2,7 +2,11 @@
 #include<QSqlQuery>
 #include<QtDebug>
 #include <QObject>
-#include<QMainWindow>
+#include<QSqlQueryModel>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+
 
 
 employee::employee()
@@ -113,3 +117,53 @@ bool employee::modifier(QString id, QString nom, QString prenom, QString type, i
     query.bindValue(":IDEMPOLYEE",id );
     return query.exec();
 }
+//recherche
+QSqlQueryModel* employee::chercher(QString id){
+   QSqlQueryModel* model = new QSqlQueryModel();
+   QString search = "%"+id+"%";
+    model->setQuery("SELECT * FROM employee WHERE IDEMPOLYEE like '"+search+"'");
+    //model->setHeaderData(0,Qt::Horizontal,QObject::tr("nom"));
+    return model ;
+}
+
+
+
+//tri
+
+QSqlQueryModel* employee::tri(QString attribute ){
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(attribute == "NOM")
+        model->setQuery("SELECT * FROM employee ORDER BY NOM ASC ");
+    else if (attribute == "SALAIRE" )
+        model->setQuery("SELECT * FROM employee ORDER BY SALAIRE ASC ");
+    else if (attribute == "NBHTRAVAIL" )
+        model->setQuery("SELECT * FROM employee ORDER BY NBHTRAVAIL ASC ");
+
+
+    return model;
+}
+bool employee::calculeprime(QString id){
+    QSqlQuery qry,qryy;
+    int salaire,nh,prime;
+    float var=0;
+    qry.prepare("select IDEMPOLYEE,SALAIRE,NBHTRAVAIL from employee where IDEMPOLYEE like '"+id+"'");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            id=qry.value(0).toString();
+            salaire=qry.value(1).toInt();
+            nh=qry.value(2).toInt();
+            var = ((nh/10)*0.5) ;
+            prime = (salaire * var)/100;
+            qDebug() << "id: " << id << " | salaire: " << salaire << " | nb heures: " << nh ;
+            qryy.prepare("update employee set SALAIRE=:pr where IDEMPOLYEE=:IDEMPOLYEE");
+            salaire +=prime;
+            qryy.bindValue(":pr",salaire);
+            qryy.bindValue(":IDEMPOLYEE",id);
+            qryy.exec();
+        }
+
+    }
+            }
+
