@@ -15,6 +15,12 @@
 #include<QMainWindow>
 #include "qtablewidget.h"
 
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QChartView>
+QT_CHARTS_USE_NAMESPACE
 
 
 
@@ -43,7 +49,7 @@ public:
    QSqlQueryModel* chercher(QString );
    QSqlQueryModel* tri(QString);
    bool calculeprime(QString id);
-
+   QChartView * stat();
 
 
    //getters

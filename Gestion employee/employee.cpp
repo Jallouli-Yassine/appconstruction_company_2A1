@@ -142,6 +142,13 @@ QSqlQueryModel* employee::tri(QString attribute ){
 
     return model;
 }
+
+
+
+
+
+//calculer prime pour chaque employee
+
 bool employee::calculeprime(QString id){
     QSqlQuery qry,qryy;
     int salaire,nh,prime;
@@ -166,4 +173,52 @@ bool employee::calculeprime(QString id){
 
     }
             }
+
+
+//statistics
+
+QChartView * employee::stat()
+{
+    int row_count = 0;
+    int row_count1 = 0;
+    int row_count2 = 0;
+
+            QSqlQuery query,query2,query3;
+            query.prepare("SELECT * FROM employee where SALAIRE < 1000 ");
+            query.exec();
+            query2.prepare("SELECT * FROM employee where (SALAIRE >= 1000) AND (SALAIRE < 5000) ");
+            query2.exec();
+            query3.prepare("SELECT * FROM employee where SALAIRE >= 5000");
+            query3.exec();
+
+            while(query3.next())
+                row_count2++;
+
+            while(query2.next())
+                row_count1++;
+
+            while(query.next())
+                row_count++;
+
+
+            qDebug()<<row_count<<row_count1<<row_count2;
+
+    QPieSeries *series = new QPieSeries();
+    series->append("employee ont un salaire superieur a 5000 DT", row_count2);
+    series->append("employee ont un salaire entre 5000 et 1000 DT", row_count1);
+    series->append("employee ont un salaire inferieur a 1000 DT", row_count);
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("statistic Des salaires");
+    chart->setAnimationOptions(QChart::AllAnimations);
+    chart->legend()->setAlignment(Qt::AlignRight);
+    chart->legend()->setBackgroundVisible(true);
+    chart->legend()->setBrush(QBrush(QColor(128, 128, 128, 128)));
+    chart->legend()->setPen(QPen(QColor(248, 246, 0)));
+    series->setLabelsVisible();
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    return chartView;
+}
 

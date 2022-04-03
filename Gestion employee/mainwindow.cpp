@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->le_cin->setValidator(new QIntValidator(100, 999999, this));
     ui->le_salaire->setValidator(new QIntValidator(100, 7000, this));
 
+    ui->verticalLayout->addWidget(E.stat());
+
     ui->tabemp->setModel(E.afficher());
 
     ui->salaire_mod->setValidator(new QIntValidator(100, 7000, this));
@@ -79,6 +81,8 @@ void MainWindow::on_pb_ajouter_clicked()
     if(test)
     {
         ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Ajout effectué\n"
                                                                        "click cancel to exit."),QMessageBox::Cancel);
@@ -105,6 +109,8 @@ void MainWindow::on_supprimer_clicked()
     if(test)
     {
         ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Supprission effectué\n"
                                                                        "click cancel to exit."),QMessageBox::Cancel);
@@ -138,6 +144,8 @@ void MainWindow::on_modifier_clicked()
     if(test)
     {
         ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Modification effectué\n"
                                                                        "click cancel to exit."),QMessageBox::Cancel);
