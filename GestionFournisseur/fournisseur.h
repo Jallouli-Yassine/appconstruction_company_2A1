@@ -29,6 +29,7 @@ public:
     QSqlQueryModel* chercher(QString nom);
     QSqlQueryModel* trie(QString attribute , QString croissance);
     bool deleteAll();
+    int calculReview(QString time , QString qualite , QString communication);
     bool reviewF(QString time , QString qualite , QString communication , QString id);
     QSqlQueryModel *afficherMaterielleFournisseur(QString id);
     bool ajouterIntFacture(QString matricule , int prix , int quantite);

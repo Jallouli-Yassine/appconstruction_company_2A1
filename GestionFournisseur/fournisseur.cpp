@@ -128,7 +128,8 @@ bool Fournisseur::deleteAll(){
      return  query.exec();
 }
 
-int calculReview(QString time , QString qualite , QString communication){
+///calculer review choisix
+int Fournisseur::calculReview(QString time , QString qualite , QString communication){
     int reviewNote = 0;
 
     QStringList timeList;
@@ -169,6 +170,23 @@ int calculReview(QString time , QString qualite , QString communication){
 
 };
 
+
+///ajouter review deja calculer
+bool Fournisseur::reviewF(QString time , QString qualite , QString communication , QString id)
+{
+
+    QSqlQuery query;
+       query.prepare("INSERT INTO REVIEW (IDFOURNISSEUR,REVIEWNUMBER) "
+                     "VALUES (:IDFOURNISSEUR,:REVIEWNUMBER)");
+
+       query.bindValue(":IDFOURNISSEUR", id);
+       query.bindValue(":REVIEWNUMBER", calculReview(time,qualite,communication));
+       //qDebug() << calculReview(time,qualite,communication);
+
+       return  query.exec();
+}
+
+
 int Fournisseur::reviewTotale(QString id){
         int reviewTotale = 0;
         QTableView table_review;
@@ -198,19 +216,6 @@ bool Fournisseur::updateFinalReviewFrounisseur(QString id,int review){
     return queryRev.exec();
 }
 
-bool Fournisseur::reviewF(QString time , QString qualite , QString communication , QString id)
-{
-
-    QSqlQuery query;
-       query.prepare("INSERT INTO REVIEW (IDFOURNISSEUR,REVIEWNUMBER) "
-                     "VALUES (:IDFOURNISSEUR,:REVIEWNUMBER)");
-
-       query.bindValue(":IDFOURNISSEUR", id);
-       query.bindValue(":REVIEWNUMBER", calculReview(time,qualite,communication));
-       //qDebug() << calculReview(time,qualite,communication);
-
-       return  query.exec();
-}
 
 QSqlQueryModel* Fournisseur::afficherMaterielleFournisseur(QString id){
     QSqlQueryModel* model = new QSqlQueryModel();
@@ -402,51 +407,3 @@ QChartView * Fournisseur::stat()
 
     return chartView;
 }
-
-/*
-float Crises::etatEC()
-    {
-    double somme=0;
-    int y1(0);
-    double pourcent ;
-    QSqlQuery query,query1,query2,query3;
-    query.prepare("select count(ID_CR) from Crises");
-    if(query.exec())
-    while(query.next())
-    {
-        somme = query.value(0).toInt();
-    }
-    query1.prepare("select count(ID_CR) from Crises where etat = 'En cours'");
-    if(query1.exec())
-        while(query1.next())
-        {
-            y1 = query1.value(0).toInt();
-        }
-
-        pourcent=(y1 * 100)/somme;
-    return pourcent ;
-}
-
-float Crises::etatNT()
-    {
-    double somme=0;
-    int y1(0);
-    double pourcent ;
-    QSqlQuery query,query1,query2,query3;
-    query.prepare("select count(ID_CR) from Crises");
-    if(query.exec())
-    while(query.next())
-    {
-        somme = query.value(0).toInt();
-    }
-    query1.prepare("select count(ID_CR) from Crises where etat = 'Non traiter'");
-    if(query1.exec())
-        while(query1.next())
-        {
-            y1 = query1.value(0).toInt();
-        }
-
-        pourcent=(y1 * 100)/somme;
-    return pourcent ;
-}
-*/

@@ -15,6 +15,7 @@
 #include <QPainter>
 #include <QTextDocument>
 #include <QPrintDialog>
+#include <QProcess>
 
 
 
@@ -193,15 +194,22 @@ void MainWindow::on_Freview_activated(const QModelIndex &index)
 
 void MainWindow::on_postReview_clicked()
 {
+    QProcess *pro = new QProcess(this);
     QString time = ui->timeBox->currentText();
     QString communication = ui->commBox->currentText();
-    QString jawda = ui->jawdaBox->currentText();
+    QString qualite = ui->jawdaBox->currentText();
     QString id = ui->reviewFID->text();
-    bool test = F.reviewF(time,jawda,communication,id);
-
+    int review = F.calculReview(time,qualite,communication);
+    QString r = QString::number(review);
+    bool test = F.reviewF(time,qualite,communication,id);
+    QString tel = "+21653522793";
     if(test){
+        if(review>3)
+        pro->startDetached("C:\\cygwin64\\bin\\mintty.exe", QStringList() << "/home/jallouli/sms.sh"<<tel<<r);
+        //QProcess::startDetached("C:\\cygwin64\\bin\\mintty.exe", QStringList() << "/home/jallouli/sms.sh"<<tel<<r);
+        //update review totale chaque ajout dun review
         F.reviewTotale(id);
-          F.updateFinalReviewFrounisseur(id,F.reviewTotale(id));
+        F.updateFinalReviewFrounisseur(id,F.reviewTotale(id));
         ui->Ftable->setModel(F.afficher());
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("review added successfuly !\n""Click to Cancel."),
@@ -330,9 +338,7 @@ void MainWindow::on_genererFacture_clicked()
                                      //qDebug()<<prixTotale;
 
                                      prixTotale = 0;
-
 }
-
 
 void MainWindow::on_ajouterIntoFacture_clicked()
 {
