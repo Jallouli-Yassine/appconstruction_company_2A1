@@ -34,10 +34,10 @@ public:
     QSqlQueryModel *afficherMaterielleFournisseur(QString id);
     bool ajouterIntFacture(QString matricule , int prix , int quantite);
     QSqlQueryModel* afficherFacture();
-    int statNBfournisseur();
     QChartView * stat();
     bool updateFinalReviewFrounisseur(QString id,int review);
     int reviewTotale(QString id);
+    void genererFacture(int *prixTotale);
     //bool getOneF(int id);
 
     //GETTERS

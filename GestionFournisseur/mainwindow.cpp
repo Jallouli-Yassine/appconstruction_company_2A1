@@ -55,6 +55,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+///ajouter fournisseur
 void MainWindow::on_ajouterF_clicked()
 {
     QString nom = ui->nom->text();
@@ -86,6 +87,27 @@ void MainWindow::on_ajouterF_clicked()
     }
 }
 
+///donner table fournisseur -> inputs
+void MainWindow::on_Ftable_activated(const QModelIndex &index)
+{
+    QString value=ui->Ftable->model()->data(index).toString();
+            QSqlQuery qry;
+            qry.prepare("select * from FOURNISSEUR where ID='"+value+"'");
+            if(qry.exec())
+            {
+                while(qry.next()){
+                   ui->nomUpdate->setText(qry.value(1).toString());
+                   ui->prenomUpdate->setText(qry.value(2).toString());
+                   ui->emailUpdate->setText(qry.value(5).toString());
+                   ui->telUpdate->setText(qry.value(4).toString());
+                   ui->ageUpdate->setText(qry.value(3).toString());
+                   ui->updateID->setText(qry.value(0).toString());
+                   ui->deleteID->setText(qry.value(0).toString());
+                }
+            }
+}
+
+///supprimer fournisseur
 void MainWindow::on_deleteFbtn_clicked()
 {
     int id = ui->deleteID->text().toInt();
@@ -101,11 +123,13 @@ void MainWindow::on_deleteFbtn_clicked()
                        QObject::tr("suppression non effectué\n" "Click to Cancel."), QMessageBox::Cancel);
 }
 
+///afficher table fournisseur
 void MainWindow::on_LoadData_clicked()
 {
    ui->Ftable->setModel(F.afficher());
 }
 
+///modifer fournisseur
 void MainWindow::on_updateBTN_clicked()
 {
     QString nom = ui->nomUpdate->text();
@@ -127,12 +151,14 @@ void MainWindow::on_updateBTN_clicked()
                  QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }
 
+///chercher fournisseurs
 void MainWindow::on_chercherID_clicked()
 {
     QString name = ui->searchNameInput->text();
     ui->searchTable->setModel(F.chercher(name));
 }
 
+///trie
 void MainWindow::on_triBTN_clicked()
 {
     QString attribute = ui->attributeBox->currentText();
@@ -140,27 +166,7 @@ void MainWindow::on_triBTN_clicked()
     ui->TriTable->setModel(F.trie(attribute,croissance));
 }
 
-void MainWindow::on_Ftable_activated(const QModelIndex &index)
-{
-    QString value=ui->Ftable->model()->data(index).toString();
-            QSqlQuery qry;
-            qry.prepare("select * from FOURNISSEUR where ID='"+value+"'");
-            if(qry.exec())
-            {
-                while(qry.next()){
-                   ui->nomUpdate->setText(qry.value(1).toString());
-                   ui->prenomUpdate->setText(qry.value(2).toString());
-                   ui->emailUpdate->setText(qry.value(5).toString());
-                   ui->telUpdate->setText(qry.value(4).toString());
-                   ui->ageUpdate->setText(qry.value(3).toString());
-                   ui->updateID->setText(qry.value(0).toString());
-                   ui->deleteID->setText(qry.value(0).toString());
-                }
-            }
-}
-
-
-
+///vider la table fournisseur
 void MainWindow::on_deleteAll_clicked()
 {
     bool test = F.deleteAll();
@@ -174,6 +180,7 @@ void MainWindow::on_deleteAll_clicked()
                  QObject::tr("suppression non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }
 
+///id fournisseur from table to input + afficher leur unique materielle dans tabMaterielle
 void MainWindow::on_Freview_activated(const QModelIndex &index)
 {
     QString value=ui->Freview->model()->data(index).toString();
@@ -182,16 +189,15 @@ void MainWindow::on_Freview_activated(const QModelIndex &index)
             if(qry.exec())
             {
                 while(qry.next()){
-                   ui->reviewFID->setText(qry.value(0).toString());
+                   ui->reviewFID->setText(qry.value(0).toString()); //input id
                 }
             }
-
             QString id = ui->reviewFID->text();
             qDebug()<< id;
-            ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(id));
+            ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(id));//afficher materiaux de F choisix
 }
 
-
+///ajouter et modifier le review totale du F choisix
 void MainWindow::on_postReview_clicked()
 {
     QProcess *pro = new QProcess(this);
@@ -206,11 +212,11 @@ void MainWindow::on_postReview_clicked()
     if(test){
         if(review>3)
         pro->startDetached("C:\\cygwin64\\bin\\mintty.exe", QStringList() << "/home/jallouli/sms.sh"<<tel<<r);
-        //QProcess::startDetached("C:\\cygwin64\\bin\\mintty.exe", QStringList() << "/home/jallouli/sms.sh"<<tel<<r);
         //update review totale chaque ajout dun review
         F.reviewTotale(id);
         F.updateFinalReviewFrounisseur(id,F.reviewTotale(id));
         ui->Ftable->setModel(F.afficher());
+        delete pro;
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("review added successfuly !\n""Click to Cancel."),
                                  QMessageBox::Cancel);     }
@@ -218,21 +224,7 @@ void MainWindow::on_postReview_clicked()
                  QObject::tr("review non effectué\n""Click to Cancel."), QMessageBox::Cancel);
 }
 
-/*
-void MainWindow::on_reviewFIDMAteriele_textEdited(const QString &arg1)
-{
-
-}
-
-
-void MainWindow::on_genererM_clicked()
-{
-     QString id = ui->reviewFID->text();
-     qDebug()<< id;
-     ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(id));
-}
-*/
-
+///refference,Prix (M choisix) -> inputs
 void MainWindow::on_Tabmaterielle_activated(const QModelIndex &index)
 {
 
@@ -247,116 +239,27 @@ void MainWindow::on_Tabmaterielle_activated(const QModelIndex &index)
         }
     }
 }
-int prixTotale = 0;
-void MainWindow::on_genererFacture_clicked()
-{
 
-    QTableView table_facture;
-        QSqlQueryModel * Mod=new  QSqlQueryModel();
-        //QString value=ui->reviewFID->text();
-
-             QSqlQuery qry;
-
-             qry.prepare("select * from FACTURE");
-             qry.exec();
-             Mod->setQuery(qry);
-             table_facture.setModel(Mod);
-
-             QString strStream;
-             QTextStream out(&strStream);
-
-            const int rowCount = table_facture.model()->rowCount();
-
-            const int columnCount =  table_facture.model()->columnCount();
-
-             const QString strTitle ="Document";
-             out <<  "<html>\n"
-                                     "<img src='E:/QT_BIGJ/gestion fournisseur/image/logo.png' height='120' width='120'/>"
-                                 "<head>\n"
-                                     "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                                 <<  QString("<title>%1</title>\n").arg(strTitle)
-                                 <<  "</head>\n"
-                                 "<body bgcolor=#ffffff link=#5000A0>\n"
-                                << QString("<h3 style=\" font-size: 50px; font-family: Arial, Helvetica, sans-serif; color: #e80e32; font-weight: lighter; text-align: center;\">%1</h3>\n").arg("Liste des produits")
-                                <<"<br>"
-
-              <<"<table border=1 cellspacing=0 cellpadding=2 width=\"100%\">\n";
-                             out << "<thead><tr bgcolor=#f0f0f0>";
-
-                             for (int column = 0; column < columnCount; column++)
-                                 if (!table_facture.isColumnHidden(column))
-                                     out << QString("<th>%1</th>").arg(table_facture.model()->headerData(column, Qt::Horizontal).toString());
-                             out << "</tr></thead>\n";
-
-                             for (int row = 0; row < rowCount; row++) {
-                                 out << "<tr>";
-                                 for (int column = 0; column < columnCount; column++) {
-                                     if (!table_facture.isColumnHidden(column)) {
-                                         QString data = table_facture.model()->data(table_facture.model()->index(row, column)).toString().simplified();
-                                         out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
-                                     }
-                                 }
-                                 out << "</tr>\n";
-
-                             }
-                             //prix totale :
-
-
-                                     out <<  "</table>\n";
-                                   out <<"<br> <br>";
-                                             out <<"<table border=1 cellspacing=0 cellpadding=2 width=\"100%\">\n";
-                                                            out << "<thead><tr bgcolor=#f0f0f0>";
-                             out << QString("<th>%1</th>").arg("PRIX TOTALE");
-                                             out << "<tr>";
-                            out << QString("<th>%1</th>").arg(prixTotale);
-                                             out << "</tr>";
-                                             out <<  "</table>\n"
-                                 "</body>\n"
-                                 "</html>\n";
-
-                                     // out << QString("PRIX :'"+prixTotale+"'").arg(prixTotale);
-                               // out << "<h1> prix totale : "+prixTotale+" </h1>";
-                                     QTextDocument *document = new QTextDocument();
-                                     document->setHtml(strStream);
-
-                                     QPrinter printer;
-                                     QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
-                                     if (dialog->exec() == QDialog::Accepted) {
-
-                                         document->print(&printer);
-                                     }
-                                     printer.setOutputFormat(QPrinter::PdfFormat);
-                                     printer.setPaperSize(QPrinter::A4);
-                                     printer.setOutputFileName("/tmp/produit.pdf");
-                                     printer.setPageMargins(QMarginsF(15, 15, 15, 15));
-                                     delete document;
-                                     QSqlQuery query;
-                                     query.prepare("TRUNCATE TABLE FACTURE");
-                                     query.exec();
-                                     ui->tabFacture->setModel(F.afficherFacture());
-
-                                     //qDebug()<<prixTotale;
-
-                                     prixTotale = 0;
-}
-
+///ajouter M dans tab Facture
 void MainWindow::on_ajouterIntoFacture_clicked()
 {
-
-
+    qDebug()<< "prix init :"<<prixTotale;
     QString id = ui->reviewFIDMAteriele->text();
     int prix = ui->prix->text().toInt();
     int quantite = ui->quantite->text().toInt();
     prixTotale+=(prix*quantite);
+    qDebug()<< "prix :"<<prixTotale;
     F.ajouterIntFacture(id,prix,quantite);
     ui->tabFacture->setModel(F.afficherFacture());
-    ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(id));
-
-    //qDebug()<< "siuuuuuuuuuuuuuuuuuuu" ;
+    QString idF = ui->reviewFID->text();
+    ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(idF));
 
 }
 
-void MainWindow::on_triBTN_2_clicked()
+///generer une facture pdf
+void MainWindow::on_genererFacture_clicked()
 {
-    F.statNBfournisseur();
+    qDebug()<< "prix finale :"<< prixTotale;
+    F.genererFacture(&prixTotale);
+    ui->tabFacture->setModel(F.afficherFacture());
 }

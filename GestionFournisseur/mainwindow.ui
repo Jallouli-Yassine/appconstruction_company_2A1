@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -997,7 +997,7 @@ border:none;
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
-      <string>facture/review</string>
+      <string>facture/review/sms</string>
      </attribute>
      <widget class="QFrame" name="frame_17">
       <property name="geometry">

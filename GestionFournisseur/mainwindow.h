@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int prixTotale = 0;
 
 private slots:
     void on_ajouterF_clicked();
@@ -72,8 +73,6 @@ private slots:
     void on_genererFacture_clicked();
 
     void on_ajouterIntoFacture_clicked();
-
-    void on_triBTN_2_clicked();
 
 private:
     Ui::MainWindow *ui;
