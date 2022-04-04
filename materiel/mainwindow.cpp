@@ -3,7 +3,7 @@
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QtDebug>
-
+#include <QFileDialog>
 #include<QPropertyAnimation>
 #include<random>
 #include"QPainter"
@@ -206,4 +206,23 @@ void MainWindow::on_comboBox_4_activated(const QString &arg1)
 {
    qDebug() << arg1 ;
     ui->tableView->setModel(m->filtrer(arg1));
+}
+
+void MainWindow::on_BtnIMG_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Choose"),"", tr("Images(*.png*.jpg*.jpeg*.bmp)"));
+    if(QString::compare(filename,QString())!=0)
+    {
+        QImage image;
+        bool valid=image.load(filename);
+        if (valid)
+        {
+
+
+            image = image.scaledToWidth(ui->lb_img->width(), Qt::SmoothTransformation);
+            ui->lb_img->setPixmap(QPixmap::fromImage(image));
+        }
+        else{//error handling
+        }
+    }
 }

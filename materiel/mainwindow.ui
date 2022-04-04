@@ -841,7 +841,7 @@ border-bottom:1px solid #333;
         <string>Ajouter une image:</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="ButtonAjouter_3">
+      <widget class="QPushButton" name="BtnIMG">
        <property name="geometry">
         <rect>
          <x>270</x>
@@ -939,9 +939,9 @@ border-radius:15px;</string>
       <widget class="QPushButton" name="logoAjout_4">
        <property name="geometry">
         <rect>
-         <x>680</x>
+         <x>690</x>
          <y>-50</y>
-         <width>221</width>
+         <width>211</width>
          <height>181</height>
         </rect>
        </property>
@@ -966,6 +966,19 @@ background:transparent;
        </property>
        <property name="flat">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_img">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>260</y>
+         <width>131</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

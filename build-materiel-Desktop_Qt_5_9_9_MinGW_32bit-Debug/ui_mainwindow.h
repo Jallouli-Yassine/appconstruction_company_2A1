@@ -74,13 +74,14 @@ public:
     QLabel *Refrence_2;
     QLineEdit *ReferenceLE_2;
     QLabel *Refrence_4;
-    QPushButton *ButtonAjouter_3;
+    QPushButton *BtnIMG;
     QComboBox *comboBox_2;
     QLineEdit *ReferenceLE_4;
     QLabel *Refrence_5;
     QLineEdit *ReferenceLE;
     QLabel *Refrence;
     QPushButton *logoAjout_4;
+    QLabel *lb_img;
     QWidget *tab_2;
     QFrame *frame_3;
     QPushButton *logoAjout_5;
@@ -440,10 +441,10 @@ public:
         Refrence_4 = new QLabel(frame_2);
         Refrence_4->setObjectName(QStringLiteral("Refrence_4"));
         Refrence_4->setGeometry(QRect(120, 320, 141, 20));
-        ButtonAjouter_3 = new QPushButton(frame_2);
-        ButtonAjouter_3->setObjectName(QStringLiteral("ButtonAjouter_3"));
-        ButtonAjouter_3->setGeometry(QRect(270, 320, 91, 21));
-        ButtonAjouter_3->setStyleSheet(QLatin1String("background-color:#cece00;\n"
+        BtnIMG = new QPushButton(frame_2);
+        BtnIMG->setObjectName(QStringLiteral("BtnIMG"));
+        BtnIMG->setGeometry(QRect(270, 320, 91, 21));
+        BtnIMG->setStyleSheet(QLatin1String("background-color:#cece00;\n"
 "border-radius:15px;"));
         comboBox_2 = new QComboBox(frame_2);
         comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
@@ -462,7 +463,7 @@ public:
         Refrence->setGeometry(QRect(120, 60, 81, 20));
         logoAjout_4 = new QPushButton(frame_2);
         logoAjout_4->setObjectName(QStringLiteral("logoAjout_4"));
-        logoAjout_4->setGeometry(QRect(680, -50, 221, 181));
+        logoAjout_4->setGeometry(QRect(690, -50, 211, 181));
         logoAjout_4->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "background:transparent;\n"
@@ -470,6 +471,9 @@ public:
         logoAjout_4->setIcon(icon);
         logoAjout_4->setIconSize(QSize(60, 60));
         logoAjout_4->setFlat(true);
+        lb_img = new QLabel(frame_2);
+        lb_img->setObjectName(QStringLiteral("lb_img"));
+        lb_img->setGeometry(QRect(410, 260, 131, 131));
         liste->addTab(tab, QString());
         frame_2->raise();
         groupBox_2->raise();
@@ -593,7 +597,7 @@ public:
         Refrence_2->setText(QApplication::translate("MainWindow", "prix(DT/jour):", Q_NULLPTR));
         ReferenceLE_2->setPlaceholderText(QApplication::translate("MainWindow", "saisir le prix en DT", Q_NULLPTR));
         Refrence_4->setText(QApplication::translate("MainWindow", "Ajouter une image:", Q_NULLPTR));
-        ButtonAjouter_3->setText(QApplication::translate("MainWindow", "Upload IMG", Q_NULLPTR));
+        BtnIMG->setText(QApplication::translate("MainWindow", "Upload IMG", Q_NULLPTR));
         comboBox_2->clear();
         comboBox_2->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "loue", Q_NULLPTR)
@@ -606,6 +610,7 @@ public:
         ReferenceLE->setPlaceholderText(QApplication::translate("MainWindow", "R\303\251ference de mat\303\251riel", Q_NULLPTR));
         Refrence->setText(QApplication::translate("MainWindow", "R\303\251f\303\251rence:", Q_NULLPTR));
         logoAjout_4->setText(QString());
+        lb_img->setText(QString());
         liste->setTabText(liste->indexOf(tab), QApplication::translate("MainWindow", "Mat\303\251riel", Q_NULLPTR));
         logoAjout_5->setText(QString());
         liste->setTabText(liste->indexOf(tab_2), QApplication::translate("MainWindow", "Statistiques", Q_NULLPTR));

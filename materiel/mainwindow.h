@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include "materiel.h"
 #include <QMainWindow>
-
+#include <QtDebug>
+#include <QFileDialog>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -35,6 +36,8 @@ private slots:
     void on_PDF_clicked();
 
     void on_comboBox_4_activated(const QString &arg1);
+
+    void on_BtnIMG_clicked();
 
 private:
     Ui::MainWindow *ui;
