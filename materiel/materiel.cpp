@@ -18,12 +18,13 @@ materiel::materiel(QString reference,QString nom,QString matricule,QString idfou
     this->quantite=quantite;
     this->prix=prix;
     this->etat=etat;
+    this->etat=etat;
 }
 
 QSqlQueryModel * materiel::afficher()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select NOM,REFERENCE,QUANTITE,ETAT,PRIX,MATRICULE from MATERIEL");
+    model->setQuery("select NOM,REFERENCE,QUANTITE,ETAT,PRIX,MATRICULE,IMAGE from MATERIEL");
 
     return model;
 }
@@ -115,7 +116,7 @@ QSqlQueryModel * materiel::trie()
      series->append("Non loue", row_count);
      QChart *chart = new QChart();
      chart->addSeries(series);
-     chart->setTitle("les materiel loué et non loué");
+     chart->setTitle("Statistique des matériels loué et non loué");
      chart->legend()->setAlignment(Qt::AlignRight);
      chart->legend()->setBackgroundVisible(true);
      chart->legend()->setBrush(QBrush(QColor(128, 128, 128, 128)));

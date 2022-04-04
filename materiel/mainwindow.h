@@ -39,6 +39,8 @@ private slots:
 
     void on_BtnIMG_clicked();
 
+    void on_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     materiel *m;

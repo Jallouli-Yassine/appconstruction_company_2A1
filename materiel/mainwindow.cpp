@@ -105,6 +105,7 @@ void MainWindow::on_ButtonAjouter_4_clicked()
     int prix=ui->ReferenceLE_5->text().toInt();
     QString etat=ui->comboBox_3->currentText();
 
+
    bool test =  m->modifier(reference,nom,matricule,idfournisseur,quantite,prix,etat);
 
     if(test){
@@ -130,6 +131,7 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
                        ui->ReferenceLE_6->setText(qry.value(7).toString());
                        //ui->comboBox_3->setText(qry.value(3).toString());
                        ui->ReferenceLE_5->setText(qry.value(1).toString());
+                       //ui->lb_img->setText(qry.value(8).toString()); //imageeeeeeeeeeeeeeeeeeeeee
 
                     }
                 }
