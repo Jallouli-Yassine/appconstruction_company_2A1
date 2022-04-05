@@ -244,16 +244,24 @@ void MainWindow::on_Tabmaterielle_activated(const QModelIndex &index)
 void MainWindow::on_ajouterIntoFacture_clicked()
 {
     qDebug()<< "prix init :"<<prixTotale;
+    int quantite=0;
     QString id = ui->reviewFIDMAteriele->text();
     int prix = ui->prix->text().toInt();
-    int quantite = ui->quantite->text().toInt();
-    prixTotale+=(prix*quantite);
-    qDebug()<< "prix :"<<prixTotale;
-    F.ajouterIntFacture(id,prix,quantite);
-    ui->tabFacture->setModel(F.afficherFacture());
-    QString idF = ui->reviewFID->text();
-    ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(idF));
-
+    quantite = ui->quantite->text().toInt();
+    qDebug()<<quantite;
+    if( quantite==0 )
+    {
+        QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                         QObject::tr("remplir tout les champs\n""Click to Cancel."), QMessageBox::Cancel);
+    }else
+    {
+        prixTotale+=(prix*quantite);
+        qDebug()<< "prix :"<<prixTotale;
+        F.ajouterIntFacture(id,prix,quantite);
+        ui->tabFacture->setModel(F.afficherFacture());
+        QString idF = ui->reviewFID->text();
+        ui->Tabmaterielle->setModel(F.afficherMaterielleFournisseur(idF));
+    }
 }
 
 ///generer une facture pdf

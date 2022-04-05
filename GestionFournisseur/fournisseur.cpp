@@ -290,6 +290,7 @@ bool Fournisseur::updateFinalReviewFrounisseur(QString id,int review)
     queryRev.bindValue(":id", id);
     return queryRev.exec();
 }
+
 ///*********************END REVIEW*********************
 
 ///*********************BEGIN FACTURE*********************
@@ -413,7 +414,8 @@ void Fournisseur::genererFacture(int *prixTotale)
     table_facture.setModel(Mod);
 
     QString strStream;
-    QTextStream out(&strStream);
+    QTextStream out(&strStream);//
+    //cout cin
 
     const int rowCount = table_facture.model()->rowCount();
 
@@ -463,7 +465,7 @@ void Fournisseur::genererFacture(int *prixTotale)
         "</html>\n";
 
     QTextDocument *document = new QTextDocument();
-    document->setHtml(strStream);
+    document->setHtml(strStream);//replacer doc bl html lijeh
 
     QPrinter printer;
     QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
