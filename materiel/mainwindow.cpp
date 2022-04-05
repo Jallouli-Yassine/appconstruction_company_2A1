@@ -198,8 +198,8 @@ void MainWindow::on_PDF_clicked()
 
                    if(painter.end())
                    {
-                       QMessageBox::information(nullptr, QObject::tr("FICHE EMPLOYEE"),
-                                                QObject::tr("Fichier employee GenerÃ©.\n"
+                       QMessageBox::information(nullptr, QObject::tr("FICHE materiel"),
+                                                QObject::tr("Fichier materiel Genere.\n"
                                                             "Click Ok to exit."), QMessageBox::Ok);
                    }
 }
