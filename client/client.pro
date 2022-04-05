@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql printsupport
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +28,7 @@ QT+= sql
 SOURCES += \
     client.cpp \
     connexion.cpp \
+    login.cpp \
         main.cpp \
         mainwindow.cpp
 
@@ -34,10 +36,12 @@ SOURCES += \
 HEADERS += \
     client.h \
     connexion.h \
+    login.h \
         mainwindow.h
 
 
 FORMS += \
+        login2.ui \
         mainwindow.ui
 
 # Default rules for deployment.

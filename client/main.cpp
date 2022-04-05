@@ -2,12 +2,16 @@
 #include <QApplication>
 #include <QMessageBox>
 #include "connexion.h"
+#include <QTimer>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
     Connection c;
+
     bool test=c.createconnect();
+     MainWindow w;
     if(test)
     {w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),

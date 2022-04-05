@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "client.h"
+#include "login.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +39,12 @@ private slots:
     void on_cherch_2_returnPressed();
 
     void on_b_ajouter_2_clicked();
+
+    void on_tab_client_4_activated(const QModelIndex &index);
+
+    void on_pushButton_insertbutton_clicked();
+
+    void on_pushButton_pdf_clicked();
 
 private:
     Ui::MainWindow *ui;

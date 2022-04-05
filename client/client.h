@@ -22,6 +22,8 @@ public:
     void setemail(QString);
     void setDDN(QString);
     bool ajoute();
+    bool ajoutrdv(QString,QString);
+    QSqlQueryModel *afficherrdv();
     QSqlQueryModel *afficher();
     QSqlQueryModel *affichenom();
     QSqlQueryModel *afficheprenom();

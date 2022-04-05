@@ -5,6 +5,8 @@
 #include <QSqlQueryModel>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QtCharts/QChartView>
+
 Client::Client()
 {
 }
@@ -143,5 +145,31 @@ return model;
         query.bindValue(":DDN", DDN);
         query.bindValue(":idclient", id);
         return query.exec();
+    }
+
+
+    bool Client::ajoutrdv(QString daterdv,QString id)
+    {
+        QSqlQuery query;
+
+
+
+              query.prepare("INSERT INTO RDV (IDCLIENT, DATERDV) "
+                            "VALUES (:IDCLIENT, :DATERDV)");
+              query.bindValue(":IDCLIENT", id);
+              query.bindValue(":DATERDV", daterdv);
+
+              return query.exec();
+
+    }
+
+
+    QSqlQueryModel *Client::afficherrdv(){
+
+        QSqlQueryModel* model= new QSqlQueryModel() ;
+              model->setQuery("SELECT CLIENT.nom, CLIENT.prenom, CLIENT.IDCLEINT, RDV.DATERDV FROM CLIENT  INNER JOIN RDV ON CLIENT.IDCLIENT=RDV.IDCLIENT  ");
+
+   return model;
+
     }
 

@@ -2,7 +2,23 @@
 #include "ui_mainwindow.h"
 #include "client.h"
 #include <QMessageBox>
-
+#include <QSqlQuery>
+#include<QPropertyAnimation>
+#include<random>
+#include"QPainter"
+#include"QFont"
+#include"QPen"
+#include"QPdfWriter"
+#include"QTextDocumentWriter"
+#include"QDesktopServices"
+#include"QtPrintSupport/QPrinter"
+#include <QPropertyAnimation>
+#include <QPrinter>
+#include <QPrinter>
+#include <QPainter>
+#include <QTextDocument>
+#include <QPrintDialog>
+#include <QProcess>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    ui->tab_client_pdf->setModel(c.afficher());
+    ui->tab_client_r->setModel(c.afficherrdv());
+    ui->tab_client_2->setModel(c.afficher());
     ui->tab_client->setModel(c.afficher());
     ui->tab_client_4->setModel(c.afficher());
 ui->le_id->setValidator(new QIntValidator (1,99999999,this));
@@ -132,4 +151,86 @@ void MainWindow::on_b_ajouter_2_clicked()
     c.modifier(num,id,nom,prenom,email,DDN);
     ui->tab_client_4->setModel(c.afficher());
     }
+}
+
+void MainWindow::on_tab_client_4_activated(const QModelIndex &index)
+{
+    QString value=ui->tab_client_4->model()->data(index).toString();
+                QSqlQuery qry;
+                qry.prepare("select * from CLIENT where IDCLIENT='"+value+"'");
+                if(qry.exec())
+                {
+                    while(qry.next()){
+                       ui->le_nom_2->setText(qry.value(0).toString());
+                       ui->le_prenom_2->setText(qry.value(1).toString());
+                       ui->le_id_2->setText(qry.value(2).toString());
+                       ui->le_num_2->setText(qry.value(3).toString());
+                       ui->le_email_2->setText(qry.value(4).toString());
+
+                    }
+                }
+}
+
+void MainWindow::on_pushButton_insertbutton_clicked()
+{
+
+QString id = ui->le_idr->text();
+QString date = ui->date_rdv->text();
+c.ajoutrdv(date,id);
+
+
+}
+
+void MainWindow::on_pushButton_pdf_clicked()
+{
+    QPrinter printer;
+
+                        printer.setOutputFormat(QPrinter::PdfFormat);
+                        printer.setOutputFileName("D:/2A1/client.pdf");
+
+                       QPainter painter;
+                       painter.begin(&printer);
+                       QFont font("Times", 10, QFont::Bold);
+                       QString nom=ui->tab_client_pdf->model()->data(ui->tab_client_pdf->model()->index(ui->tab_client_pdf->currentIndex().row(),0)).toString();
+                       QString prenom=ui->tab_client_pdf->model()->data(ui->tab_client_pdf->model()->index(ui->tab_client_pdf->currentIndex().row(),1)).toString();
+                       QString numero=ui->tab_client_pdf->model()->data(ui->tab_client_pdf->model()->index(ui->tab_client_pdf->currentIndex().row(),3)).toString();
+                       QString email=ui->tab_client_pdf->model()->data(ui->tab_client_pdf->model()->index(ui->tab_client_pdf->currentIndex().row(),4)).toString();
+                       QString DDN=ui->tab_client_pdf->model()->data(ui->tab_client_pdf->model()->index(ui->tab_client_pdf->currentIndex().row(),5)).toString();
+
+                       font.setPixelSize(35);
+                       painter.setFont(font);
+                       painter.setPen(Qt::red);
+                       painter.drawText(260,100,"NOM:");
+
+                       font.setPixelSize(30);
+                       painter.setFont(font);
+                       painter.setPen(Qt::red);
+                       painter.drawText(100,300,"PRENOM :");
+                       painter.drawText(100,400,"NUMERO :");
+
+                       painter.drawText(100,500,"EMAIL:");
+                       painter.drawText(100,600,"date de naissance:");
+
+
+
+
+                       font.setPixelSize(22);
+                       painter.setFont(font);
+                       painter.setPen(Qt::black);
+                       painter.drawText(500,300,nom);
+                       painter.drawText(500,400,prenom);
+                       painter.drawText(500,500,numero);
+                       painter.drawText(500,600,email);
+                       painter.drawText(500,700,DDN);
+
+
+
+
+
+                       if(painter.end())
+                       {
+                           QMessageBox::information(nullptr, QObject::tr("FICHE CLIENT "),
+                                                    QObject::tr("fiche client GenerÃ©.\n"
+                                                                "Click Ok to exit."), QMessageBox::Ok);
+                       }
 }

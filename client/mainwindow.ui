@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -759,7 +759,7 @@ background:transparent;
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -812,7 +812,7 @@ border-bottom:1px solid #333;
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="pushButton_insertbutton">
          <property name="geometry">
           <rect>
            <x>770</x>
@@ -842,86 +842,20 @@ border-bottom:1px solid #333;
           <bool>false</bool>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="le_idr">
          <property name="geometry">
           <rect>
-           <x>130</x>
-           <y>50</y>
-           <width>151</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Taper le Nom</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_2">
-         <property name="geometry">
-          <rect>
-           <x>130</x>
+           <x>60</x>
            <y>90</y>
-           <width>151</width>
+           <width>161</width>
            <height>22</height>
           </rect>
          </property>
          <property name="text">
-          <string>Taper le prenom</string>
+          <string/>
          </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_3">
-         <property name="geometry">
-          <rect>
-           <x>130</x>
-           <y>140</y>
-           <width>151</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Taper le N°</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_4">
-         <property name="geometry">
-          <rect>
-           <x>130</x>
-           <y>190</y>
-           <width>151</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Taper l'email</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_6">
-         <property name="geometry">
-          <rect>
-           <x>630</x>
-           <y>290</y>
-           <width>131</width>
-           <height>61</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>century gothic</family>
-           <weight>75</weight>
-           <italic>false</italic>
-           <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:#001F26;
-</string>
-         </property>
-         <property name="text">
-          <string>CANCEL</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
+         <property name="placeholderText">
+          <string>taper le id</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pushButton_13">
@@ -951,6 +885,26 @@ background:transparent;
            <width>150</width>
            <height>150</height>
           </size>
+         </property>
+        </widget>
+        <widget class="QTableView" name="tab_client_2">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>40</y>
+           <width>641</width>
+           <height>211</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QDateTimeEdit" name="date_rdv">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>170</y>
+           <width>194</width>
+           <height>22</height>
+          </rect>
          </property>
         </widget>
        </widget>
@@ -1009,8 +963,8 @@ border-bottom:1px solid #333;
         <widget class="QPushButton" name="pushButton_2">
          <property name="geometry">
           <rect>
-           <x>270</x>
-           <y>240</y>
+           <x>280</x>
+           <y>300</y>
            <width>131</width>
            <height>61</height>
           </rect>
@@ -1036,41 +990,11 @@ border-bottom:1px solid #333;
           <bool>false</bool>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_11">
-         <property name="geometry">
-          <rect>
-           <x>760</x>
-           <y>30</y>
-           <width>141</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>century gothic</family>
-           <weight>75</weight>
-           <italic>false</italic>
-           <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:#001F26;
-</string>
-         </property>
-         <property name="text">
-          <string>Tri par nom</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-        </widget>
         <widget class="QLineEdit" name="lineEdit_15">
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>230</y>
+           <y>330</y>
            <width>151</width>
            <height>22</height>
           </rect>
@@ -1079,41 +1003,11 @@ border-bottom:1px solid #333;
           <string>Recherche</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_14">
-         <property name="geometry">
-          <rect>
-           <x>760</x>
-           <y>80</y>
-           <width>141</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>century gothic</family>
-           <weight>75</weight>
-           <italic>false</italic>
-           <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:#001F26;
-</string>
-         </property>
-         <property name="text">
-          <string>Tri par Penom</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-        </widget>
         <widget class="QPushButton" name="pushButton_12">
          <property name="geometry">
           <rect>
-           <x>510</x>
-           <y>30</y>
+           <x>650</x>
+           <y>180</y>
            <width>181</width>
            <height>181</height>
           </rect>
@@ -1136,6 +1030,16 @@ background:transparent;
            <width>150</width>
            <height>150</height>
           </size>
+         </property>
+        </widget>
+        <widget class="QTableView" name="tab_client_r">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>40</y>
+           <width>641</width>
+           <height>211</height>
+          </rect>
          </property>
         </widget>
        </widget>
@@ -1223,33 +1127,7 @@ border-bottom:1px solid #333;
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_5">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>40</y>
-         <width>151</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Recherche par Nom</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_6">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>70</y>
-         <width>171</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Recherche par Prenom</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="pushButton_pdf">
        <property name="geometry">
         <rect>
          <x>620</x>
@@ -1306,6 +1184,16 @@ background:transparent;
          <width>150</width>
          <height>150</height>
         </size>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tab_client_pdf">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>30</y>
+         <width>661</width>
+         <height>211</height>
+        </rect>
        </property>
       </widget>
      </widget>
