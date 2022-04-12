@@ -87,6 +87,13 @@ public:
     QPushButton *logoAjout_5;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
+    QWidget *tab_7;
+    QFrame *frame_7;
+    QPushButton *logoAjout_9;
+    QPushButton *on;
+    QPushButton *off;
+    QPushButton *plus;
+    QPushButton *PDF_6;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -531,6 +538,70 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         liste->addTab(tab_2, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName(QStringLiteral("tab_7"));
+        frame_7 = new QFrame(tab_7);
+        frame_7->setObjectName(QStringLiteral("frame_7"));
+        frame_7->setGeometry(QRect(0, 0, 831, 491));
+        frame_7->setStyleSheet(QLatin1String("QFrame{\n"
+"background:white;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:black;\n"
+"font-size:16px;\n"
+"}\n"
+"QPushButton\n"
+"{\n"
+"background:red;\n"
+"border-radius:16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"transform: scale(5); \n"
+"width : 250px;\n"
+"color:red;\n"
+"}\n"
+"QPushButton{\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"}\n"
+"QLineEdit\n"
+"{\n"
+"background:transparent;\n"
+"border:none;\n"
+"color:#a0a0a0;\n"
+"font-size:16px;\n"
+"border-bottom:1px solid #333;\n"
+"}"));
+        frame_7->setFrameShape(QFrame::StyledPanel);
+        frame_7->setFrameShadow(QFrame::Raised);
+        logoAjout_9 = new QPushButton(frame_7);
+        logoAjout_9->setObjectName(QStringLiteral("logoAjout_9"));
+        logoAjout_9->setGeometry(QRect(680, -50, 221, 181));
+        logoAjout_9->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"background:transparent;\n"
+"}"));
+        logoAjout_9->setIcon(icon);
+        logoAjout_9->setIconSize(QSize(60, 60));
+        logoAjout_9->setFlat(true);
+        on = new QPushButton(frame_7);
+        on->setObjectName(QStringLiteral("on"));
+        on->setGeometry(QRect(290, 180, 101, 31));
+        on->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        off = new QPushButton(frame_7);
+        off->setObjectName(QStringLiteral("off"));
+        off->setGeometry(QRect(280, 240, 101, 31));
+        off->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        plus = new QPushButton(frame_7);
+        plus->setObjectName(QStringLiteral("plus"));
+        plus->setGeometry(QRect(440, 230, 101, 31));
+        plus->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        PDF_6 = new QPushButton(frame_7);
+        PDF_6->setObjectName(QStringLiteral("PDF_6"));
+        PDF_6->setGeometry(QRect(440, 180, 101, 31));
+        PDF_6->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        liste->addTab(tab_7, QString());
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -542,7 +613,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        liste->setCurrentIndex(0);
+        liste->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -614,6 +685,12 @@ public:
         liste->setTabText(liste->indexOf(tab), QApplication::translate("MainWindow", "Mat\303\251riel", Q_NULLPTR));
         logoAjout_5->setText(QString());
         liste->setTabText(liste->indexOf(tab_2), QApplication::translate("MainWindow", "Statistiques", Q_NULLPTR));
+        logoAjout_9->setText(QString());
+        on->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
+        off->setText(QApplication::translate("MainWindow", "OFF", Q_NULLPTR));
+        plus->setText(QApplication::translate("MainWindow", "PLUS", Q_NULLPTR));
+        PDF_6->setText(QApplication::translate("MainWindow", "MOINS", Q_NULLPTR));
+        liste->setTabText(liste->indexOf(tab_7), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
     } // retranslateUi
 
 };

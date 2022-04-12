@@ -59,7 +59,7 @@ border-bottom:1px solid #fefff4;
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>true</bool>
@@ -1078,6 +1078,155 @@ background:transparent;
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout"/>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_7">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
+     <widget class="QFrame" name="frame_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>831</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background:white;
+
+}
+QLabel{
+color:black;
+font-size:16px;
+}
+QPushButton
+{
+background:red;
+border-radius:16px;
+}
+QPushButton:hover {
+transform: scale(5); 
+width : 250px;
+color:red;
+}
+QPushButton{
+color:white;
+border-radius:15px;
+}
+QLineEdit
+{
+background:transparent;
+border:none;
+color:#a0a0a0;
+font-size:16px;
+border-bottom:1px solid #333;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="logoAjout_9">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>-50</y>
+         <width>221</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+background:transparent;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../../c_logo.png</normaloff>../../../c_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="on">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>170</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#001F26;</string>
+       </property>
+       <property name="text">
+        <string>ON</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="off">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>210</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#001F26;</string>
+       </property>
+       <property name="text">
+        <string>OFF</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="plus">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>250</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#001F26;</string>
+       </property>
+       <property name="text">
+        <string>PLUS</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="PDF_6">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>290</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#001F26;</string>
+       </property>
+       <property name="text">
+        <string>MOINS</string>
+       </property>
       </widget>
      </widget>
     </widget>

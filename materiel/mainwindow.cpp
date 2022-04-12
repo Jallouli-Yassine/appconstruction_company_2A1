@@ -20,6 +20,7 @@
 #include <QtCharts/QPieSlice>
 #include <QGridLayout>
 #include <QChartView>
+#include "arduino.h"
 QT_CHARTS_USE_NAMESPACE
 
 
@@ -33,6 +34,25 @@ MainWindow::MainWindow(QWidget *parent)
     ui->nomLE->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
     ui->ReferenceLE_4->setValidator(new QIntValidator (0,999,this));
     ui->ReferenceLE_2->setValidator(new QIntValidator (0,9999,this));
+    int ret=A.connect_arduino();
+
+            switch (ret) {
+            case 0 :
+                qDebug()<<"Arduino is available and connected to : "<<A.getarduino_port_name();
+                break;
+
+            case 1 :
+                qDebug()<<"Arduino is available but not connected to : "<<A.getarduino_port_name();
+                break;
+            case -1 :
+                qDebug()<<"Arduino is not available ";
+                break;
+            }
+
+            data=A.read_from_arduino();
+            qDebug()<<data;
+            A.write_to_arduino("a");
+            qDebug()<<data;
 
 
 
@@ -131,7 +151,7 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
                        ui->ReferenceLE_6->setText(qry.value(7).toString());
                        //ui->comboBox_3->setText(qry.value(3).toString());
                        ui->ReferenceLE_5->setText(qry.value(1).toString());
-                       //ui->lb_img->setText(qry.value(8).toString()); //imageeeeeeeeeeeeeeeeeeeeee
+                       //ui->lb_img->setText(qry.value(8).toString()); //image
 
                     }
                 }
@@ -227,4 +247,30 @@ void MainWindow::on_BtnIMG_clicked()
         else{//error handling
         }
     }
+}
+
+void MainWindow::on_on_clicked()
+{
+    A.write_to_arduino("1");
+        qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_off_clicked()
+{
+    A.write_to_arduino("0");
+        qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_plus_clicked()
+{
+    A.write_to_arduino("2");
+        qDebug()<<A.read_from_arduino();
+}
+
+
+
+void MainWindow::on_PDF_6_clicked() //moins
+{
+    A.write_to_arduino("3");
+        qDebug()<<A.read_from_arduino();
 }
