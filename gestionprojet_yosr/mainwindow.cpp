@@ -36,7 +36,25 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_p->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_id->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_a->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]*")  ));
+    int ret=A.connect_arduino();
 
+        switch (ret) {
+        case 0 :
+            qDebug()<<"Arduino is available and connected to : "<<A.getarduino_port_name();
+            break;
+
+        case 1 :
+            qDebug()<<"Arduino is available but not connected to : "<<A.getarduino_port_name();
+            break;
+        case -1 :
+            qDebug()<<"Arduino is not available ";
+            break;
+        }
+
+        data=A.read_from_arduino();
+        qDebug()<<data;
+        A.write_to_arduino("a");
+        qDebug()<<data;
 
 
 
@@ -59,7 +77,13 @@ void MainWindow::on_pushButton_5_clicked()
 
     if(test)
     {
+        delete ptmp->stat();
+        ui->verticalLayout_8->addWidget(ptmp->stat());
         ui->tableView->setModel(ptmp->afficher());
+        ui->tableView_3->setModel(ptmp->afficher_C1());
+        ui->tableView_4->setModel(ptmp->afficher_C2());
+        ui->tableView_5->setModel(ptmp->afficher_C3());
+        ui->tableView_2->setModel(ptmp->afficher_archive());
         QMessageBox::information(nullptr,QObject::tr("OK"),
                                  QObject::tr("Suppression effectué\n"
                                              "Click Cancel to Exit."),QMessageBox::Cancel);
@@ -102,7 +126,13 @@ void MainWindow::on_pushButton_2_clicked()
     Projet p(localisation,idarchitecte,reference,prix_totale,date_start);
     bool test=p.ajouter();
     if(test)     {
-         ui->tableView->setModel(ptmp->afficher());
+        delete ptmp->stat();
+        ui->verticalLayout_8->addWidget(ptmp->stat());
+        ui->tableView->setModel(ptmp->afficher());
+        ui->tableView_3->setModel(ptmp->afficher_C1());
+        ui->tableView_4->setModel(ptmp->afficher_C2());
+        ui->tableView_5->setModel(ptmp->afficher_C3());
+        ui->tableView_2->setModel(ptmp->afficher_archive());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                                  QObject::tr("Ajout effectué\n"
                                              "Click to Cancel."), QMessageBox::Cancel);
@@ -143,7 +173,12 @@ void MainWindow::on_pushButton_archive_clicked()
    ui->tableView->setModel(ptmp->afficher());
    ui->tableView_2->setModel(ptmp->afficher_archive());
     if(test){
+
+        ui->verticalLayout_8->addWidget(ptmp->stat());
         ui->tableView->setModel(ptmp->afficher());
+        ui->tableView_3->setModel(ptmp->afficher_C1());
+        ui->tableView_4->setModel(ptmp->afficher_C2());
+        ui->tableView_5->setModel(ptmp->afficher_C3());
         ui->tableView_2->setModel(ptmp->afficher_archive());
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("Projet Archiver\n""Click to Cancel."),
@@ -163,7 +198,11 @@ void MainWindow::on_pushremove_clicked()
    ui->tableView->setModel(ptmp->afficher());
    ui->tableView_2->setModel(ptmp->afficher_archive());
     if(test){
+        ui->verticalLayout_8->addWidget(ptmp->stat());
         ui->tableView->setModel(ptmp->afficher());
+        ui->tableView_3->setModel(ptmp->afficher_C1());
+        ui->tableView_4->setModel(ptmp->afficher_C2());
+        ui->tableView_5->setModel(ptmp->afficher_C3());
         ui->tableView_2->setModel(ptmp->afficher_archive());
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("Projet Archiver\n""Click to Cancel."),
@@ -259,6 +298,29 @@ void MainWindow::on_pushPDF_clicked()
 void MainWindow::on_Chart_clicked()
 {
 
-
 }
 
+
+void MainWindow::on_pushButton_on_clicked()
+{
+    A.write_to_arduino("1");
+    qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_pushButton_off_clicked()
+{
+    A.write_to_arduino("0");
+    qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_pushButton_plus_clicked()
+{
+    A.write_to_arduino("2");
+    qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_pushButton_minus_clicked()
+{
+    A.write_to_arduino("3");
+    qDebug()<<A.read_from_arduino();
+}

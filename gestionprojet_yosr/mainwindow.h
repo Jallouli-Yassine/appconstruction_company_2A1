@@ -4,6 +4,7 @@
 #include <QtGui>
 #include <QMainWindow>
 #include "projet.h"
+#include "arduino.h"
 #include <QGraphicsScene>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
@@ -67,9 +68,18 @@ private slots:
     void on_Chart_clicked();
 
 
+    void on_pushButton_on_clicked();
+
+    void on_pushButton_off_clicked();
+
+    void on_pushButton_plus_clicked();
+
+    void on_pushButton_minus_clicked();
+
 private:
     Ui::MainWindow *ui;
-
+    QByteArray data;
+    arduino A;
 
 
     Projet *ptmp;

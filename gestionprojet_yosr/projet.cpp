@@ -198,33 +198,29 @@ QChartView * Projet::stat()
 {
     int row_count = 0;
     int row_count1 = 0;
-
             QSqlQuery query,query2;
             query.prepare("SELECT * FROM PROJET where etat=0");
             query.exec();
             query2.prepare("SELECT * FROM PROJET where etat=1");
             query2.exec();
-
             while(query2.next())
                 row_count1++;
-
             while(query.next())
                 row_count++;
-
             qDebug()<<row_count<<row_count1;
-
     QPieSeries *series = new QPieSeries();
     series->append("Archived Projects", row_count1);
     series->append("Non Archived Projects", row_count);
     QChart *chart = new QChart();
     chart->addSeries(series);
+    chart->setTheme(QChart::ChartThemeBrownSand);
+    chart->setAnimationOptions(QChart::AllAnimations);
     chart->setTitle("Projects Archived and non Achived stats");
     chart->legend()->setAlignment(Qt::AlignRight);
     chart->legend()->setBackgroundVisible(true);
     chart->legend()->setBrush(QBrush(QColor(128, 128, 128, 128)));
     chart->legend()->setPen(QPen(QColor(192, 192, 192, 192)));
     series->setLabelsVisible();
-
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
     return chartView;
