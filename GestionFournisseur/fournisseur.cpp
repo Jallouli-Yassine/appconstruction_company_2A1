@@ -530,7 +530,6 @@ QChartView * Fournisseur::stat()
     while(query5.next())
         FiveStar++;
 
-
     //qDebug()<<row_count<<row_count1;
 
     QPieSeries *series = new QPieSeries();

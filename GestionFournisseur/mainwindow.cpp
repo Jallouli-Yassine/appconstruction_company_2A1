@@ -25,9 +25,29 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+///***********BEGIN ARDUINO***********
+    int ret=A.connect_arduino();
+
+        switch (ret) {
+        case 0 :
+            qDebug()<<"Arduino is available and connected to : "<<A.getarduino_port_name();
+            break;
+
+        case 1 :
+            qDebug()<<"Arduino is available but not connected to : "<<A.getarduino_port_name();
+            break;
+        case -1 :
+            qDebug()<<"Arduino is not available ";
+            break;
+        }
+
+        //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(updateLabel()));
+        //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
+///***********END ARDUINO***********
+
     ui->verticalLayout->addWidget(F.stat());
-
-
     ui->tel->setValidator(new QIntValidator (0,99999999,this));
     ui->age->setValidator(new QIntValidator (0,100,this));
     ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
@@ -271,3 +291,94 @@ void MainWindow::on_genererFacture_clicked()
     F.genererFacture(&prixTotale);
     ui->tabFacture->setModel(F.afficherFacture());
 }
+
+/*
+void MainWindow::on_OnLedRed_clicked()
+{
+    A.write_to_arduino("1");
+}
+
+void MainWindow::on_OffLedRed_clicked()
+{
+
+    A.write_to_arduino("0");
+}
+
+void MainWindow::on_incrLedGreen_clicked()
+{
+    A.write_to_arduino("+");
+}
+
+void MainWindow::on_dcrLedGreen_clicked()
+{
+    A.write_to_arduino("-");
+       qDebug()<<data;
+}
+
+void MainWindow::update_label()
+{
+    data = A.read_from_arduino();
+    if(data == "1")
+        ui->etatLampe2->setText("on");
+    else if(data == "0")
+        ui->etatLampe2->setText("of");
+    qDebug()<<"data : "<<data;
+}
+*/
+void MainWindow::concatRfid()
+{
+    bool found =false;
+        QString nom="",RFID,msg;
+        float salaire;
+        data =A.read_from_arduino();
+        qDebug() <<"a=" << data;
+        if (data!="#")
+            uid+=data;
+        else {
+            int pos = uid.lastIndexOf(QChar('/'));
+            qDebug() << "uid="<< uid.left(pos);
+            qDebug()  << uid;
+            QTableView tableEmploye;
+            QSqlQueryModel * Mod=new  QSqlQueryModel();
+            QSqlQuery qry;
+            qry.prepare("select * from EMPLOYEE");
+            qry.exec();
+            Mod->setQuery(qry);
+            tableEmploye.setModel(Mod);
+            const int ligne = tableEmploye.model()->rowCount();
+            for (int var = 0; var < ligne; var++) {
+                if(tableEmploye.model()->data(tableEmploye.model()->index(var, 8))==uid)
+                {
+                   nom= tableEmploye.model()->data(tableEmploye.model()->index(var, 2)).toString();
+                   salaire= tableEmploye.model()->data(tableEmploye.model()->index(var, 4)).toFloat();
+                   RFID = tableEmploye.model()->data(tableEmploye.model()->index(var, 8)).toString();
+                   found=true;
+                   var=ligne;
+                }
+            }
+            msg= tr("Bonjour,")+nom+"ton salaire = "+salaire;
+            const char * p= msg.toStdString().c_str();
+            //qDebug()<<(*p);
+           // A.writeStringToArduino(p);
+
+                if(found){
+                    addHours(RFID);
+                    qDebug()<<"bonjour "<<nom;
+                     A.write_to_arduino("1");
+                }else{
+                    qDebug()<<"error";
+                    A.write_to_arduino("0");
+                }
+            uid="";
+            found = false;
+            //qDebug() << uid;
+ }
+}
+void MainWindow::addHours(QString RFID)
+{
+    QSqlQuery qry;
+    qry.prepare("UPDATE EMPLOYEE SET NBHTRAVAIL = NBHTRAVAIL + 5 WHERE RFID = :RFID");
+    qry.bindValue(":RFID", RFID);
+    qry.exec();
+}
+

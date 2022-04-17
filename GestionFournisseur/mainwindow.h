@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "fournisseur.h"
+#include "arduino.h"
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QAbstractItemView>
@@ -14,6 +15,7 @@
 #include <QCalendarWidget>
 #include <QTableWidget>
 #include <QTableView>
+#include <QTimer>
 
 
 QT_BEGIN_NAMESPACE
@@ -60,22 +62,30 @@ private slots:
 
     void on_postReview_clicked();
 
-    void on_pdf_clicked();
-
-    void on_genereM_clicked();
-
-    void on_reviewFIDMAteriele_textEdited(const QString &arg1);
-
-    void on_genererM_clicked();
-
     void on_Tabmaterielle_activated(const QModelIndex &index);
 
     void on_genererFacture_clicked();
 
     void on_ajouterIntoFacture_clicked();
+/*
+    void on_OnLedRed_clicked();
+
+    void on_OffLedRed_clicked();
+
+    void on_incrLedGreen_clicked();
+
+    void on_dcrLedGreen_clicked();
+*/
+    void update_label();
+    void concatRfid();
+    void addHours(QString RFID);
 
 private:
     Ui::MainWindow *ui;
     Fournisseur F;
+    QByteArray data;
+    arduino A;
+    QString uid;
+    QTimer timer;
 };
 #endif // MAINWINDOW_H
