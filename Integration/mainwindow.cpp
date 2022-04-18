@@ -1,32 +1,48 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "fournisseur.h"
-#include <QMessageBox>
-#include <QIntValidator>
-#include<QDebug>
-#include <QSqlQueryModel>
-#include <qtablewidget.h>
-#include <QObject>
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QSqlQuery>
-#include "connection.h"
+#include "employee.h"
+#include<QIntValidator>
+#include<QMessageBox>
+#include<QSqlQueryModel>
+#include "qtablewidget.h"
+#include<QObject>
+#include<fstream>
+#include<vector>
+#include<QFileDialog>
+#include<QPixmap>
+#include<QPainter>
+#include<QtSvg/QSvgRenderer>
+
+#include<QPropertyAnimation>
+#include<random>
+#include"QPainter"
+#include"QFont"
+#include"QPen"
+#include"QPdfWriter"
+#include"QTextDocumentWriter"
+#include"QDesktopServices"
+#include"QtPrintSupport/QPrinter"
+#include <QPropertyAnimation>
 #include <QPrinter>
-#include <QPainter>
-#include <QTextDocument>
-#include <QPrintDialog>
-#include <QProcess>
+#include<QSerialPort>
+#include<QSerialPortInfo>
+
+
+
+
+
 
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    //constructeur de linterface main window :
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
 
-///***********BEGIN ARDUINO***********
+    //**************************************************arduino*********************
+
     int ret=A.connect_arduino();
 
         switch (ret) {
@@ -45,37 +61,285 @@ MainWindow::MainWindow(QWidget *parent)
         //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(updateLabel()));
         //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
-///***********END ARDUINO***********
 
-    ui->verticalLayout->addWidget(F.stat());
-    ui->tel->setValidator(new QIntValidator (0,99999999,this));
-    ui->age->setValidator(new QIntValidator (0,100,this));
-    ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-    ui->prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-    ui->email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
 
-    ui->telUpdate->setValidator(new QIntValidator (0,99999999,this));
-    ui->ageUpdate->setValidator(new QIntValidator (0,100,this));
-    ui->nomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-    ui->prenomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-    ui->emailUpdate ->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
-    ui->updateID->setValidator(new QIntValidator (0,99999,this));
-    ui->deleteID->setValidator(new QIntValidator (0,99999,this));
-    ui->searchNameInput->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
 
-    ui->Ftable->setModel(F.afficher());
-    ui->Freview->setModel(F.afficher());
-    ui->tabFacture->setModel(F.afficherFacture());
-    //ui->Freview->setModel();
+
+
+
+
+
+
+
+//**************************************************************************************
+
+
+//*************ja3louli************************
+        ui->verticalLayout->addWidget(F.stat());
+        ui->tel->setValidator(new QIntValidator (0,99999999,this));
+        ui->age->setValidator(new QIntValidator (0,100,this));
+        ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+        ui->prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+        ui->email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
+
+        ui->telUpdate->setValidator(new QIntValidator (0,99999999,this));
+        ui->ageUpdate->setValidator(new QIntValidator (0,100,this));
+        ui->nomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+        ui->prenomUpdate->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+        ui->emailUpdate ->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")));
+        ui->updateID->setValidator(new QIntValidator (0,99999,this));
+        ui->deleteID->setValidator(new QIntValidator (0,99999,this));
+        ui->searchNameInput->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
+
+        ui->Ftable->setModel(F.afficher());
+        ui->Freview->setModel(F.afficher());
+        ui->tabFacture->setModel(F.afficherFacture());
+        //ui->Freview->setModel();
+
+//*************************
+
+
+    ui->le_cin->setValidator(new QIntValidator(100, 999999, this));
+    ui->le_salaire->setValidator(new QIntValidator(100, 7000, this));
+
+    ui->verticalLayout->addWidget(E.stat());
+
+    ui->tabemp->setModel(E.afficher());
+
+    ui->salaire_mod->setValidator(new QIntValidator(100, 7000, this));
+    ui->cin_mod->setValidator(new QIntValidator(100, 999999, this));
+    ui->role_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->name_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->prenom_mod->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_role->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->le_prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+
+
+
 }
-
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-///ajouter fournisseur
+
+
+void MainWindow::on_pb_ajouter_clicked()
+{
+    QString id=ui->le_id->text();
+    int cin=ui->le_cin->text().toUInt();
+    int nbh=0;
+
+    QString nom=ui->le_nom->text();
+    QString prenom=ui->le_prenom->text();
+    QString type=ui->le_role->text();
+
+    float salaire=ui->le_salaire->text().toFloat();
+    employee E(nom,prenom,type,id,nbh,cin,salaire);
+
+    bool test=E.ajouter();
+    if(test)
+    {
+        ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Ajout effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("OK"),QObject::tr("Ajout non effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+    }
+
+
+
+
+
+
+
+}
+
+void MainWindow::on_supprimer_clicked()
+{
+    QString id =ui->supp_id->text();
+    bool test=E.supprimer(id);
+    if(test)
+    {
+        ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Supprission effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("OK"),QObject::tr("Suppression non effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+    }
+
+
+
+}
+
+
+
+void MainWindow::on_modifier_clicked()
+{
+
+    QString id=ui->id_mod->text();
+    int cin=ui->cin_mod->text().toUInt();
+
+    QString nom=ui->name_mod->text();
+    QString prenom=ui->prenom_mod->text();
+    QString type=ui->role_mod->text();
+
+    float salaire=ui->salaire_mod->text().toFloat();
+
+    bool test=E.modifier(id,nom,prenom,type,cin,salaire);
+    if(test)
+    {
+        ui->tabemp->setModel(E.afficher());
+        ui->verticalLayout->addWidget(E.stat());
+
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Modification effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("OK"),QObject::tr("Modification non effectué\n"
+                                                                       "click cancel to exit."),QMessageBox::Cancel);
+    }
+
+
+
+
+
+}
+
+void MainWindow::on_chercher_clicked()
+{
+    ui->tabemp->setModel(E.chercher(ui->chercher_id->text()));
+
+}
+
+
+
+void MainWindow::on_tri_activated(const QString &arg1)
+{
+    QString attribute = ui->tri->currentText();
+    ui->tabemp->setModel(E.tri(attribute));
+
+}
+
+
+
+
+
+void MainWindow::on_QR_clicked()
+{
+    if(ui->tabemp->currentIndex().row()==-1)
+                    QMessageBox::information(nullptr, QObject::tr("QrCode"),
+                                             QObject::tr("Veuillez Choisir un client du Tableau.\n"
+                                                         "Click Ok to exit."), QMessageBox::Ok);
+                else
+                {
+
+    QString id=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),0)).toString();
+
+    using namespace qrcodegen;
+      // Create the QR Code object
+      QrCode qr = QrCode::encodeText( id.toUtf8().data(), QrCode::Ecc::MEDIUM );
+      qint32 sz = qr.getSize();
+      QImage im(sz,sz, QImage::Format_RGB32);
+        QRgb black = qRgb( 241, 196, 15);
+        QRgb white = qRgb(255,255,255);
+      for (int y = 0; y < sz; y++)
+        for (int x = 0; x < sz; x++)
+          im.setPixel(x,y,qr.getModule(x, y) ? black : white );
+      ui->label_qr->setPixmap( QPixmap::fromImage(im.scaled(60,60,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
+            }
+
+}
+
+void MainWindow::on_pdf_clicked()
+{
+    QPrinter printer;
+
+                printer.setOutputFormat(QPrinter::PdfFormat);
+                printer.setOutputFileName("../PDFs/employee.pdf");
+
+               QPainter painter;
+
+               painter.begin(&printer);
+               QFont font("Times", 10, QFont::Bold);
+               QString id=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),0)).toString();
+               QString nom=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),2)).toString();
+               QString prenom=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),3)).toString();
+               QString cin=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),1)).toString();
+               QString role=ui->tabemp->model()->data(ui->tabemp->model()->index(ui->tabemp->currentIndex().row(),5)).toString();
+
+
+               font.setPixelSize(35);
+               painter.setFont(font);
+               painter.setPen(Qt::yellow);
+               painter.drawText(260,100,"Fiche employee");
+
+               font.setPixelSize(30);
+               painter.setFont(font);
+               painter.setPen(Qt::yellow);
+               painter.drawText(100,300,"ID :");
+
+               painter.drawText(100,400,"NOM :");
+
+               painter.drawText(100,500,"PRENOM:");
+               painter.drawText(100,600,"CIN:");
+               painter.drawText(100,700,"ROLE:");
+
+
+
+               font.setPixelSize(22);
+               painter.setFont(font);
+               painter.setPen(Qt::black);
+               painter.drawText(500,300,id);
+               painter.drawText(500,400,nom);
+               painter.drawText(500,500,prenom);
+               painter.drawText(500,600,cin);
+               painter.drawText(500,700,role);
+
+
+
+               if(painter.end())
+               {
+                   QMessageBox::information(nullptr, QObject::tr("FICHE EMPLOYEE"),
+                                            QObject::tr("Fichier employee Generé.\n"
+                                                        "Click Ok to exit."), QMessageBox::Ok);
+               }
+
+}
+
+void MainWindow::on_tabemp_activated(const QModelIndex &index)
+{
+    QString id=ui->tabemp->model()->data(index).toString();
+    E.calculeprime(id);
+    ui->tabemp->setModel(E.afficher());
+
+}
+
+
+//*********************************************jallouli*********************************
+
+
+
+
 void MainWindow::on_ajouterF_clicked()
 {
     QString nom = ui->nom->text();
@@ -292,44 +556,12 @@ void MainWindow::on_genererFacture_clicked()
     ui->tabFacture->setModel(F.afficherFacture());
 }
 
-/*
-void MainWindow::on_OnLedRed_clicked()
-{
-    A.write_to_arduino("1");
-}
-
-void MainWindow::on_OffLedRed_clicked()
-{
-
-    A.write_to_arduino("0");
-}
-
-void MainWindow::on_incrLedGreen_clicked()
-{
-    A.write_to_arduino("+");
-}
-
-void MainWindow::on_dcrLedGreen_clicked()
-{
-    A.write_to_arduino("-");
-       qDebug()<<data;
-}
-
-void MainWindow::update_label()
-{
-    data = A.read_from_arduino();
-    if(data == "1")
-        ui->etatLampe2->setText("on");
-    else if(data == "0")
-        ui->etatLampe2->setText("of");
-    qDebug()<<"data : "<<data;
-}
-*/
+//***************arduino (jalouli &bousbih)****************************
 void MainWindow::concatRfid()
 {
     bool found =false;
-        QString nom="",RFID,msg;
-        float salaire;
+        QString nom="",RFID,msg,id;
+        QString salaire;
         data =A.read_from_arduino();
         qDebug() <<"a=" << data;
         if (data!="#")
@@ -349,25 +581,31 @@ void MainWindow::concatRfid()
             for (int var = 0; var < ligne; var++) {
                 if(tableEmploye.model()->data(tableEmploye.model()->index(var, 8))==uid)
                 {
+                   id= tableEmploye.model()->data(tableEmploye.model()->index(var, 0)).toString();
                    nom= tableEmploye.model()->data(tableEmploye.model()->index(var, 2)).toString();
-                   salaire= tableEmploye.model()->data(tableEmploye.model()->index(var, 4)).toFloat();
+                   salaire= tableEmploye.model()->data(tableEmploye.model()->index(var, 4)).toString();
                    RFID = tableEmploye.model()->data(tableEmploye.model()->index(var, 8)).toString();
                    found=true;
                    var=ligne;
                 }
             }
-            msg= tr("Bonjour,")+nom+"ton salaire = "+salaire;
+            msg= tr("salaire = ")+salaire;
             const char * p= msg.toStdString().c_str();
             //qDebug()<<(*p);
-           // A.writeStringToArduino(p);
+
 
                 if(found){
-                    addHours(RFID);
+                    A.writeStringToArduino(p);
                     qDebug()<<"bonjour "<<nom;
-                     A.write_to_arduino("1");
+                    for (int i=0;i<5;i++) {
+                        //QThread::sleep(60);
+                        addHours(RFID);
+                        E.calculeprime(id);
+                        ui->tabemp->setModel(E.afficher());
+                    }
                 }else{
                     qDebug()<<"error";
-                    A.write_to_arduino("0");
+                    A.writeStringToArduino("ERROR");
                 }
             uid="";
             found = false;
@@ -377,8 +615,8 @@ void MainWindow::concatRfid()
 void MainWindow::addHours(QString RFID)
 {
     QSqlQuery qry;
-    qry.prepare("UPDATE EMPLOYEE SET NBHTRAVAIL = NBHTRAVAIL + 5 WHERE RFID = :RFID");
+    qry.prepare("UPDATE EMPLOYEE SET NBHTRAVAIL = NBHTRAVAIL + 1 WHERE RFID = :RFID");
     qry.bindValue(":RFID", RFID);
     qry.exec();
 }
-
+//**********************************************************************************************

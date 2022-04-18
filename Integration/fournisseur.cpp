@@ -423,7 +423,7 @@ void Fournisseur::genererFacture(int *prixTotale)
 
     const QString strTitle ="FACTURE";
     out <<  "<html>\n"
-        "<img src='E:/QT_BIGJ/gestion fournisseur/image/logo.png' height='120' width='120'/>"
+        "<img src='../image/logo.png' height='120' width='120'/>"
         "<head>\n"
         "<meta Content=\"Text/html; charset=Windows-1251\">\n"
         <<  QString("<title>%1</title>\n").arg(strTitle)

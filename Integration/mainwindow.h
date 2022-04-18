@@ -1,21 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "fournisseur.h"
-#include "arduino.h"
+#include<QString>
 #include <QMainWindow>
-#include <QStackedWidget>
-#include <QAbstractItemView>
-#include <QString>
-#include <QDebug>
-#include <QListWidget>
-#include <QMessageBox>
-#include <QDate>
-#include <QDateEdit>
-#include <QDateTime>
-#include <QCalendarWidget>
-#include <QTableWidget>
-#include <QTableView>
-#include <QTimer>
+#include <employee.h>
+#include<qrcodegen.hpp>
+#include "arduino.h"
+#include "rfid.h"
+#include "fournisseur.h"
+
+
+
+
 
 
 QT_BEGIN_NAMESPACE
@@ -31,7 +26,29 @@ public:
     ~MainWindow();
     int prixTotale = 0;
 
+
 private slots:
+//********************Bousbih********************************
+    void on_pb_ajouter_clicked();
+
+    void on_supprimer_clicked();
+
+
+    void on_modifier_clicked();
+
+    void on_chercher_clicked();
+
+    void on_tri_activated(const QString &arg1);
+    
+    void on_QR_clicked();
+
+    void on_pdf_clicked();
+
+    void on_tabemp_activated(const QModelIndex &index);
+
+    void on_TEST_clicked();
+
+//**********************************************jallouli************************************
     void on_ajouterF_clicked();
 
     void on_deleteFbtn_clicked();
@@ -46,18 +63,9 @@ private slots:
 
     void on_Ftable_activated(const QModelIndex &index);
 
-    //void on_Ftable_activated(const QModelIndex &index);
-    
-    //void on_pushButton_clicked();
-
     void on_deleteAll_clicked();
 
-    //void on_Ftable_5_activated(const QModelIndex &index);
-
     void on_Freview_activated(const QModelIndex &index);
-
-    //void on_attributeBox_11_activated(const QString &arg1);
-
 
 
     void on_postReview_clicked();
@@ -67,25 +75,20 @@ private slots:
     void on_genererFacture_clicked();
 
     void on_ajouterIntoFacture_clicked();
-/*
-    void on_OnLedRed_clicked();
 
-    void on_OffLedRed_clicked();
-
-    void on_incrLedGreen_clicked();
-
-    void on_dcrLedGreen_clicked();
-*/
     void update_label();
     void concatRfid();
     void addHours(QString RFID);
 
+
 private:
     Ui::MainWindow *ui;
+    employee E;
     Fournisseur F;
     QByteArray data;
     arduino A;
     QString uid;
     QTimer timer;
+
 };
 #endif // MAINWINDOW_H
