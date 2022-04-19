@@ -36,8 +36,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-           qrcodegen.cpp \
-    rfid.cpp
+           qrcodegen.cpp
 
 HEADERS += \
     arduino.h \

@@ -12,6 +12,8 @@
 #include<QPixmap>
 #include<QPainter>
 #include<QtSvg/QSvgRenderer>
+#include<QProcess>
+
 
 #include<QPropertyAnimation>
 #include<random>
@@ -26,6 +28,9 @@
 #include <QPrinter>
 #include<QSerialPort>
 #include<QSerialPortInfo>
+#include<QSplashScreen>
+
+
 
 
 

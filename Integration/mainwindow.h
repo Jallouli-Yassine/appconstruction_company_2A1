@@ -5,8 +5,9 @@
 #include <employee.h>
 #include<qrcodegen.hpp>
 #include "arduino.h"
-#include "rfid.h"
 #include "fournisseur.h"
+#include<QTimer>
+
 
 
 
