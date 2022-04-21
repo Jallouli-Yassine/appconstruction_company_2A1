@@ -82,6 +82,22 @@ private slots:
     void addHours(QString RFID);
 
 
+    void on_GestiondesEmployee_clicked();
+
+    void on_GestiondesFournisseurs_clicked();
+
+    void on_GestiondesArchitects_clicked();
+
+    void on_GestiondesClients_clicked();
+
+    void on_GestiondesProjets_clicked();
+
+    void on_GestiondesMateriaux_clicked();
+
+    void on_retmenu_clicked();
+
+    void on_retmenu_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     employee E;

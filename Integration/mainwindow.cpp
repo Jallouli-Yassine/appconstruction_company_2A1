@@ -45,6 +45,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    ui->tabWidget_2->setCurrentIndex(0);
+    ui->tabWidget_2->setTabEnabled(0, true);
 
     //**************************************************arduino*********************
 
@@ -63,8 +65,6 @@ MainWindow::MainWindow(QWidget *parent)
             break;
         }
 
-        //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(updateLabel()));
-        //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
 
 
@@ -625,3 +625,57 @@ void MainWindow::addHours(QString RFID)
     qry.exec();
 }
 //**********************************************************************************************
+//*******************************************MENU****************************************
+void MainWindow::on_GestiondesEmployee_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(1);
+    ui->tabWidget_2->setTabEnabled(1, true);
+
+}
+
+void MainWindow::on_GestiondesFournisseurs_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(2);
+    ui->tabWidget_2->setTabEnabled(2, true);
+
+}
+
+void MainWindow::on_GestiondesArchitects_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(3);
+    ui->tabWidget_2->setTabEnabled(3, true);
+
+}
+
+void MainWindow::on_GestiondesClients_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(4);
+    ui->tabWidget_2->setTabEnabled(4, true);
+
+}
+
+void MainWindow::on_GestiondesProjets_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(5);
+    ui->tabWidget_2->setTabEnabled(5, true);
+
+}
+
+void MainWindow::on_GestiondesMateriaux_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(6);
+    ui->tabWidget_2->setTabEnabled(6, true);
+
+}
+
+void MainWindow::on_retmenu_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(0);
+
+}
+
+void MainWindow::on_retmenu_2_clicked()
+{
+    ui->tabWidget_2->setCurrentIndex(0);
+}
+//********************************fin Menu***************************************
