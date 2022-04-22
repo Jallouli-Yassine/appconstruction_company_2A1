@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 //*************ja3louli************************
-        ui->verticalLayout->addWidget(F.stat());
+        ui->verticalLayout_2->addWidget(F.stat());
         ui->tel->setValidator(new QIntValidator (0,99999999,this));
         ui->age->setValidator(new QIntValidator (0,100,this));
         ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));

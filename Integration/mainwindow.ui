@@ -60,7 +60,7 @@ border-bottom:1px solid #333;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_10">
      <attribute name="title">
@@ -149,7 +149,7 @@ background:transparent;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../GitHub/image/logo.png</normaloff>../GitHub/image/logo.png</iconset>
+         <normaloff>../../image/logo.png</normaloff>../../image/logo.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -494,7 +494,7 @@ color: rgb(4, 4, 4);</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../GitHub/image/logo.png</normaloff>../GitHub/image/logo.png</iconset>
+           <normaloff>../../image/logo.png</normaloff>../../image/logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2905,7 +2905,7 @@ color : #001F26;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_15">
        <attribute name="title">
@@ -3304,7 +3304,7 @@ border-bottom:1px solid #333;
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../GitHub/image/logo.png</normaloff>../GitHub/image/logo.png</iconset>
+          <normaloff>../../image/logo.png</normaloff>../../image/logo.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -4623,7 +4623,7 @@ border-bottom:1px solid #333;
      <x>0</x>
      <y>0</y>
      <width>1321</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
