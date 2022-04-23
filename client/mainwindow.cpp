@@ -19,6 +19,8 @@
 #include <QTextDocument>
 #include <QPrintDialog>
 #include <QProcess>
+#include "login2.h"
+#include <QtDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    ui->verticalLayout->addWidget(c.stat());
     ui->tab_client_pdf->setModel(c.afficher());
     ui->tab_client_r->setModel(c.afficherrdv());
     ui->tab_client_2->setModel(c.afficher());
@@ -176,7 +179,18 @@ void MainWindow::on_pushButton_insertbutton_clicked()
 
 QString id = ui->le_idr->text();
 QString date = ui->date_rdv->text();
+
+QSqlQuery qry;
+qry.prepare("select DATERDV from RDV where DATERDV='"+date+"'");
+if(qry.exec())
+{
+    QMessageBox::critical(nullptr, QObject::tr("ERROR"),
+                QObject::tr("il existe deja un rendez-vous\n"
+                            "Click Cancel to exit."), QMessageBox::Cancel);
+}
+else{
 c.ajoutrdv(date,id);
+}
 
 
 }
@@ -200,16 +214,19 @@ void MainWindow::on_pushButton_pdf_clicked()
                        font.setPixelSize(35);
                        painter.setFont(font);
                        painter.setPen(Qt::red);
-                       painter.drawText(260,100,"NOM:");
+                       painter.drawText(260,100,":");
 
                        font.setPixelSize(30);
                        painter.setFont(font);
                        painter.setPen(Qt::red);
-                       painter.drawText(100,300,"PRENOM :");
-                       painter.drawText(100,400,"NUMERO :");
+                       painter.drawText(100,300,"nom :");
+                       painter.drawText(100,400,"prenom :");
 
-                       painter.drawText(100,500,"EMAIL:");
-                       painter.drawText(100,600,"date de naissance:");
+                       painter.drawText(100,500,"numero:");
+                       painter.drawText(100,600,"email:");
+                       painter.drawText(100,700,"date de naissance:");
+
+
 
 
 
@@ -234,3 +251,5 @@ void MainWindow::on_pushButton_pdf_clicked()
                                                                 "Click Ok to exit."), QMessageBox::Ok);
                        }
 }
+
+

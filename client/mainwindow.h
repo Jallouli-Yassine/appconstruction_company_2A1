@@ -46,6 +46,8 @@ private slots:
 
     void on_pushButton_pdf_clicked();
 
+    void on_LOGIN_clicked();
+
 private:
     Ui::MainWindow *ui;
     Client c;

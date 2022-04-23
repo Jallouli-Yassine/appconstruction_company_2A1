@@ -4,6 +4,15 @@
 #include"Client.h"
 #include <QSqlQueryModel>
 #include <QMessageBox>
+#include <QChartView>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QChartView>
+QT_CHARTS_USE_NAMESPACE
+
+
 class Client
 {
 public:
@@ -31,6 +40,7 @@ public:
     QSqlQueryModel *rechercheid(QString);
      bool modifier(int,int,QString,QString,QString,QString);
     bool supprimer(QString);
+    QChartView *stat();
 
 
 private:

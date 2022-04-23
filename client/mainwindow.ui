@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -759,7 +759,7 @@ background:transparent;
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -990,19 +990,6 @@ border-bottom:1px solid #333;
           <bool>false</bool>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_15">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>330</y>
-           <width>151</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Recherche</string>
-         </property>
-        </widget>
         <widget class="QPushButton" name="pushButton_12">
          <property name="geometry">
           <rect>
@@ -1097,36 +1084,6 @@ border-bottom:1px solid #333;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>290</y>
-         <width>131</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>century gothic</family>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-         <underline>false</underline>
-         <strikeout>false</strikeout>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:#001F26;
-</string>
-       </property>
-       <property name="text">
-        <string>AFFICHE</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_pdf">
        <property name="geometry">
         <rect>
@@ -1196,6 +1153,22 @@ background:transparent;
         </rect>
        </property>
       </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_9">
+     <attribute name="title">
+      <string>STAT</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>20</y>
+        <width>991</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </widget>
    </widget>
