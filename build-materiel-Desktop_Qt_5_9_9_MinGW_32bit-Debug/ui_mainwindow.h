@@ -90,10 +90,8 @@ public:
     QWidget *tab_7;
     QFrame *frame_7;
     QPushButton *logoAjout_9;
-    QPushButton *on;
-    QPushButton *off;
-    QPushButton *plus;
-    QPushButton *PDF_6;
+    QLabel *label;
+    QPushButton *pushButton_OFF;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -585,22 +583,12 @@ public:
         logoAjout_9->setIcon(icon);
         logoAjout_9->setIconSize(QSize(60, 60));
         logoAjout_9->setFlat(true);
-        on = new QPushButton(frame_7);
-        on->setObjectName(QStringLiteral("on"));
-        on->setGeometry(QRect(290, 180, 101, 31));
-        on->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        off = new QPushButton(frame_7);
-        off->setObjectName(QStringLiteral("off"));
-        off->setGeometry(QRect(280, 240, 101, 31));
-        off->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        plus = new QPushButton(frame_7);
-        plus->setObjectName(QStringLiteral("plus"));
-        plus->setGeometry(QRect(440, 230, 101, 31));
-        plus->setStyleSheet(QStringLiteral("background-color:#001F26;"));
-        PDF_6 = new QPushButton(frame_7);
-        PDF_6->setObjectName(QStringLiteral("PDF_6"));
-        PDF_6->setGeometry(QRect(440, 180, 101, 31));
-        PDF_6->setStyleSheet(QStringLiteral("background-color:#001F26;"));
+        label = new QLabel(frame_7);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(280, 40, 371, 371));
+        pushButton_OFF = new QPushButton(frame_7);
+        pushButton_OFF->setObjectName(QStringLiteral("pushButton_OFF"));
+        pushButton_OFF->setGeometry(QRect(370, 80, 93, 28));
         liste->addTab(tab_7, QString());
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -686,10 +674,8 @@ public:
         logoAjout_5->setText(QString());
         liste->setTabText(liste->indexOf(tab_2), QApplication::translate("MainWindow", "Statistiques", Q_NULLPTR));
         logoAjout_9->setText(QString());
-        on->setText(QApplication::translate("MainWindow", "ON", Q_NULLPTR));
-        off->setText(QApplication::translate("MainWindow", "OFF", Q_NULLPTR));
-        plus->setText(QApplication::translate("MainWindow", "PLUS", Q_NULLPTR));
-        PDF_6->setText(QApplication::translate("MainWindow", "MOINS", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "etat", Q_NULLPTR));
+        pushButton_OFF->setText(QApplication::translate("MainWindow", "OFF", Q_NULLPTR));
         liste->setTabText(liste->indexOf(tab_7), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
     } // retranslateUi
 

@@ -53,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
             qDebug()<<data;
             A.write_to_arduino("a");
             qDebug()<<data;
+            QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
 
 
 
@@ -158,6 +159,20 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
 }
 
 
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+    qDebug()<<data;
+    if(data=="1")
+
+        ui->label->setText("Status : Raining -_- , Hide the products"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="0")
+
+        ui->label->setText("Status : Clear :)");   // si les données reçues de arduino via la liaison série sont égales à 0
+     //alors afficher ON
+}
 
 
 void MainWindow::on_Buttonrecherche_clicked()
@@ -273,4 +288,10 @@ void MainWindow::on_PDF_6_clicked() //moins
 {
     A.write_to_arduino("3");
         qDebug()<<A.read_from_arduino();
+}
+
+
+void MainWindow::on_pushButton_OFF_clicked()
+{
+    A.write_to_arduino("3");
 }

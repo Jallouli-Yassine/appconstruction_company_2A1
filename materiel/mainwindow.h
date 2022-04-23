@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-
+    void update_label();
 
     void on_ButtonAjouter_2_clicked();
 
@@ -49,6 +49,8 @@ private slots:
     void on_plus_clicked();
 
     void on_PDF_6_clicked();
+
+    void on_pushButton_OFF_clicked();
 
 private:
     Ui::MainWindow *ui;
