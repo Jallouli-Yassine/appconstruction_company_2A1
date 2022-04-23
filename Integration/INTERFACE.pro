@@ -36,6 +36,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    materiel.cpp \
     projet.cpp \
            qrcodegen.cpp
 
@@ -45,6 +46,7 @@ HEADERS += \
     fournisseur.h \
         mainwindow.h \
     connection.h \
+    materiel.h \
     projet.h \
         qrcodegen.hpp
 

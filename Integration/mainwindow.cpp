@@ -29,7 +29,30 @@
 #include<QSerialPort>
 #include<QSerialPortInfo>
 #include<QSplashScreen>
-
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <QIntValidator>
+#include <QtDebug>
+#include <QFileDialog>
+#include<QPropertyAnimation>
+#include<random>
+#include"QPainter"
+#include"QFont"
+#include"QPen"
+#include"QPdfWriter"
+#include"QTextDocumentWriter"
+#include"QDesktopServices"
+#include"QtPrintSupport/QPrinter"
+#include <QPropertyAnimation>
+#include <QPrinter>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QChartView>
+#include "arduino.h"
+QT_CHARTS_USE_NAMESPACE
 
 
 
@@ -131,7 +154,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_id->setValidator(new QIntValidator (0,99999999,this));
     ui->lineEdit_a->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]*")  ));
     //*Yosr*//
-
+//kamel------------------
+    ui->verticalLayout_19->addWidget(m->stat());
+    ui->tableView_11->setModel(m->afficher());
+    ui->nomLE->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+    ui->ReferenceLE_4->setValidator(new QIntValidator (0,999,this));
+    ui->ReferenceLE_2->setValidator(new QIntValidator (0,9999,this));
+//kamel-------------------
 
 }
 
@@ -935,3 +964,234 @@ void MainWindow::on_pushButton_off_clicked()
 
 
 //*Yosr*//
+//kamel-----------------------------
+void MainWindow::on_ButtonAjouter_2_clicked()
+{
+    QString reference=ui->ReferenceLE->text();
+    QString nom=ui->nomLE->text();
+    QString matricule=ui->MatriculeLE->text();
+    QString idfournisseur="1";
+
+    int quantite=ui->ReferenceLE_4->text().toInt();
+    int prix=ui->ReferenceLE_2->text().toInt();
+    QString etat=ui->comboBox_2->currentText();
+    materiel m(reference,nom,matricule,idfournisseur,quantite,prix,etat);
+    bool test=m.ajouter();
+    //ui->verticalLayout->addWidget(m.stat());
+    if(test)     {
+         ui->tableView_11->setModel(m.afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                                 QObject::tr("Ajout effectué\n"
+                                             "Click to Cancel."), QMessageBox::Cancel);
+    }     else
+        QMessageBox::information(nullptr, QObject::tr("not OK"),
+                                 QObject::tr("Ajout non effectué\n"
+                                             "Click to Cancel."), QMessageBox::Cancel);
+
+}
+
+void MainWindow::on_ButtonSupprimer_clicked()
+{
+
+    QString reference=ui->lineEdit->text();
+
+    bool test=m->supprimer(reference);
+
+    if(test)
+    {
+        ui->tableView_11->setModel(m->afficher());
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("Suppression effectué\n"
+                                             "Click Cancel to Exit."),QMessageBox::Cancel);
+    }
+    else
+        QMessageBox::critical(nullptr,QObject::tr("not OK"),
+                                 QObject::tr("Suppression non effectué\n"
+                                             "Click Cancel to Exit."),QMessageBox::Cancel);
+}
+
+void MainWindow::on_ButtonTri_clicked()
+{
+    ui->tableView_11->setModel(m->trie());
+}
+
+void MainWindow::on_ButtonAjouter_4_clicked()
+{
+    QString reference=ui->ReferenceLE_3->text();
+    QString nom=ui->nomLE_2->text();
+    QString matricule=ui->MatriculeLE_2->text();
+    QString idfournisseur="1";
+    int quantite=ui->ReferenceLE_6->text().toInt();
+    int prix=ui->ReferenceLE_5->text().toInt();
+    QString etat=ui->comboBox_3->currentText();
+
+
+   bool test =  m->modifier(reference,nom,matricule,idfournisseur,quantite,prix,etat);
+
+    if(test){
+        ui->tableView_11->setModel(m->afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("update effectué\n""Click to Cancel."),
+                                 QMessageBox::Cancel);     }
+    else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                 QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_tableView_11_activated(const QModelIndex &index)
+{
+    QString value=ui->tableView_11->model()->data(index).toString();
+                QSqlQuery qry;
+                qry.prepare("select * from MATERIEL where REFERENCE='"+value+"'");
+                if(qry.exec())
+                {
+                    while(qry.next()){
+                       ui->ReferenceLE_3->setText(qry.value(2).toString());
+                       ui->nomLE_2->setText(qry.value(4).toString());
+                       ui->MatriculeLE_2->setText(qry.value(3).toString());
+                       ui->ReferenceLE_6->setText(qry.value(7).toString());
+                       //ui->comboBox_3->setText(qry.value(3).toString());
+                       ui->ReferenceLE_5->setText(qry.value(1).toString());
+                       //ui->lb_img->setText(qry.value(8).toString()); //image
+
+                    }
+                }
+}
+
+
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+    qDebug()<<data;
+    if(data=="1")
+
+        ui->label->setText("Status : Raining -_- , Hide the products"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="0")
+
+        ui->label->setText("Status : Clear :)");   // si les données reçues de arduino via la liaison série sont égales à 0
+     //alors afficher ON
+}
+
+
+void MainWindow::on_Buttonrecherche_clicked()
+{
+    QString rech= ui->recherche->text();
+
+    ui->tableView_11->setModel(m->chercher(rech));
+}
+
+void MainWindow::on_PDF_clicked()
+{
+    QPrinter printer;
+
+                    printer.setOutputFormat(QPrinter::PdfFormat);
+                    printer.setOutputFileName("C:/2A1/materielpdf/materiel.pdf");
+
+                   QPainter painter;
+                   painter.begin(&printer);
+                   QFont font("Times", 10, QFont::Bold);
+                   QString nom=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),0)).toString();
+                   QString referance=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),1)).toString();
+                   QString quantite=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),2)).toString();
+                   QString etat=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),3)).toString();
+                   QString prix=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),4)).toString();
+                   QString matricule=ui->tableView_11->model()->data(ui->tableView_11->model()->index(ui->tableView_11->currentIndex().row(),5)).toString();
+
+                   font.setPixelSize(35);
+                   painter.setFont(font);
+                   painter.setPen(Qt::red);
+                   painter.drawText(260,100,"Fiche Matériel");
+
+                   font.setPixelSize(30);
+                   painter.setFont(font);
+                   painter.setPen(Qt::red);
+                   painter.drawText(100,300,"Nom :");
+
+                   painter.drawText(100,400,"Référence :");
+
+                   painter.drawText(100,500,"Quantité:");
+                   painter.drawText(100,600,"Etat:");
+                   painter.drawText(100,700,"Prix:");
+                   painter.drawText(100,800,"Matricule:");
+
+
+
+                   font.setPixelSize(22);
+                   painter.setFont(font);
+                   painter.setPen(Qt::black);
+                   painter.drawText(500,300,nom);
+                   painter.drawText(500,400,referance);
+                   painter.drawText(500,500,quantite);
+                   painter.drawText(500,600,etat);
+                   painter.drawText(500,700,prix+"DT");
+                   painter.drawText(500,800,matricule);
+
+
+
+
+                   if(painter.end())
+                   {
+                       QMessageBox::information(nullptr, QObject::tr("FICHE materiel"),
+                                                QObject::tr("Fichier materiel Genere.\n"
+                                                            "Click Ok to exit."), QMessageBox::Ok);
+                   }
+}
+
+void MainWindow::on_comboBox_4_activated(const QString &arg1)
+{
+   qDebug() << arg1 ;
+    ui->tableView_11->setModel(m->filtrer(arg1));
+}
+
+void MainWindow::on_BtnIMG_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Choose"),"", tr("Images(*.png*.jpg*.jpeg*.bmp)"));
+    if(QString::compare(filename,QString())!=0)
+    {
+        QImage image;
+        bool valid=image.load(filename);
+        if (valid)
+        {
+
+
+            image = image.scaledToWidth(ui->lb_img->width(), Qt::SmoothTransformation);
+            ui->lb_img->setPixmap(QPixmap::fromImage(image));
+        }
+        else{//error handling
+        }
+    }
+}
+
+void MainWindow::on_on_clicked()
+{
+    A.write_to_arduino("1");
+        qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_off_clicked()
+{
+    A.write_to_arduino("0");
+        qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::on_plus_clicked()
+{
+    A.write_to_arduino("2");
+        qDebug()<<A.read_from_arduino();
+}
+
+
+
+void MainWindow::on_PDF_6_clicked() //moins
+{
+    A.write_to_arduino("3");
+        qDebug()<<A.read_from_arduino();
+}
+
+
+void MainWindow::on_pushButton_OFF_clicked()
+{
+    A.write_to_arduino("3");
+}
+//end kamel-------------------------------------------------------------

@@ -26,7 +26,14 @@ QT_END_NAMESPACE
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QGridLayout>
+#include "materiel.h"
+#include <QMainWindow>
+#include <QtDebug>
+#include <QFileDialog>
+
 QT_CHARTS_USE_NAMESPACE
+
+
 
 
 
@@ -155,6 +162,41 @@ private slots:
     void on_pushButton_off_clicked();
 
     /* Yosr*/
+    //-----------------------------------------kamel--------------------------------------------
+   // void update_label();   ------------updatelabel2 -----------------------------
+
+    void on_ButtonAjouter_2_clicked();
+
+    void on_ButtonSupprimer_clicked();
+
+    void on_ButtonTri_clicked();
+
+    void on_ButtonAjouter_4_clicked();
+
+    void on_tableView_11_activated(const QModelIndex &index);
+
+    //void on_ButtonTri_2_clicked();
+
+    void on_Buttonrecherche_clicked();
+
+    void on_PDF_clicked();
+
+    void on_comboBox_4_activated(const QString &arg1);
+
+    void on_BtnIMG_clicked();
+
+    //void on_tableView_clicked(const QModelIndex &index);
+
+    void on_on_clicked();
+
+    void on_off_clicked();
+
+    void on_plus_clicked();
+
+    void on_PDF_6_clicked();
+
+    void on_pushButton_OFF_clicked();
+    //------------------------------end kamel-------------------------------------------------------------
 private:
     Ui::MainWindow *ui;
     employee E;
@@ -164,5 +206,7 @@ private:
     QString uid;
     QTimer timer;
     Projet *ptmp;
+    materiel *m;
+
 };
 #endif // MAINWINDOW_H
