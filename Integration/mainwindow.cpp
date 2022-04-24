@@ -120,7 +120,7 @@ MainWindow::MainWindow(QWidget *parent)
             break;
         }
 
-      //  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
+  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
 
  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label2()));
 
@@ -199,14 +199,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tab_client_2->setModel(c.afficher());
     ui->tab_client->setModel(c.afficher());
     ui->tab_client_4->setModel(c.afficher());
-ui->le_id->setValidator(new QIntValidator (1,99999999,this));
 ui->le_id_2->setValidator(new QIntValidator (1,99999999,this));
+ui->le_id_3->setValidator(new QIntValidator (1,99999999,this));
 ui->le_num->setValidator(new QIntValidator (20000000,99999999,this));
 ui->le_num_2->setValidator(new QIntValidator (20000000,99999999,this));
-ui->le_nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-ui->le_prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 ui->le_nom_2->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 ui->le_prenom_2->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+ui->le_nom_3->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
+ui->le_prenom_3->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 
 ui->le_email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,19}@[a-z]{1,9}\\.[a-z]{1,4}")  ));
 
@@ -1260,16 +1260,16 @@ void MainWindow::on_pushButton_OFF_clicked()
 //begin mehdi -----------------------------------------------------------
 void MainWindow::on_b_ajouter_clicked()
 {
-    if ((ui->le_id->text().isEmpty()) || (ui->le_nom->text().isEmpty()) || (ui->le_prenom->text().isEmpty()) || (ui->le_num->text().isEmpty()) || (ui->le_email->text().isEmpty()) || (ui->le_DDN->text().isEmpty()) )
+    if ((ui->le_id_2->text().isEmpty()) || (ui->le_nom_2->text().isEmpty()) || (ui->le_prenom_2->text().isEmpty()) || (ui->le_num->text().isEmpty()) || (ui->le_email->text().isEmpty()) || (ui->le_DDN->text().isEmpty()) )
     {
         QMessageBox::critical(this, tr("Erreur"), tr(" IL FAUT REMPLIRE TOUT LES CHAMPS !!!"));
     }
 else {
-    QString nom=ui->le_nom->text();
-    int num=ui->le_num->text().toInt();
-    int id=ui->le_id->text().toInt();
+    QString nom=ui->le_nom_2->text();
+    int num=ui->le_num_2->text().toInt();
+    int id=ui->le_id_2->text().toInt();
 
-    QString prenom=ui->le_prenom->text();
+    QString prenom=ui->le_prenom_2->text();
     QString email=ui->le_email->text();
     QString DDN=ui->le_DDN->text();
 
@@ -1341,16 +1341,16 @@ void MainWindow::on_cherch_2_returnPressed()
 
 void MainWindow::on_b_ajouter_2_clicked()
 {
-    if ((ui->le_id_2->text().isEmpty()) && (ui->le_nom_2->text().isEmpty()) && (ui->le_prenom_2->text().isEmpty()) && (ui->le_num_2->text().isEmpty()) && (ui->le_email_2->text().isEmpty()) && (ui->le_DDN_2->text().isEmpty()) )
+    if ((ui->le_id_3->text().isEmpty()) && (ui->le_nom_3->text().isEmpty()) && (ui->le_prenom_3->text().isEmpty()) && (ui->le_num_2->text().isEmpty()) && (ui->le_email_2->text().isEmpty()) && (ui->le_DDN_2->text().isEmpty()) )
     {
         QMessageBox::critical(this, tr("Erreur"), tr(" IL FAUT REMPLIRE TOUT LES CHAMPS !!!"));
     }
     else {
-    QString nom=ui->le_nom_2->text();
+    QString nom=ui->le_nom_3->text();
     int num=ui->le_num_2->text().toInt();
-    int id=ui->le_id_2->text().toInt();
+    int id=ui->le_id_3->text().toInt();
 
-    QString prenom=ui->le_prenom_2->text();
+    QString prenom=ui->le_prenom_3->text();
     QString email=ui->le_email_2->text();
     QString DDN=ui->le_DDN_2->text();
 
@@ -1368,9 +1368,9 @@ void MainWindow::on_tab_client_4_activated(const QModelIndex &index)
                 if(qry.exec())
                 {
                     while(qry.next()){
-                       ui->le_nom_2->setText(qry.value(0).toString());
-                       ui->le_prenom_2->setText(qry.value(1).toString());
-                       ui->le_id_2->setText(qry.value(2).toString());
+                       ui->le_nom_3->setText(qry.value(0).toString());
+                       ui->le_prenom_3->setText(qry.value(1).toString());
+                       ui->le_id_3->setText(qry.value(2).toString());
                        ui->le_num_2->setText(qry.value(3).toString());
                        ui->le_email_2->setText(qry.value(4).toString());
 
