@@ -9,6 +9,7 @@
 #include<QTimer>
 #include "projet.h"
 #include "client.h"
+#include "architect.h"
 
 #include <QtCore>
 #include <QtGui>
@@ -228,6 +229,24 @@ private slots:
 
     void on_LOGIN_clicked();
     //----------------------------end mehdi--------------------------------------
+    /*Bayoudh*/
+    void update_label2();
+    void on_ajouter_clicked();
+    void sendMail();
+    void mailSent(QString);
+    void browse();
+    void on_supprimer_2_clicked();
+    void on_modifierarchitect_clicked();
+
+    void on_pushButtonrechdech_2_clicked();
+
+    void on_excel_clicked();
+
+    void on_pdf_2_clicked();
+
+    void on_pushButtonAfficherDech_2_clicked();
+     void on_pushButton_29_clicked();
+/*Bayoudh*/
 private:
     Ui::MainWindow *ui;
     employee E;
@@ -239,6 +258,7 @@ private:
     Projet *ptmp;
     materiel *m;
     Client c;
-
+ Architect Ac;
+  QStringList files;
 };
 #endif // MAINWINDOW_H

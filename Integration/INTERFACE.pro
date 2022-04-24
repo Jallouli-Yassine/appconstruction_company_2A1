@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 
-QT       += core gui sql  serialport
+QT       += core gui sql  serialport axcontainer network
 QT += printsupport
 QT       += charts
 
@@ -30,6 +30,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    architect.cpp \
     arduino.cpp \
     client.cpp \
     employee.cpp \
@@ -39,9 +40,11 @@ SOURCES += \
     connection.cpp \
     materiel.cpp \
     projet.cpp \
-           qrcodegen.cpp
+           qrcodegen.cpp \
+    smtp.cpp
 
 HEADERS += \
+    architect.h \
     arduino.h \
     client.h \
     employee.h \
@@ -50,7 +53,8 @@ HEADERS += \
     connection.h \
     materiel.h \
     projet.h \
-        qrcodegen.hpp
+        qrcodegen.hpp \
+    smtp.h
 
 
 FORMS += \

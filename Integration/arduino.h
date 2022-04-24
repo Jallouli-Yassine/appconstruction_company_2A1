@@ -17,7 +17,7 @@ class arduino
 
 public:
     arduino();
-
+int write1_to_arduino(QByteArray);
     int connect_arduino();
     int close_arduino();
     int write_to_arduino(QByteArray);

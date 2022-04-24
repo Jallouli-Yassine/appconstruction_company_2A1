@@ -91,3 +91,11 @@ int arduino::writeStringToArduino(const char * msg)
         qDebug() << "Couldn't write to serial!";
     return -1;
 }
+int arduino::write1_to_arduino(QByteArray d){
+    if(serial->isWritable())
+    {
+        serial->write(d);//envoyer des donnees vers arduino
+    }else
+qDebug() << "error en ecriture";
+
+}
