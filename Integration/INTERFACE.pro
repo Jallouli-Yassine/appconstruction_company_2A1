@@ -31,6 +31,7 @@ CONFIG += c++11
 
 SOURCES += \
     arduino.cpp \
+    client.cpp \
     employee.cpp \
     fournisseur.cpp \
         main.cpp \
@@ -42,6 +43,7 @@ SOURCES += \
 
 HEADERS += \
     arduino.h \
+    client.h \
     employee.h \
     fournisseur.h \
         mainwindow.h \

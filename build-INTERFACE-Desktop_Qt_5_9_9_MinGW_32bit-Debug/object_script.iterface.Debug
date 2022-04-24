@@ -1,0 +1,13 @@
+INPUT(
+./debug\arduino.o
+./debug\client.o
+./debug\employee.o
+./debug\fournisseur.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\connection.o
+./debug\materiel.o
+./debug\projet.o
+./debug\qrcodegen.o
+./debug\moc_mainwindow.o
+);

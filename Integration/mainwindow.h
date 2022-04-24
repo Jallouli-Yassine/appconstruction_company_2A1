@@ -8,6 +8,7 @@
 #include "fournisseur.h"
 #include<QTimer>
 #include "projet.h"
+#include "client.h"
 
 #include <QtCore>
 #include <QtGui>
@@ -197,6 +198,36 @@ private slots:
 
     void on_pushButton_OFF_clicked();
     //------------------------------end kamel-------------------------------------------------------------
+    //------------------------------begin mehdi-----------------------------------------------------------
+    void on_b_ajouter_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pb_supp_clicked();
+
+
+    void on_pb_trienom_clicked();
+
+    void on_pb_trie_prenom_clicked();
+
+    void on_pb_tri_id_clicked();
+
+
+
+    void on_cherch_textChanged(const QString &arg1);
+
+    void on_cherch_2_returnPressed();
+
+    void on_b_ajouter_2_clicked();
+
+    void on_tab_client_4_activated(const QModelIndex &index);
+
+    void on_pushButton_insertbutton_clicked();
+
+    void on_pushButton_pdf_clicked();
+
+    void on_LOGIN_clicked();
+    //----------------------------end mehdi--------------------------------------
 private:
     Ui::MainWindow *ui;
     employee E;
@@ -207,6 +238,7 @@ private:
     QTimer timer;
     Projet *ptmp;
     materiel *m;
+    Client c;
 
 };
 #endif // MAINWINDOW_H
