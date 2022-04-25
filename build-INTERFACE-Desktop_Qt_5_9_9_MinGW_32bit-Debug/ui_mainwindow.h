@@ -114,7 +114,7 @@ public:
     QLineEdit *email;
     QPushButton *ajouterF;
     QPushButton *pushButton_3;
-    QPushButton *retmenu_2;
+    QPushButton *retmenuF;
     QWidget *tab_6;
     QFrame *frame_3;
     QGroupBox *groupBox_5;
@@ -188,6 +188,7 @@ public:
     QLabel *label_28;
     QComboBox *comboBox_6;
     QPushButton *pushButton_24;
+    QPushButton *retmenuAr;
     QWidget *tab_39;
     QFrame *frame_30;
     QPushButton *pushButton_25;
@@ -983,11 +984,11 @@ public:
 "}"));
         pushButton_3->setIcon(icon1);
         pushButton_3->setIconSize(QSize(250, 250));
-        retmenu_2 = new QPushButton(frame);
-        retmenu_2->setObjectName(QStringLiteral("retmenu_2"));
-        retmenu_2->setGeometry(QRect(620, 10, 211, 31));
-        retmenu_2->setCursor(QCursor(Qt::PointingHandCursor));
-        retmenu_2->setStyleSheet(QLatin1String("background-color:#001F26;\n"
+        retmenuF = new QPushButton(frame);
+        retmenuF->setObjectName(QStringLiteral("retmenuF"));
+        retmenuF->setGeometry(QRect(580, 20, 211, 31));
+        retmenuF->setCursor(QCursor(Qt::PointingHandCursor));
+        retmenuF->setStyleSheet(QLatin1String("background-color:#001F26;\n"
 "font: 75 12pt \"Microsoft PhagsPa\";"));
         tabWidget_3->addTab(tab_5, QString());
         tab_6 = new QWidget();
@@ -1793,26 +1794,23 @@ public:
         groupBox_11->setFont(font4);
         groupBox_11->setStyleSheet(QLatin1String("QFrame{\n"
 "background:white;\n"
-"\n"
 "}\n"
+"\n"
 "QLabel{\n"
 "color:white;\n"
 "font-size:16px;\n"
 "}\n"
-"QPushButton\n"
-"{\n"
-"background:red;\n"
-"border-radius:16px;\n"
-"}\n"
+"\n"
 "QPushButton:hover {\n"
-"transform: scale(5); \n"
+"transform: scale(1.2); \n"
 "width : 250px;\n"
-"color:red;\n"
+"color:#F3D617;\n"
 "}\n"
 "QPushButton{\n"
 "color:white;\n"
 "border-radius:15px;\n"
 "}\n"
+"\n"
 "QLineEdit\n"
 "{\n"
 "background:transparent;\n"
@@ -1820,7 +1818,8 @@ public:
 "color:#a0a0a0;\n"
 "font-size:16px;\n"
 "border-bottom:1px solid #333;\n"
-"}"));
+"}\n"
+""));
         nom_2 = new QLineEdit(groupBox_11);
         nom_2->setObjectName(QStringLiteral("nom_2"));
         nom_2->setGeometry(QRect(190, 120, 113, 21));
@@ -1836,44 +1835,7 @@ public:
         ajouter = new QPushButton(groupBox_11);
         ajouter->setObjectName(QStringLiteral("ajouter"));
         ajouter->setGeometry(QRect(460, 320, 111, 31));
-        ajouter->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        ajouter->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         pushButton_23 = new QPushButton(groupBox_11);
         pushButton_23->setObjectName(QStringLiteral("pushButton_23"));
         pushButton_23->setGeometry(QRect(660, 280, 121, 101));
@@ -1935,6 +1897,12 @@ public:
         icon3.addFile(QStringLiteral("../../../../Documents/GitHub/Desktop/c++ lllogo.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_24->setIcon(icon3);
         pushButton_24->setIconSize(QSize(100, 100));
+        retmenuAr = new QPushButton(frame_29);
+        retmenuAr->setObjectName(QStringLiteral("retmenuAr"));
+        retmenuAr->setGeometry(QRect(620, 100, 211, 31));
+        retmenuAr->setCursor(QCursor(Qt::PointingHandCursor));
+        retmenuAr->setStyleSheet(QLatin1String("background-color:#001F26;\n"
+"font: 75 12pt \"Microsoft PhagsPa\";"));
         statistique->addTab(tab_38, QString());
         tab_39 = new QWidget();
         tab_39->setObjectName(QStringLiteral("tab_39"));
@@ -1943,26 +1911,23 @@ public:
         frame_30->setGeometry(QRect(0, 0, 1211, 511));
         frame_30->setStyleSheet(QLatin1String("QFrame{\n"
 "background:white;\n"
-"\n"
 "}\n"
+"\n"
 "QLabel{\n"
 "color:white;\n"
 "font-size:16px;\n"
 "}\n"
-"QPushButton\n"
-"{\n"
-"background:red;\n"
-"border-radius:16px;\n"
-"}\n"
+"\n"
 "QPushButton:hover {\n"
-"transform: scale(5); \n"
+"transform: scale(1.2); \n"
 "width : 250px;\n"
-"color:black;\n"
+"color:#F3D617;\n"
 "}\n"
 "QPushButton{\n"
 "color:white;\n"
 "border-radius:15px;\n"
 "}\n"
+"\n"
 "QLineEdit\n"
 "{\n"
 "background:transparent;\n"
@@ -1970,7 +1935,8 @@ public:
 "color:#a0a0a0;\n"
 "font-size:16px;\n"
 "border-bottom:1px solid #333;\n"
-"}"));
+"}\n"
+""));
         frame_30->setFrameShape(QFrame::StyledPanel);
         frame_30->setFrameShadow(QFrame::Raised);
         pushButton_25 = new QPushButton(frame_30);
@@ -1982,48 +1948,11 @@ public:
         modifierarchitect = new QPushButton(frame_30);
         modifierarchitect->setObjectName(QStringLiteral("modifierarchitect"));
         modifierarchitect->setGeometry(QRect(950, 440, 131, 51));
-        modifierarchitect->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        modifierarchitect->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         supprimer_2 = new QPushButton(frame_30);
         supprimer_2->setObjectName(QStringLiteral("supprimer_2"));
         supprimer_2->setGeometry(QRect(1080, 190, 81, 21));
-        supprimer_2->setStyleSheet(QStringLiteral("background-color: rgb(255, 248, 26);"));
+        supprimer_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         supprimer_2->setIconSize(QSize(16, 16));
         pushButtonrechdech_2 = new QPushButton(frame_30);
         pushButtonrechdech_2->setObjectName(QStringLiteral("pushButtonrechdech_2"));
@@ -2033,44 +1962,7 @@ public:
         font5.setBold(true);
         font5.setWeight(75);
         pushButtonrechdech_2->setFont(font5);
-        pushButtonrechdech_2->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        pushButtonrechdech_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         label_29 = new QLabel(frame_30);
         label_29->setObjectName(QStringLiteral("label_29"));
         label_29->setGeometry(QRect(110, 110, 91, 21));
@@ -2116,44 +2008,7 @@ public:
         font7.setBold(true);
         font7.setWeight(75);
         pushButtonAfficherDech_2->setFont(font7);
-        pushButtonAfficherDech_2->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        pushButtonAfficherDech_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         education = new QTableView(frame_30);
         education->setObjectName(QStringLiteral("education"));
         education->setGeometry(QRect(40, 200, 631, 181));
@@ -2211,86 +2066,12 @@ public:
         pdf_2->setObjectName(QStringLiteral("pdf_2"));
         pdf_2->setGeometry(QRect(260, 400, 71, 31));
         pdf_2->setFont(font5);
-        pdf_2->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        pdf_2->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         excel = new QPushButton(frame_30);
         excel->setObjectName(QStringLiteral("excel"));
         excel->setGeometry(QRect(380, 400, 81, 31));
         excel->setFont(font7);
-        excel->setStyleSheet(QLatin1String("QFrame{\n"
-"background:#333;\n"
-"\n"
-"}\n"
-"QLabel{\n"
-"color:white;\n"
-"font-size:16px;\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"background:black;\n"
-"border-radius:16px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:red;\n"
-"border-size:20px;\n"
-"background:#333\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"border-radius:15px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background:transparent;\n"
-"border:none;\n"
-"color:#b0b0b0;\n"
-"font-size:16px;\n"
-"border-bottom:1px solid #fefff4;\n"
-"}\n"
-"QTableWidget{\n"
-"background:transparent;\n"
-"border:none;\n"
-"}\n"
-"QTableWidget:hover{\n"
-"border:3px;\n"
-"}\n"
-""));
+        excel->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         comboBox_7 = new QComboBox(frame_30);
         comboBox_7->setObjectName(QStringLiteral("comboBox_7"));
         comboBox_7->setGeometry(QRect(1050, 340, 111, 31));
@@ -2326,7 +2107,7 @@ public:
 
         label_36 = new QLabel(layoutWidget_11);
         label_36->setObjectName(QStringLiteral("label_36"));
-        label_36->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_36->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_36);
 
@@ -2337,7 +2118,7 @@ public:
 
         label_37 = new QLabel(layoutWidget_11);
         label_37->setObjectName(QStringLiteral("label_37"));
-        label_37->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_37->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_37);
 
@@ -2348,7 +2129,7 @@ public:
 
         label_38 = new QLabel(layoutWidget_11);
         label_38->setObjectName(QStringLiteral("label_38"));
-        label_38->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_38->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, label_38);
 
@@ -2360,7 +2141,7 @@ public:
 
         label_39 = new QLabel(layoutWidget_11);
         label_39->setObjectName(QStringLiteral("label_39"));
-        label_39->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_39->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, label_39);
 
@@ -2371,7 +2152,7 @@ public:
 
         label_40 = new QLabel(layoutWidget_11);
         label_40->setObjectName(QStringLiteral("label_40"));
-        label_40->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_40->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, label_40);
 
@@ -2390,6 +2171,7 @@ public:
 
         browseBtn = new QPushButton(layoutWidget_11);
         browseBtn->setObjectName(QStringLiteral("browseBtn"));
+        browseBtn->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         horizontalLayout_4->addWidget(browseBtn);
 
@@ -2398,7 +2180,7 @@ public:
 
         label_42 = new QLabel(layoutWidget_11);
         label_42->setObjectName(QStringLiteral("label_42"));
-        label_42->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_42->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(7, QFormLayout::LabelRole, label_42);
 
@@ -2409,23 +2191,25 @@ public:
 
         sendBtn = new QPushButton(layoutWidget_11);
         sendBtn->setObjectName(QStringLiteral("sendBtn"));
+        sendBtn->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(8, QFormLayout::FieldRole, sendBtn);
 
         exitBtn = new QPushButton(layoutWidget_11);
         exitBtn->setObjectName(QStringLiteral("exitBtn"));
+        exitBtn->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(9, QFormLayout::FieldRole, exitBtn);
 
         label_41 = new QLabel(layoutWidget_11);
         label_41->setObjectName(QStringLiteral("label_41"));
-        label_41->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_41->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label_41);
 
         label_43 = new QLabel(layoutWidget_11);
         label_43->setObjectName(QStringLiteral("label_43"));
-        label_43->setStyleSheet(QStringLiteral("background-color: rgb(216, 19, 255);"));
+        label_43->setStyleSheet(QStringLiteral("background-color:#001F26;"));
 
         formLayout->setWidget(6, QFormLayout::LabelRole, label_43);
 
@@ -2450,21 +2234,21 @@ public:
         tab_42->setObjectName(QStringLiteral("tab_42"));
         label_45 = new QLabel(tab_42);
         label_45->setObjectName(QStringLiteral("label_45"));
-        label_45->setGeometry(QRect(300, 170, 101, 81));
-        label_45->setStyleSheet(QStringLiteral("background-color: rgb(255, 7, 11);"));
+        label_45->setGeometry(QRect(330, 200, 81, 31));
+        label_45->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         pushButton_27 = new QPushButton(tab_42);
         pushButton_27->setObjectName(QStringLiteral("pushButton_27"));
         pushButton_27->setGeometry(QRect(420, 290, 75, 23));
         label_46 = new QLabel(tab_42);
         label_46->setObjectName(QStringLiteral("label_46"));
-        label_46->setGeometry(QRect(300, 260, 101, 81));
-        label_46->setStyleSheet(QStringLiteral("background-color: rgb(255, 3, 7);"));
+        label_46->setGeometry(QRect(330, 260, 71, 31));
+        label_46->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         pushButton_28 = new QPushButton(tab_42);
         pushButton_28->setObjectName(QStringLiteral("pushButton_28"));
         pushButton_28->setGeometry(QRect(540, 290, 75, 23));
         hum = new QLabel(tab_42);
         hum->setObjectName(QStringLiteral("hum"));
-        hum->setGeometry(QRect(430, 180, 151, 71));
+        hum->setGeometry(QRect(430, 200, 61, 31));
         hum->setBaseSize(QSize(50, 50));
         QFont font8;
         font8.setBold(true);
@@ -2479,10 +2263,13 @@ public:
         listView->setGeometry(QRect(-10, -10, 1111, 561));
         pushButton_29 = new QPushButton(tab_42);
         pushButton_29->setObjectName(QStringLiteral("pushButton_29"));
-        pushButton_29->setGeometry(QRect(430, 300, 75, 23));
+        pushButton_29->setGeometry(QRect(420, 260, 41, 23));
+        pushButton_29->setStyleSheet(QLatin1String("background-color:#001F26;\n"
+""));
         pushButton_30 = new QPushButton(tab_42);
         pushButton_30->setObjectName(QStringLiteral("pushButton_30"));
-        pushButton_30->setGeometry(QRect(550, 300, 75, 23));
+        pushButton_30->setGeometry(QRect(470, 260, 41, 23));
+        pushButton_30->setStyleSheet(QStringLiteral("background-color:#001F26;"));
         statistique->addTab(tab_42, QString());
         pushButton_27->raise();
         pushButton_28->raise();
@@ -4422,7 +4209,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1321, 21));
+        menubar->setGeometry(QRect(0, 0, 1321, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -4432,14 +4219,14 @@ public:
 
         tabWidget_2->setCurrentIndex(3);
         tabWidget->setCurrentIndex(0);
-        tabWidget_3->setCurrentIndex(4);
-        statistique->setCurrentIndex(4);
-        rendezvous->setCurrentIndex(3);
-        tabWidget_6->setCurrentIndex(2);
+        tabWidget_3->setCurrentIndex(0);
+        statistique->setCurrentIndex(0);
+        rendezvous->setCurrentIndex(0);
+        tabWidget_6->setCurrentIndex(0);
         tabWidget_7->setCurrentIndex(0);
         tabWidget_4->setCurrentIndex(0);
         tabWidget_5->setCurrentIndex(4);
-        liste->setCurrentIndex(2);
+        liste->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -4507,7 +4294,7 @@ public:
         email->setPlaceholderText(QApplication::translate("MainWindow", "email", Q_NULLPTR));
         ajouterF->setText(QApplication::translate("MainWindow", "ajouter fournisseur", Q_NULLPTR));
         pushButton_3->setText(QString());
-        retmenu_2->setText(QApplication::translate("MainWindow", "Retour au Menu", Q_NULLPTR));
+        retmenuF->setText(QApplication::translate("MainWindow", "Retour au Menu", Q_NULLPTR));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_5), QApplication::translate("MainWindow", "ajouter fournisseur", Q_NULLPTR));
         groupBox_5->setTitle(QApplication::translate("MainWindow", "supprimer fournisseur", Q_NULLPTR));
         deleteID->setText(QString());
@@ -4609,6 +4396,7 @@ public:
          << QApplication::translate("MainWindow", "non disponible", Q_NULLPTR)
         );
         pushButton_24->setText(QString());
+        retmenuAr->setText(QApplication::translate("MainWindow", "Retour au Menu", Q_NULLPTR));
         statistique->setTabText(statistique->indexOf(tab_38), QApplication::translate("MainWindow", "AjouteArchitect", Q_NULLPTR));
         pushButton_25->setText(QString());
         modifierarchitect->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
@@ -4648,7 +4436,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Construction@gmail.com</span></p></body></html>", Q_NULLPTR));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">Construction@gmail.com</span></p></body></html>", Q_NULLPTR));
         server->setText(QApplication::translate("MainWindow", "smtp.gmail.com", Q_NULLPTR));
         label_36->setText(QApplication::translate("MainWindow", "Server port:", Q_NULLPTR));
         port->setText(QApplication::translate("MainWindow", "465", Q_NULLPTR));

@@ -60,7 +60,7 @@ border-bottom:1px solid #333;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_10">
      <attribute name="title">
@@ -1352,11 +1352,11 @@ background:transparent;
           </size>
          </property>
         </widget>
-        <widget class="QPushButton" name="retmenu_2">
+        <widget class="QPushButton" name="retmenuF">
          <property name="geometry">
           <rect>
-           <x>620</x>
-           <y>10</y>
+           <x>580</x>
+           <y>20</y>
            <width>211</width>
            <height>31</height>
           </rect>
@@ -2983,26 +2983,23 @@ border-bottom:1px solid #333;
          <property name="styleSheet">
           <string notr="true">QFrame{
 background:white;
-
 }
+
 QLabel{
 color:white;
 font-size:16px;
 }
-QPushButton
-{
-background:red;
-border-radius:16px;
-}
+
 QPushButton:hover {
-transform: scale(5); 
+transform: scale(1.2); 
 width : 250px;
-color:red;
+color:#F3D617;
 }
 QPushButton{
 color:white;
 border-radius:15px;
 }
+
 QLineEdit
 {
 background:transparent;
@@ -3010,7 +3007,8 @@ border:none;
 color:#a0a0a0;
 font-size:16px;
 border-bottom:1px solid #333;
-}</string>
+}
+</string>
          </property>
          <property name="title">
           <string>AJOUTER ARCHITECT</string>
@@ -3068,44 +3066,7 @@ border-bottom:1px solid #333;
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+           <string notr="true">background-color:#001F26;</string>
           </property>
           <property name="text">
            <string>Ajouter</string>
@@ -3308,6 +3269,26 @@ background-color: rgb(255, 255, 255);</string>
           </size>
          </property>
         </widget>
+        <widget class="QPushButton" name="retmenuAr">
+         <property name="geometry">
+          <rect>
+           <x>620</x>
+           <y>100</y>
+           <width>211</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#001F26;
+font: 75 12pt &quot;Microsoft PhagsPa&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Retour au Menu</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_39">
@@ -3326,26 +3307,23 @@ background-color: rgb(255, 255, 255);</string>
         <property name="styleSheet">
          <string notr="true">QFrame{
 background:white;
-
 }
+
 QLabel{
 color:white;
 font-size:16px;
 }
-QPushButton
-{
-background:red;
-border-radius:16px;
-}
+
 QPushButton:hover {
-transform: scale(5); 
+transform: scale(1.2); 
 width : 250px;
-color:black;
+color:#F3D617;
 }
 QPushButton{
 color:white;
 border-radius:15px;
 }
+
 QLineEdit
 {
 background:transparent;
@@ -3353,7 +3331,8 @@ border:none;
 color:#a0a0a0;
 font-size:16px;
 border-bottom:1px solid #333;
-}</string>
+}
+</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -3397,44 +3376,7 @@ border-bottom:1px solid #333;
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>Modifier</string>
@@ -3450,7 +3392,7 @@ border:3px;
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 248, 26);</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>Supprimer</string>
@@ -3479,44 +3421,7 @@ border:3px;
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>Recherche</string>
@@ -3650,44 +3555,7 @@ border-color:rgb(0, 0, 0);
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>TRI</string>
@@ -3917,44 +3785,7 @@ background-color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>pdf</string>
@@ -3978,44 +3809,7 @@ border:3px;
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame{
-background:#333;
-
-}
-QLabel{
-color:white;
-font-size:16px;
-}
-QPushButton
-{
-background:black;
-border-radius:16px;
-}
-QPushButton:hover {
-color:red;
-border-size:20px;
-background:#333
-}
-QPushButton{
-color:white;
-border-radius:15px;
-}
-QLineEdit
-{
-background:transparent;
-border:none;
-color:#b0b0b0;
-font-size:16px;
-border-bottom:1px solid #fefff4;
-}
-QTableWidget{
-background:transparent;
-border:none;
-}
-QTableWidget:hover{
-border:3px;
-}
-</string>
+          <string notr="true">background-color:#001F26;</string>
          </property>
          <property name="text">
           <string>excel</string>
@@ -4120,7 +3914,7 @@ p, li { white-space: pre-wrap; }
          <item row="1" column="0">
           <widget class="QLabel" name="label_36">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Server port:</string>
@@ -4137,7 +3931,7 @@ p, li { white-space: pre-wrap; }
          <item row="2" column="0">
           <widget class="QLabel" name="label_37">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Your E-mail:</string>
@@ -4150,7 +3944,7 @@ p, li { white-space: pre-wrap; }
          <item row="3" column="0">
           <widget class="QLabel" name="label_38">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Password:</string>
@@ -4170,7 +3964,7 @@ p, li { white-space: pre-wrap; }
          <item row="4" column="0">
           <widget class="QLabel" name="label_39">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Recipant to:</string>
@@ -4183,7 +3977,7 @@ p, li { white-space: pre-wrap; }
          <item row="5" column="0">
           <widget class="QLabel" name="label_40">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Subject:</string>
@@ -4204,6 +3998,9 @@ p, li { white-space: pre-wrap; }
            </item>
            <item>
             <widget class="QPushButton" name="browseBtn">
+             <property name="styleSheet">
+              <string notr="true">background-color:#001F26;</string>
+             </property>
              <property name="text">
               <string>Browse...</string>
              </property>
@@ -4214,7 +4011,7 @@ p, li { white-space: pre-wrap; }
          <item row="7" column="0">
           <widget class="QLabel" name="label_42">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Message:</string>
@@ -4226,6 +4023,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item row="8" column="1">
           <widget class="QPushButton" name="sendBtn">
+           <property name="styleSheet">
+            <string notr="true">background-color:#001F26;</string>
+           </property>
            <property name="text">
             <string>Send</string>
            </property>
@@ -4233,6 +4033,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item row="9" column="1">
           <widget class="QPushButton" name="exitBtn">
+           <property name="styleSheet">
+            <string notr="true">background-color:#001F26;</string>
+           </property>
            <property name="text">
             <string>Exit</string>
            </property>
@@ -4241,7 +4044,7 @@ p, li { white-space: pre-wrap; }
          <item row="0" column="0">
           <widget class="QLabel" name="label_41">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Smtp-server:</string>
@@ -4251,7 +4054,7 @@ p, li { white-space: pre-wrap; }
          <item row="6" column="0">
           <widget class="QLabel" name="label_43">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(216, 19, 255);</string>
+            <string notr="true">background-color:#001F26;</string>
            </property>
            <property name="text">
             <string>Plan</string>
@@ -4298,14 +4101,14 @@ p, li { white-space: pre-wrap; }
        <widget class="QLabel" name="label_45">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>170</y>
-          <width>101</width>
-          <height>81</height>
+          <x>330</x>
+          <y>200</y>
+          <width>81</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 7, 11);</string>
+         <string notr="true">background-color:#001F26;</string>
         </property>
         <property name="text">
          <string>Humidity:</string>
@@ -4327,14 +4130,14 @@ p, li { white-space: pre-wrap; }
        <widget class="QLabel" name="label_46">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>330</x>
           <y>260</y>
-          <width>101</width>
-          <height>81</height>
+          <width>71</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 3, 7);</string>
+         <string notr="true">background-color:#001F26;</string>
         </property>
         <property name="text">
          <string>moteur:</string>
@@ -4357,9 +4160,9 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>430</x>
-          <y>180</y>
-          <width>151</width>
-          <height>71</height>
+          <y>200</y>
+          <width>61</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="baseSize">
@@ -4398,11 +4201,15 @@ p, li { white-space: pre-wrap; }
        <widget class="QPushButton" name="pushButton_29">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>300</y>
-          <width>75</width>
+          <x>420</x>
+          <y>260</y>
+          <width>41</width>
           <height>23</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#001F26;
+</string>
         </property>
         <property name="text">
          <string>on</string>
@@ -4411,11 +4218,14 @@ p, li { white-space: pre-wrap; }
        <widget class="QPushButton" name="pushButton_30">
         <property name="geometry">
          <rect>
-          <x>550</x>
-          <y>300</y>
-          <width>75</width>
+          <x>470</x>
+          <y>260</y>
+          <width>41</width>
           <height>23</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#001F26;</string>
         </property>
         <property name="text">
          <string>off</string>

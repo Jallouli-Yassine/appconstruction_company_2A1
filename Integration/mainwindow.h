@@ -247,6 +247,12 @@ private slots:
     void on_pushButtonAfficherDech_2_clicked();
      void on_pushButton_29_clicked();
 /*Bayoudh*/
+     void on_retmenu_3_clicked();
+
+     void on_retmenuF_clicked();
+
+     void on_retmenuAr_clicked();
+
 private:
     Ui::MainWindow *ui;
     employee E;

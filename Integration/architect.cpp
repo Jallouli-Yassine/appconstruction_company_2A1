@@ -20,7 +20,8 @@ void Architect::setprenom(QString prenom){this->prenom=prenom;}
 void Architect::setntel(int ntel){this->ntel=ntel;}
 void Architect::setemail(QString email){this->email=email;}
 void Architect::setetat(QString etat){this->etat=etat;}
- bool Architect::ajouter()
+
+bool Architect::ajouter()
  {
 
      QSqlQuery query;

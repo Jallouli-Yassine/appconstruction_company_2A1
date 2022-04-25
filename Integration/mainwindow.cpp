@@ -776,10 +776,16 @@ void MainWindow::on_retmenu_clicked()
 
 }
 
-void MainWindow::on_retmenu_2_clicked()
+void MainWindow::on_retmenuAr_clicked()
+{
+        ui->tabWidget_2->setCurrentIndex(0);
+}
+
+void MainWindow::on_retmenuF_clicked()
 {
     ui->tabWidget_2->setCurrentIndex(0);
 }
+
 //********************************fin Menu***************************************
 
 //*Yosr*//
@@ -1534,10 +1540,10 @@ void MainWindow::on_modifierarchitect_clicked()
     QMessageBox msgBox;
 
         int id = ui->id_2->text().toInt();
-        QString nom = ui->nom_2->text();
-        QString prenom = ui->prenom_2->text();
+        QString nom = ui->nom_3->text();
+        QString prenom = ui->prenom_3->text();
         int ntel = ui->ntel_2->text().toInt();
-        QString email = ui->email_2->text();
+        QString email = ui->email_3->text();
          QString etat = ui->comboBox_7->currentText();
         bool test =  Ac.modifier(id,nom,prenom,ntel,email,etat);
 
@@ -1563,7 +1569,7 @@ void MainWindow::on_excel_clicked()
     QAxObject* excel = new QAxObject("Excel.Application", 0);
     excel->dynamicCall("SetVisible(bool)", true);
     QAxObject* workbooks = excel->querySubObject("Workbooks");
-    QAxObject* workbook = workbooks->querySubObject("Open(const QString&)", "C:/Users/Bayoudh Mohamed/Desktop/bouxhib/a.xlsx");
+    QAxObject* workbook = workbooks->querySubObject("Open(const QString&)", "C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/a.xlsx");
     QAxObject* worksheet = workbook->querySubObject("Worksheets(int)", 1);
     QAxObject* usedrange = worksheet->querySubObject("UsedRange");
     QAxObject* rows = usedrange->querySubObject("Rows");
@@ -1606,7 +1612,7 @@ void MainWindow::on_pdf_2_clicked()
 {
     QPrinter printer;
                     printer.setOutputFormat(QPrinter::PdfFormat);
-                    printer.setOutputFileName("C:/Users/Bayoudh Mohamed/Desktop/bouxhib/archittect.pdf");
+                    printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/archittect.pdf");
                    QPainter painter;
                    painter.begin(&printer);
                    QFont font("Times", 10, QFont::Bold);
