@@ -707,9 +707,11 @@ void MainWindow::concatRfid()
                     for (int i=0;i<5;i++) {
                         //QThread::sleep(60);
                         addHours(RFID);
-                        E.calculeprime(id);
-                        ui->tabemp->setModel(E.afficher());
                     }
+                    E.calculeprime(id);
+                    ui->tabemp->setModel(E.afficher());
+
+
                 }else{
                     qDebug()<<"error";
                     A.writeStringToArduino("ERROR");
