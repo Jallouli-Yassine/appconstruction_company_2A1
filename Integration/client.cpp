@@ -55,16 +55,11 @@ QString res = QString::number(num);
 
       return query.exec();
                          }
-    QSqlQueryModel * Client:: afficher(){
+    QSqlQueryModel * Client::afficher(){
 
         QSqlQueryModel* model= new QSqlQueryModel() ;
               model->setQuery("SELECT *  FROM CLIENT");
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr ("name"));
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr ("prenom"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr ("son id "));
-   model->setHeaderData(3, Qt::Horizontal, QObject::tr ("numero de telephone"));
-   model->setHeaderData(4, Qt::Horizontal, QObject::tr ("email"));
-   model->setHeaderData(5, Qt::Horizontal, QObject::tr ("date de naissance"));
+
        return model ;
     }
 

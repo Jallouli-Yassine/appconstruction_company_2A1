@@ -60,7 +60,7 @@ border-bottom:1px solid #333;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab_10">
      <attribute name="title">
@@ -1161,7 +1161,7 @@ color: rgb(4, 4, 4);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -4259,7 +4259,7 @@ p, li { white-space: pre-wrap; }
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_29">
        <attribute name="title">
@@ -5422,7 +5422,7 @@ background:transparent;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_15">
        <attribute name="title">

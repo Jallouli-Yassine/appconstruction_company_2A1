@@ -196,7 +196,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->verticalLayout_20->addWidget(c.stat());
     ui->tab_client_pdf->setModel(c.afficher());
     ui->tab_client_r->setModel(c.afficherrdv());
-    ui->tab_client_2->setModel(c.afficher());
+    ui->tab_client_3->setModel(c.afficher());
     ui->tab_client->setModel(c.afficher());
     ui->tab_client_4->setModel(c.afficher());
 ui->le_id_2->setValidator(new QIntValidator (1,99999999,this));
@@ -207,7 +207,6 @@ ui->le_nom_2->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 ui->le_prenom_2->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 ui->le_nom_3->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
 ui->le_prenom_3->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
-
 ui->le_email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,19}@[a-z]{1,9}\\.[a-z]{1,4}")  ));
 
 //mehdi--------------
@@ -846,7 +845,7 @@ void MainWindow::on_pushButton_2_clicked()
     QString date_start=ui->dateEdit->date().toString("MM-dd-yyyy");
     Projet p(localisation,idarchitecte,reference,prix_totale,date_start);
     bool test=p.ajouter();
-    if(test)     {
+    if(test){
         delete ptmp->stat();
         ui->verticalLayout_10->addWidget(ptmp->stat());
         ui->tableView->setModel(ptmp->afficher());
@@ -970,7 +969,7 @@ void MainWindow::on_pushPDF_clicked()
 {
     QPrinter printer;
                   printer.setOutputFormat(QPrinter::PdfFormat);
-                  printer.setOutputFileName("C:/Users/ibert/OneDrive/Bureau/GitHub/xd.pdf");
+                  printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/xd.pdf");
                   QPainter painter;
                   painter.begin(&printer);
                   QFont font("Times", 10, QFont::Bold);
@@ -1061,7 +1060,7 @@ void MainWindow::on_ButtonAjouter_2_clicked()
 void MainWindow::on_ButtonSupprimer_clicked()
 {
 
-    QString reference=ui->lineEdit->text();
+    QString reference=ui->lineEdit_3->text();
 
     bool test=m->supprimer(reference);
 
@@ -1154,7 +1153,7 @@ void MainWindow::on_PDF_clicked()
     QPrinter printer;
 
                     printer.setOutputFormat(QPrinter::PdfFormat);
-                    printer.setOutputFileName("C:/2A1/materielpdf/materiel.pdf");
+                    printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/materiel.pdf");
 
                    QPainter painter;
                    painter.begin(&printer);
@@ -1268,11 +1267,11 @@ void MainWindow::on_b_ajouter_clicked()
 {
     if ((ui->le_id_2->text().isEmpty()) || (ui->le_nom_2->text().isEmpty()) || (ui->le_prenom_2->text().isEmpty()) || (ui->le_num->text().isEmpty()) || (ui->le_email->text().isEmpty()) || (ui->le_DDN->text().isEmpty()) )
     {
-        QMessageBox::critical(this, tr("Erreur"), tr(" IL FAUT REMPLIRE TOUT LES CHAMPS !!!"));
+        QMessageBox::critical(this, tr("Erreur"), tr("IL FAUT REMPLIRE TOUT LES CHAMPS !!!"));
     }
 else {
     QString nom=ui->le_nom_2->text();
-    int num=ui->le_num_2->text().toInt();
+    int num=ui->le_num->text().toInt();
     int id=ui->le_id_2->text().toInt();
 
     QString prenom=ui->le_prenom_2->text();
@@ -1280,7 +1279,13 @@ else {
     QString DDN=ui->le_DDN->text();
 
     Client c(num,id,nom,prenom,email,DDN);
-    c.ajoute();}
+    c.ajoute();
+    ui->tab_client_pdf->setModel(c.afficher());
+    ui->tab_client_r->setModel(c.afficherrdv());
+    ui->tab_client_3->setModel(c.afficher());
+    ui->tab_client->setModel(c.afficher());
+    ui->tab_client_4->setModel(c.afficher());
+    }
 
 
 
@@ -1389,20 +1394,19 @@ void MainWindow::on_pushButton_insertbutton_clicked()
 
 QString id = ui->le_idr->text();
 QString date = ui->date_rdv->text();
-
+qDebug()<<date;
 QSqlQuery qry;
 qry.prepare("select DATERDV from RDV where DATERDV='"+date+"'");
-if(qry.exec())
+if(!qry.exec())
 {
     QMessageBox::critical(nullptr, QObject::tr("ERROR"),
-                QObject::tr("il existe deja un rendez-vous\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+    QObject::tr("il existe deja un rendez-vous\n"
+    "Click Cancel to exit."), QMessageBox::Cancel);
 }
 else{
 c.ajoutrdv(date,id);
 }
-
-
+//qDebug()<<qry.exec();
 }
 
 void MainWindow::on_pushButton_pdf_clicked()
@@ -1410,7 +1414,7 @@ void MainWindow::on_pushButton_pdf_clicked()
     QPrinter printer;
 
                         printer.setOutputFormat(QPrinter::PdfFormat);
-                        printer.setOutputFileName("D:/2A1/client.pdf");
+                        printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/client.pdf");
 
                        QPainter painter;
                        painter.begin(&printer);

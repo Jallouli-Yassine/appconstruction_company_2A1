@@ -121,8 +121,6 @@ private slots:
 
     void on_retmenu_clicked();
 
-    void on_retmenu_2_clicked();
-
     /* Yosr*/
     void on_pushButton_5_clicked();
 
@@ -227,7 +225,7 @@ private slots:
 
     void on_pushButton_pdf_clicked();
 
-    void on_LOGIN_clicked();
+    //void on_LOGIN_clicked();
     //----------------------------end mehdi--------------------------------------
     /*Bayoudh*/
     void update_label2();
@@ -247,11 +245,13 @@ private slots:
     void on_pushButtonAfficherDech_2_clicked();
      void on_pushButton_29_clicked();
 /*Bayoudh*/
-     void on_retmenu_3_clicked();
+     //void on_retmenu_3_clicked();
 
      void on_retmenuF_clicked();
 
      void on_retmenuAr_clicked();
+
+    // void on_tab_client_3_activated(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;
