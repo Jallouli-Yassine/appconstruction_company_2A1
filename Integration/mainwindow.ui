@@ -60,7 +60,7 @@ border-bottom:1px solid #333;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_10">
      <attribute name="title">
@@ -1161,7 +1161,7 @@ color: rgb(4, 4, 4);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -1370,6 +1370,19 @@ font: 75 12pt &quot;Microsoft PhagsPa&quot;;</string>
          </property>
          <property name="text">
           <string>Retour au Menu</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_44">
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>220</y>
+           <width>181</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </widget>

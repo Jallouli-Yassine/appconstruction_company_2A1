@@ -101,8 +101,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tabWidget_2->setCurrentIndex(0);
     ui->tabWidget_2->setTabEnabled(0, true);
+/*
 
-
+    QMovie *movie = new QMovie("E:/QT_BIGJ/gestion fournisseur/image/splashGif.gif");
+    QLabel *processLabel = new QLabel(this);
+    processLabel->setMovie(movie);
+    movie->start();
+*/
     //**************************************************arduino*********************
 
     int ret=A.connect_arduino();
