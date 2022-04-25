@@ -97,5 +97,4 @@ int arduino::write1_to_arduino(QByteArray d){
         serial->write(d);//envoyer des donnees vers arduino
     }else
 qDebug() << "error en ecriture";
-
 }

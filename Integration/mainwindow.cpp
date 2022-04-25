@@ -101,13 +101,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tabWidget_2->setCurrentIndex(0);
     ui->tabWidget_2->setTabEnabled(0, true);
-/*
 
-    QMovie *movie = new QMovie("E:/QT_BIGJ/gestion fournisseur/image/splashGif.gif");
-    QLabel *processLabel = new QLabel(this);
-    processLabel->setMovie(movie);
-    movie->start();
-*/
     //**************************************************arduino*********************
 
     int ret=A.connect_arduino();
@@ -155,7 +149,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->updateID->setValidator(new QIntValidator (0,99999,this));
         ui->deleteID->setValidator(new QIntValidator (0,99999,this));
         ui->searchNameInput->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
-
+        ui->searchTable->setModel(F.afficher());
         ui->Ftable->setModel(F.afficher());
         ui->Freview->setModel(F.afficher());
         ui->tabFacture->setModel(F.afficherFacture());
@@ -224,7 +218,7 @@ ui->le_email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,19}@[a-z]{1,9
   ui->ntel->setValidator(new QIntValidator(0,9999999, this));
   ui->nom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
   ui->prenom->setValidator(new QRegExpValidator(  QRegExp("[A-z]*")  ));
- ui->email->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,4}\\.[a-z]{1,4}")  ));
+ ui->email_2->setValidator(new QRegExpValidator(  QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}")  ));
 
 ui->education->setModel(Ac.afficher());
    //*Bayoudh*//
@@ -236,7 +230,7 @@ MainWindow::~MainWindow()
 }
 
 
-
+//*********************************bousbih*********************************
 void MainWindow::on_pb_ajouter_clicked()
 {
     QString id=ui->le_id->text();
@@ -254,7 +248,7 @@ void MainWindow::on_pb_ajouter_clicked()
     if(test)
     {
         ui->tabemp->setModel(E.afficher());
-        ui->verticalLayout->addWidget(E.stat());
+        //ui->verticalLayout->update();
 
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Ajout effectué\n"
@@ -282,7 +276,7 @@ void MainWindow::on_supprimer_clicked()
     if(test)
     {
         ui->tabemp->setModel(E.afficher());
-        ui->verticalLayout->addWidget(E.stat());
+        //ui->verticalLayout->addWidget(E.stat());
 
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Supprission effectué\n"
@@ -386,7 +380,7 @@ void MainWindow::on_pdf_clicked()
     QPrinter printer;
 
                 printer.setOutputFormat(QPrinter::PdfFormat);
-                printer.setOutputFileName("../PDFs/employee.pdf");
+                printer.setOutputFileName("E:/integF/appconstruction_company_2A1/PDFs/employee.pdf");
 
                QPainter painter;
 
@@ -444,9 +438,9 @@ void MainWindow::on_tabemp_activated(const QModelIndex &index)
     ui->tabemp->setModel(E.afficher());
 
 }
+//*********************************bousbih*********************************
 
-
-//*********************************************jallouli*********************************
+//*********************************jallouli*********************************
 
 
 
@@ -472,7 +466,8 @@ void MainWindow::on_ajouterF_clicked()
 
 
         if(test){
- ui->Freview->setModel(F.afficher());
+            ui->searchTable->setModel(F.afficher());
+            ui->Freview->setModel(F.afficher());
             ui->Ftable->setModel(F.afficher());
             QMessageBox::information(nullptr, QObject::tr("OK"),
             QObject::tr("Ajout effectué\n""Click to Cancel."),
@@ -558,7 +553,7 @@ void MainWindow::on_triBTN_clicked()
 {
     QString attribute = ui->attributeBox->currentText();
     QString croissance = ui->croissanceBox->currentText();
-    ui->TriTable->setModel(F.trie(attribute,croissance));
+    ui->searchTable->setModel(F.trie(attribute,croissance));
 }
 
 ///vider la table fournisseur
@@ -611,6 +606,7 @@ void MainWindow::on_postReview_clicked()
         F.reviewTotale(id);
         F.updateFinalReviewFrounisseur(id,F.reviewTotale(id));
         ui->Ftable->setModel(F.afficher());
+        ui->searchTable->setModel(F.afficher());
         delete pro;
         QMessageBox::information(nullptr, QObject::tr("OK"),
         QObject::tr("review added successfuly !\n""Click to Cancel."),
@@ -667,7 +663,7 @@ void MainWindow::on_genererFacture_clicked()
     ui->tabFacture->setModel(F.afficherFacture());
 }
 
-//***************arduino (jalouli &bousbih)****************************
+//***************arduino (jallouli & bousbih)****************************
 void MainWindow::concatRfid()
 {
     bool found =false;
@@ -1578,7 +1574,7 @@ void MainWindow::on_excel_clicked()
     QAxObject* excel = new QAxObject("Excel.Application", 0);
     excel->dynamicCall("SetVisible(bool)", true);
     QAxObject* workbooks = excel->querySubObject("Workbooks");
-    QAxObject* workbook = workbooks->querySubObject("Open(const QString&)", "C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/a.xlsx");
+    QAxObject* workbook = workbooks->querySubObject("Open(const QString&)", "E:/integF/appconstruction_company_2A1/PDFs/a.xlsx");
     QAxObject* worksheet = workbook->querySubObject("Worksheets(int)", 1);
     QAxObject* usedrange = worksheet->querySubObject("UsedRange");
     QAxObject* rows = usedrange->querySubObject("Rows");
@@ -1621,7 +1617,7 @@ void MainWindow::on_pdf_2_clicked()
 {
     QPrinter printer;
                     printer.setOutputFormat(QPrinter::PdfFormat);
-                    printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/archittect.pdf");
+                    printer.setOutputFileName("E:/integF/appconstruction_company_2A1/PDFs/archittect.pdf");
                    QPainter painter;
                    painter.begin(&printer);
                    QFont font("Times", 10, QFont::Bold);

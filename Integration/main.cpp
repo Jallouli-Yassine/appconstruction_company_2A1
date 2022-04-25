@@ -17,10 +17,11 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
+    //BEGIN SPLASH SCREEN
     QMovie *movie = new QMovie("E:/QT_BIGJ/gestion fournisseur/image/splashGif.gif");
     QLabel *processLabel = new QLabel(nullptr);
 
-    processLabel->resize(1366,768);  // to make sure its large enough
+    processLabel->resize(1366,768);
 
     processLabel->setMovie(movie);
     processLabel->setWindowFlags(Qt::FramelessWindowHint);
@@ -30,9 +31,9 @@ int main(int argc, char *argv[])
     movie->start();
     processLabel->show();
 
-    QTimer::singleShot(5000,processLabel,SLOT(close()));
-    QTimer::singleShot(5000,&w,SLOT(show()));
-
+    QTimer::singleShot(4000,processLabel,SLOT(close()));
+    QTimer::singleShot(4000,&w,SLOT(show()));
+    //END SPLASH SCREEN
 
 
             if(!test)
