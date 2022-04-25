@@ -253,6 +253,8 @@ private slots:
 
     // void on_tab_client_3_activated(const QModelIndex &index);
 
+     void on_pushButton_updateY_clicked();
+
 private:
     Ui::MainWindow *ui;
     employee E;

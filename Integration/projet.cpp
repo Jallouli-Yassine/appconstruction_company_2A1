@@ -225,3 +225,14 @@ QChartView * Projet::stat()
     chartView->setRenderHint(QPainter::Antialiasing);
     return chartView;
 }
+
+bool Projet::modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale){
+    QSqlQuery query;
+    query.prepare("update PROJET set LOCALISATION= :localisation, IDARCHITECTE= :idarchitecte, PRIX_TOTALE= :prix_totale WHERE REFERENCE = :reference");
+    query.bindValue(":localisation", localisation);
+    query.bindValue(":idarchitecte", idarchitecte);
+    query.bindValue(":reference", reference);
+    query.bindValue(":prix_totale", prix_totale);
+
+    return query.exec();
+}

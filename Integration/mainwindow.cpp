@@ -119,9 +119,9 @@ MainWindow::MainWindow(QWidget *parent)
             break;
         }
 
-  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
-
- QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label2()));
+  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
+  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label2()));
 
 
 
@@ -885,6 +885,23 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
 
 }
 
+void MainWindow::on_pushButton_updateY_clicked()
+{
+    QString REFERENCE = ui->lineEdit_r->text();
+    QString PRIX_TOTALE = ui->lineEdit_p->text();
+    QString LOCALISATION = ui->lineEdit_a->text();
+    QString IDARCHITECTE = ui->lineEdit_id->text();
+    bool test =  ptmp->modifier(LOCALISATION,IDARCHITECTE,REFERENCE,PRIX_TOTALE);
+
+    if(test){
+        ui->tableView->setModel(ptmp->afficher());
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+        QObject::tr("update effectué\n""Click to Cancel."),
+                                 QMessageBox::Cancel);     }
+    else         QMessageBox::critical  (nullptr, QObject::tr("not OK"),
+                 QObject::tr("update non effectué\n""Click to Cancel."), QMessageBox::Cancel);
+}
+
 void MainWindow::on_pushButton_archive_clicked()
 {
     QString localisation = ui->lineEdit_a->text();
@@ -1027,8 +1044,7 @@ void MainWindow::on_Chart_clicked()
 
 void MainWindow::on_pushButton_off_clicked()
 {
-    A.write_to_arduino("0");
-    qDebug()<<A.read_from_arduino();
+    A.write_to_arduino("3");
 }
 
 
@@ -1134,12 +1150,12 @@ void MainWindow::update_label()
     qDebug()<<data;
     if(data=="1")
 
-        ui->label->setText("Status : Raining -_- , Hide the products"); // si les données reçues de arduino via la liaison série sont égales à 1
+        ui->label_22->setText("Status : Raining -_- , Hide the products"); // si les données reçues de arduino via la liaison série sont égales à 1
     // alors afficher ON
 
     else if (data=="0")
 
-        ui->label->setText("Status : Clear :)");   // si les données reçues de arduino via la liaison série sont égales à 0
+        ui->label_22->setText("Status : Clear :)");   // si les données reçues de arduino via la liaison série sont égales à 0
      //alors afficher ON
 }
 
@@ -1683,3 +1699,4 @@ void MainWindow::on_pushButton_29_clicked()
 A.write1_to_arduino("0");
 }
 /*Bayoudh*/
+

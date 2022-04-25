@@ -38,7 +38,7 @@ public:
     QSqlQueryModel *afficheprenom();
     QSqlQueryModel *afficheid();
     QSqlQueryModel *rechercheid(QString);
-     bool modifier(int,int,QString,QString,QString,QString);
+    bool modifier(int,int,QString,QString,QString,QString);
     bool supprimer(QString);
     QChartView *stat();
 

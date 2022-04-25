@@ -38,7 +38,7 @@ public:
     //Functions
     int count();
     bool ajouter();
-    bool modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale,int etat);
+    bool modifier(QString localisation,QString idarchitecte,QString reference,QString prix_totale);
     bool archiver(int idprojet,QString localisation,QString idarchitecte,QString reference,QString prix_totale,int etat);
     bool archiver_reverse(int idprojet,QString localisation,QString idarchitecte,QString reference,QString prix_totale,int etat);
     QSqlQueryModel * afficher();
