@@ -1060,7 +1060,8 @@ void MainWindow::on_ButtonAjouter_2_clicked()
 
     int quantite=ui->ReferenceLE_4->text().toInt();
     int prix=ui->ReferenceLE_2->text().toInt();
-    QString etat=ui->comboBox_2->currentText();
+    QString etat=ui->comboBox_5->currentText();
+    qDebug()<<etat ;
     materiel m(reference,nom,matricule,idfournisseur,quantite,prix,etat);
     bool test=m.ajouter();
     //ui->verticalLayout->addWidget(m.stat());
@@ -1172,7 +1173,7 @@ void MainWindow::on_PDF_clicked()
     QPrinter printer;
 
                     printer.setOutputFormat(QPrinter::PdfFormat);
-                    printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/materiel.pdf");
+                    printer.setOutputFileName("E:/integF/appconstruction_company_2A1/PDFs/materiel.pdf");
 
                    QPainter painter;
                    painter.begin(&printer);
@@ -1323,6 +1324,8 @@ void MainWindow::on_pb_supp_clicked()
     bool test=c1.supprimer(id);
     if(test)
     {
+
+           ui->tab_client_4->setModel(c.afficher());
         ui->tab_client->setModel(c.afficher());
         QMessageBox::information(nullptr, QObject::tr("SUPRIMER EFFECTUER"),
                     QObject::tr("votre element à ete supprimer.\n"
@@ -1392,7 +1395,7 @@ void MainWindow::on_b_ajouter_2_clicked()
 
 void MainWindow::on_tab_client_4_activated(const QModelIndex &index)
 {
-    QString value=ui->tab_client_4->model()->data(index).toString();
+        QString value=ui->tab_client_4->model()->data(index).toString();
                 QSqlQuery qry;
                 qry.prepare("select * from CLIENT where IDCLIENT='"+value+"'");
                 if(qry.exec())
@@ -1401,8 +1404,8 @@ void MainWindow::on_tab_client_4_activated(const QModelIndex &index)
                        ui->le_nom_3->setText(qry.value(0).toString());
                        ui->le_prenom_3->setText(qry.value(1).toString());
                        ui->le_id_3->setText(qry.value(2).toString());
-                       ui->le_num_2->setText(qry.value(3).toString());
-                       ui->le_email_2->setText(qry.value(4).toString());
+                       ui->le_num_2->setText(qry.value(4).toString());
+                       ui->le_email_2->setText(qry.value(5).toString());
 
                     }
                 }
@@ -1433,7 +1436,7 @@ void MainWindow::on_pushButton_pdf_clicked()
     QPrinter printer;
 
                         printer.setOutputFormat(QPrinter::PdfFormat);
-                        printer.setOutputFileName("C:/Users/moham/OneDrive/Bureau/integF/appconstruction_company_2A1/PDFs/client.pdf");
+                        printer.setOutputFileName("E:/integF/appconstruction_company_2A1/PDFs/client.pdf");
 
                        QPainter painter;
                        painter.begin(&printer);

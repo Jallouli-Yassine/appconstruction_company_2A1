@@ -54,12 +54,7 @@ QSqlQueryModel* Architect::afficher()
     QSqlQueryModel* model=new QSqlQueryModel();
 
          model->setQuery("SELECT* FROM ARCHITECT");
-         model->setHeaderData(0, Qt::Horizontal, QObject::tr("identifiant"));
-         model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
-            model->setHeaderData(3, Qt::Horizontal, QObject::tr("Num_telephone"));
-             model->setHeaderData(4, Qt::Horizontal, QObject::tr("email"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("etat"));
+
           return model;
 }
 bool Architect::modifier(int id,QString nom,QString prenom,int ntel,QString email,QString etat){
