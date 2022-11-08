@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>C:/Users/moham/Videos/Captures/Feedback Hub 10_12_2021 6_47_32 AM.png</file>
+        <file>C:/Users/moham/Downloads/c++ logo_2.gif</file>
+        <file>C:/Users/moham/OneDrive/Bureau/logo.png</file>
+    </qresource>
+</RCC>
