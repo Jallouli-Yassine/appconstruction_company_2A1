@@ -79,7 +79,7 @@ void loop()
         dataEmployee=Serial.readString();
 
         //data=Serial.read();
-        if(dataEmployee!="ERROR")
+        if(dataEmployee="1")
         {
             lcd.clear();
             lcd.setCursor(0, 0);
@@ -97,7 +97,7 @@ void loop()
             lcd.print("SCAN YOUR CARD..");
 
         }
-        else if (dataEmployee=="ERROR")
+        else if (dataEmployee=="0")
         {
             lcd.clear();
             lcd.setCursor(0, 0);
@@ -118,4 +118,3 @@ void loop()
         }
     }
 }
-

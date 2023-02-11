@@ -119,9 +119,7 @@ MainWindow::MainWindow(QWidget *parent)
             break;
         }
 
-  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
-  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
-  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label2()));
+  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(concatRfid()));
 
 
 
